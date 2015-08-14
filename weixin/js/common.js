@@ -24,7 +24,7 @@
 			$(".modal-dialog").css("-webkit-transform","translate(0, 0)");
 			$(".modal-backdrop").addClass("in");
 			setTimeout(function(){
-				$(".modal-dialog").css("-webkit-transform","translate(0, 900%)");
+				$(".modal-dialog").css("-webkit-transform","translate(0, -200%)");
 				$(".modal").fadeOut(300);
 				$(".modal-backdrop").removeClass("in").fadeOut(400);
 			},1000)

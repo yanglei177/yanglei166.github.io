@@ -1,0 +1,37 @@
+﻿@charset "utf-8";
+/* 样式说明： 初始化css
+ * 开发时间：2015-07-10
+ * 开发者： yjs(413903021@qq.com)    
+ * 维护者： 
+ *
+ * 样式版本： v1.1
+ * 版本时间： 
+ * 注意事项： 基本样式,所有共用基本样式将在这里定义
+ */
+/**---------------------------- index--------------------------*/
+.bg1{background:#f3ba22;}
+.index_main{background:url(../images/yellow_bj.png) no-repeat right top; padding:15px 0px 15px 5px;}
+.index_main dl{background:#fff; float:left; width:30%; margin-left:10px;}
+.index_main dl:nth-child(2n+2){width:40%;}
+.index_main dl dt{font-family:'webfont'; width:100%; text-align:center; font-size:40px;}
+.index_main dl dd{text-align:center;width:100%;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

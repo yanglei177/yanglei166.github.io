@@ -18,7 +18,7 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
 /*html5*/
 article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video { display:block;}
 table {border-collapse:collapse; border-spacing:0;}
-fieldset,img {border:0; vertical-align:middle;}
+fieldset,img {border:0; vertical-align:middle; width:100%; height:auto;}
 address,caption,cite,code,dfn,em,strong,th,var {font-style:normal; font-weight:normal;}
 ol,ul,li {list-style:none;}
 /** 设置默认字体 **/
@@ -40,6 +40,7 @@ a:hover{ text-decoration:underline; color:#000;}
 .bold{font-weight:bold;}
 .em2{text-indent:2em;}
 /**---------------------------- initialize--------------------------*/
+.main{width:100%; height:auto; overflow:hidden;}
 .mar_l_05{margin-left:5px;}
 .mar_l_10{margin-left:10px;}
 .mar_r_05{margin-right:5px;}
@@ -50,3 +51,14 @@ a:hover{ text-decoration:underline; color:#000;}
 .mar_t_15{margin-top:15px;}
 .space_50{height:50px; clear:both; line-height:1px; font-size:0;}
 .font14{font-size:14px;}
+@font-face {
+    font-family: 'webfont';
+    src: url('../fonts/fzzdhjw_0-webfont.eot');
+    src: url('../fonts/fzzdhjw_0-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/fzzdhjw_0-webfont.woff2') format('woff2'),
+         url('../fonts/fzzdhjw_0-webfont.woff') format('woff'),
+         url('../fonts/fzzdhjw_0-webfont.ttf') format('truetype'),
+         url('../fonts/fzzdhjw_0-webfont.svg#fzzhengheis-eb-gbregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

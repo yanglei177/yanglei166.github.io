@@ -403,7 +403,7 @@ a.btn.disabled{
   outline: 0;
 }
 .modal.fade .modal-dialog {
-  transform: translate(0, 900%);
+  transform: translate(0, -200%);
   transition: transform 0.9s ease-out;
 }
 .modal.in .modal-dialog {
