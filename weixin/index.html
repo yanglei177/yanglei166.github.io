@@ -48,8 +48,17 @@ $(document).ready(function() {
 		// 如果需要分页器
 		pagination: '.swiper-pagination',    
   	});
-	var comhei = Math.floor($('.countdown').width()/327 * 75);
-	$(".countdown,.count_btn").height(comhei);      
+	function count(){
+		var comhei = Math.floor($('.countdown').width()/327 * 75);
+		$(".countdown,.count_btn").height(comhei);
+	}
+	
+	!$('.countdown')[0] || count();
+	var evt = "onorientationchange" in window ? "orientationchange" : "resize";      
+	window.addEventListener(evt, function() {
+		count();
+	}, false);
+	      
 	
 	
 });
