@@ -1,0 +1,53 @@
+﻿@charset "utf-8";
+/* 样式说明： 初始化css
+ * 开发时间：2015-07-10
+ * 开发者： yjs(413903021@qq.com)    
+ * 维护者： 
+ *
+ * 样式版本： v1.1
+ * 版本时间： 
+ * 注意事项： 基本样式,所有共用基本样式将在这里定义
+ */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote,table, th, td,iframe,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
+ margin: 0;  padding: 0; font-size:100%; vertical-align: baseline;box-sizing: border-box;}
+ input:text, input:password {
+    border: 0;
+    -webkit-focus-ring-color: rgba(0, 0, 0, 0);
+    outline: none;
+}
+/*html5*/
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video { display:block;}
+table {border-collapse:collapse; border-spacing:0;}
+fieldset,img {border:0; vertical-align:middle; width:100%; height:auto;}
+address,caption,cite,code,dfn,em,strong,th,var {font-style:normal; font-weight:normal;}
+ol,ul,li {list-style:none;}
+/** 设置默认字体 **/
+body{color:#000;background:#fff;-webkit-text-size-adjust:100%; font:12px/1.5 "微软雅黑","宋体",HELVETICA;}
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 500;line-height: 1.1;}
+em{font-style:normal;}
+/** 重置超链接元素 **/
+a { text-decoration: none; color:#000;}
+a:hover{ text-decoration:underline; color:#000;}
+.fl{float:left; display:inline;}
+.fr{float:right; display:inline;}
+.clr{clear:both!important;}
+.dis_none{display:none;}
+.ap{position:relative;}
+.pointer{cursor:pointer;}
+.tl{text-align:left!important;}
+.tc{text-align:center!important;}
+.vm{vertical-align:middle!important;}
+.bold{font-weight:bold;}
+.em2{text-indent:2em;}
+/**---------------------------- initialize--------------------------*/
+.main{width:100%; height:auto; overflow:hidden;}
+.mar_l_05{margin-left:5px;}
+.mar_l_10{margin-left:10px;}
+.mar_r_05{margin-right:5px;}
+.mar_r_10{margin-right:10px;}
+.mar_b_10{margin-bottom:10px;}
+.mar_t_05{margin-top:5px;}
+.mar_t_10{margin-top:10px;}
+.mar_t_15{margin-top:15px;}
+.space_50{height:50px; clear:both; line-height:1px; font-size:0;}
+.font14{font-size:14px;}

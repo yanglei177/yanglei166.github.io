@@ -1,0 +1,38 @@
+﻿@charset "utf-8";
+/* 样式说明： 初始化css
+ * 开发时间：2015-07-10
+ * 开发者： yjs(413903021@qq.com)    
+ * 维护者： 
+ *
+ * 样式版本： v1.1
+ * 版本时间： 
+ * 注意事项： 基本样式,所有共用基本样式将在这里定义
+ */
+/**---------------------------- index--------------------------*/
+.bg1{background:#f3ba22;}
+.index_main{background:url(../images/yellow_bj.png) no-repeat right top; overflow:hidden; padding:15px 2% 15px 0%; background-size:60%;}
+.index_main ul li{background:#fff; float:left; width:31%; margin:0 0 10px 2%; padding:20px 10px;}
+.index_main ul li:nth-child(4),.index_main ul li:nth-child(5),.index_main ul li:nth-child(6){padding:10px 10px;}
+.index_main ul li:nth-child(6){background:rgba(249,221,145,0.8);}
+.countdown{float:right; margin:0px 2% 30px 0; width:60%; height:auto; position:relative; background:url(../images/count.png) no-repeat; background-size:100%;}
+.countdown .count_btn{position:absolute; left:0%; top:2%; width:20%;}
+.countdown .count_num{position:absolute; right:11%; top:20%; width:20%; font-size:18px; font-weight:bold; color:#fff;}
+@media screen and (min-width: 960px) and (max-width: 1199px) { 
+.countdown{margin:15px 2% 30px 0;}
+.countdown .count_num{font-size:60px;top: 18%;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
