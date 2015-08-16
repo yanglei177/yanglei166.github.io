@@ -1,4 +1,4 @@
-html, body { color: #505050; line-height: 1.75em; background: #ebebeb; position: relative; font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif; }
+html, body { color: #505050; line-height: 1.75em; background: #fff; position: relative; font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif; }
 h1, h2, h3, h4, h5, h6 { font-weight: 400; color: #303030; }
 h1 { font-size: 3em; }
 h2 { font-size: 2.5em; }
@@ -206,6 +206,10 @@ pre { padding: 0; background: none; border: none; }
 #back-to-top:hover { background: #e67e22; }
 #back-to-top i { width: 30px; height: 30px; line-height: 30px; }
 /*   index modify yjs */
+.marketing .col-lg-4 {
+    margin-bottom: 20px;
+    text-align: center;
+}
 .navbar-brand img { margin-top: 3px; }
 .headSection { background: #666 url("../images/banner.jpg") no-repeat scroll center center; height: 355px; background-size: 100%; position: relative; width: 100%; margin-bottom: 15px; }
 #loginIframe { position: absolute; right: 180px; top: 50px; }
@@ -230,3 +234,59 @@ pre { padding: 0; background: none; border: none; }
 .ui-form-item { padding: 0 0 10px; position: relative; }
 .ui-button { background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top, #ffa800, #e66e1e) repeat scroll 0 0; border: 0 none; border-radius: 0; color: #fff; cursor: pointer; display: block; font-size: 16px; font-weight: 400; height: 40px; line-height: 40px; padding: 0 20px; text-align: center; text-decoration: none; text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2); vertical-align: middle; width: 219px; }
 .ui-button:hover, a.ui-button:hover { background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top, #ffb400, #f48f0d) repeat scroll 0 0; text-decoration: none; }
+.img_radius{width:100px; height:100px; color:#fff; line-height:100px; border-radius:50%; margin:0 auto; background:#eee; position:relative; font-size:16px; font-weight:bold;}
+.img_radius.primary{background:#337ab7;}
+.img_radius.success{background:#5cb85c;}
+.img_radius.info{background:#5bc0de;}
+
+.index_banner {
+    height: 365px;
+    min-width: 990px;
+    position: relative;
+}
+.app_protect.index_banner LI.first {
+    background:url("../images/banner1_zh.jpg.png") no-repeat center center;
+}
+.index_banner LI {
+    height: 365px;
+    left: 0;
+    margin: auto;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.bt_ad_jg {
+    height: 365px;
+    margin: auto;
+    position: relative;
+    width: 980px;
+}
+.bt_ad_jg a {
+    background:rgba(0, 0, 0, 0) url("../images/bt_ad.png") no-repeat center center;
+    bottom: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    display: block;
+    font-size: 20px;
+    height: 62px;
+    letter-spacing: 1px;
+    line-height: 52px;
+    padding-left: 35px;
+    position: absolute;
+    right: 193px;
+    text-align: center;
+    text-decoration: none;
+    width: 195px;
+    z-index: 5;
+}
+.h_common.content {
+    border: 1px solid #ccc;
+    margin: 10px auto;
+    min-height: 300px; width:980px;
+    position: relative;
+}
+
+
+
+
