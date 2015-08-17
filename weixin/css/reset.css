@@ -40,7 +40,8 @@ a:hover{ text-decoration:underline; color:#000;}
 .bold{font-weight:bold;}
 .em2{text-indent:2em;}
 /**---------------------------- initialize--------------------------*/
-.main{width:100%; height:auto; overflow:hidden;}
+.main{width:100%; height:auto;}
+.bg_gradient{background:-webkit-gradient(linear, 0 0, 0 bottom, from(#979797), to(#c2c2c2)); min-height:300px; border-top:2px solid #d4d4d4;}
 .mar_l_05{margin-left:5px;}
 .mar_l_10{margin-left:10px;}
 .mar_r_05{margin-right:5px;}
@@ -51,3 +52,13 @@ a:hover{ text-decoration:underline; color:#000;}
 .mar_t_15{margin-top:15px;}
 .space_50{height:50px; clear:both; line-height:1px; font-size:0;}
 .font14{font-size:14px;}
+*[placeholder] {color:#777777;}
+.line{background:#fff; height:2px; line-height:1px; border-top:2px solid #999999; width:100%;}
+.text_box{height:40px; line-height:40px;background:-webkit-linear-gradient(top,#7f7e7e,#b9b9b9); border-radius:6px; position:relative;}
+.text_box .text{height:32px; line-height:33px; background:#fff; border-radius:6px; border:1px solid #fff; width:96%; margin-left:2%; padding-left:10px; color:#777777;}
+.text_box .text.error{border:2px solid #e60012;height:30px; line-height:31px;}
+.text_box .text.error::-webkit-input-placeholder{color:#e60012;}
+.text_box .text.textarr{background:url(../images/arr_bg.png) no-repeat 90% center #fff; background-size:7px auto;} 
+.text_box .select{width:100%; height:40px; position:absolute; left:0; top:0; opacity:0;}
+.text_box .datetime{width:100%; height:40px; position:absolute; left:0; top:0; opacity:0;}
+.nextbtn{background:#ebbc04; height:50px; border:none; width:100%; font-size:14px; font-weight:bold; line-height:50px; text-align:center; color:#2a2a2a;}
