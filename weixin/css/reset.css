@@ -60,5 +60,5 @@ a:hover{ text-decoration:underline; color:#000;}
 .text_box .text.error::-webkit-input-placeholder{color:#e60012;}
 .text_box .text.textarr{background:url(../images/arr_bg.png) no-repeat 90% center #fff; background-size:7px auto;} 
 .text_box .select{width:100%; height:40px; position:absolute; left:0; top:0; opacity:0;}
-.text_box .datetime{width:100%; height:40px; position:absolute; left:0; top:0; opacity:0; z-index:55;}
+.text_box .datetime{width:100%; height:40px; position:absolute; right:0; top:0; opacity:0; z-index:55;}
 .nextbtn{background:#ebbc04; height:50px; border:none; width:100%; font-size:14px; font-weight:bold; line-height:50px; text-align:center; color:#2a2a2a;}
