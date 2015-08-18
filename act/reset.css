@@ -46,4 +46,4 @@ a:hover{ text-decoration:underline; color:#000;}
 .wx_act img{vertical-align:middle; width:100%;}
 .wx_act .main{background:#cacaca; width:100%; text-align:center; font-family:"黑体"; font-size:16px; font-weight:bold; line-height:30px;}
 .wx_act .main span{font-size:24px; font-family:Arial, Helvetica, sans-serif;}
-.main .btn{background:url(images/btn_bg.png) repeat-x; height:62px; width:245px; margin:10px auto 15px; text-shadow:0 0px 1px rgba(51,51,51,1); font-size:30px; line-height:62px; text-align:center; box-shadow:0 5px 3px rgba(51,51,51,0.7); border:none; border-radius:8px;}
+.main .btn{background:url(images/btn_bg.png) repeat-x; background-size:1px 31px; height:31px; width:122px; margin:10px auto 15px; text-shadow:0 0px 1px rgba(51,51,51,1); font-size:14px; line-height:31px; text-align:center; box-shadow:0 5px 3px rgba(51,51,51,0.7); border:none; border-radius:8px;}
