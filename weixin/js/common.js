@@ -107,8 +107,9 @@
  
  $(function(){
 	 // select
-	 $(".text_box .select,.text_box .datetime").on("change",function(){	
-	 	if($(this).val() != "请选择"){alert(111)
+	 alert($(".datetime").val())
+	 $(".text_box .select,.text_box .datetime").on("change",function(){	alert($(".datetime").val())
+	 	if($(this).val() != "请选择"){
 			$(this).prev(".textarr").val($(this).val());		
 			$(this).parents(".verifydes").siblings(".des").css("visibility","hidden"); 	
 		}	 					
