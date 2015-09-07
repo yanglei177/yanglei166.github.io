@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="../images/logo5.ico"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>服务内容</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/claim.css">
+  </head>
+<body>
+	<section class="bg_gradient bor_no">
+    	<div class="lp_service">
+        	<nav>
+            	<li><i class="on"></i>服务内容</li>
+                <li><i></i>理赔材料</li>
+            </nav>   
+            <div class="lp_box">
+            	<ul class="service">
+                	<li>
+                    	<div class="fl_ser">1</div>
+                        <div class="fl_word">出险查勘"四个一"服务</div>
+                        <div class="clr"></div>
+                    </li>
+                    <li>
+                    	<div class="fl_ser">2</div>
+                        <div class="fl_word">电子理赔</div>
+                        <div class="clr"></div>
+                    </li>
+                    <li>
+                    	<div class="fl_ser">3</div>
+                        <div class="fl_word">极速理赔</div>
+                        <div class="clr"></div>
+                    </li>
+                    <li>
+                    	<div class="fl_ser">4</div>
+                        <div class="fl_word">简便理赔</div>
+                        <div class="clr"></div>
+                    </li>
+                    <li>
+                    	<div class="fl_ser">5</div>
+                        <div class="fl_word">速递理赔</div>
+                        <div class="clr"></div>
+                    </li>
+                    <li>
+                    	<div class="fl_ser">6</div>
+                        <div class="fl_word">人伤无忧理赔</div>
+                        <div class="clr"></div>
+                    </li>
+                    <li>
+                    	<div class="fl_ser">7</div>
+                        <div class="fl_word">限时理赔</div>
+                        <div class="clr"></div>
+                    </li>
+                    <li>
+                    	<div class="fl_ser">8</div>
+                        <div class="fl_word">全国通赔</div>
+                        <div class="clr"></div>
+                    </li>
+                    <li>
+                    	<div class="fl_ser">9</div>
+                        <div class="fl_word">故障车辆免费救援服务</div>
+                        <div class="clr"></div>
+                    </li>
+                    <li>
+                    	<div class="fl_ser">10</div>
+                        <div class="fl_word">到家理赔</div>
+                        <div class="clr"></div>
+                    </li>
+                </ul>
+                <a href="tel:95518"><input type="button" class="combtn combtn1" value="" /></a>
+            </div>  
+            <div class="lp_box dis_none">
+            	<ul class="material">
+                	<li><span class="pad_l_30">理赔流程</span>
+                    	<div class="mainbox">
+                        <div class="innerbox">
+                        	<p>拨打报案电话95518—事故勘察和损失确认—提交索赔材料—领取赔款</p>                            
+                        </div>
+                        </div>
+                    </li>
+                    <li><span class="pad_l_30">通用理赔材料</span>
+                    	<div class="mainbox">
+                        <div class="innerbox">
+                        	<p>1. 保险单正本、批单以及保费交纳凭证</p>
+                            <p>2. 出险通知书</p>
+                            <p>3. 索赔申请书</p>
+                            <p>4. 事故证明材料（公安、消防、气象等相关部门的证明或专家鉴定报告、事故现场照片等）</p>
+                           <p> 5. 直接财产损失清单、各项施救、保护、整理费用清单及相关支持材料根据承保及损失情况提供资产负债表以及明细、固定资产卡片等相应的财务资料工程保险还须提供设计资料、工程承包合同、施工日志、监理日志、工程预决算书等资料</p>
+                            <p>6. 权益转让书及相关追偿文件（损失涉及其他责任方时）</p>
+                            <p>7. 对于特殊案件，经双方共同协商后，被保险人应提供其他所需要的有关资料。</p>
+                        </div>
+                        </div>
+                    </li>
+                    <li><span class="pad_l_30">车损理赔材料</span>
+                    	<div class="mainbox">
+                        <div class="innerbox">
+                        	<p>1.保险金给付通知书</p>
+                            <p>2.保险单原件</p> 
+                            <p>3.被保险人身份证明</p> 
+                            <p>4.二级以上（含二级）医院或保险人认可的医疗机构出具的医疗费用收据及明细清单/帐、诊断证明、病历、出院小结等</p>
+                            <p>5.保险金申请人所能提供的其他与本项申请相关的材料</p>
+                        </div>
+                        </div>
+                    </li>                    
+                </ul>
+            </div>   	
+        </div>        
+    </section>
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".lp_service nav li").click(function(){
+		var index = $(".lp_service nav li").index(this);
+		$(this).find("i").addClass("on").end().siblings("li").find("i").removeClass("on");
+		$(".lp_box").eq(index).show().siblings(".lp_box").hide();
+	});
+	
+	$(".material li").click(function(){
+		$(this).toggleClass("on").find(".mainbox").slideToggle(400).end().siblings("li").removeClass("on").find(".mainbox").slideUp(0);
+	});
+});
+</script>
+</body>
+</html>

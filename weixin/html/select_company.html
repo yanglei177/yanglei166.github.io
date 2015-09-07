@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="../images/logo5.ico"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>选择保险公司</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+  </head>
+<body>
+    <section class="main carbj_box">  
+      	<div class="caranimate">        	
+            <h2 class="imgsprite carimg" style="left:60%;"></h2>
+            <div class="totalline">
+            	<div class="statusline" style="width:75%;"></div>
+                <em style="left:75%;"></em>                
+            </div>
+            <div class="carinfobox" style="left:75%;">选择保险公司</div>
+            <div class="carinfoarr" style="left:75%;"></div>
+        </div>
+        <p class="mar_t"><img src="../images/nav_tit3.png" /></p>
+    </section><!-- main end -->         
+	<section class="selectcom bg_gradient">
+    	<div class="ap">
+    	<div class="selcarinfo">
+        	<p class="title"></p>
+            <table width="100%" border="0">
+              <tr>
+                <td width="28%">投保城市：</td>
+                <th width="22%" class="tb_city"></th>
+                <td width="25%">&nbsp;</td>
+                <th width="25%">&nbsp;</th>
+              </tr>
+              <tr>
+                <td>车主姓名：</td>
+                <th class="tb_name"></th>
+                <td>&nbsp;</td>
+                <th>&nbsp;</th>
+              </tr>
+            </table>
+            <div class="icocar"></div>
+        </div>
+        <div class="botstatus"><span id="jqandbus"></span><span class="colyel"></span> 种<span id="orbjmp"></span><div class="togglebtn"></div></div>
+        <div class="bxinfo"></div>
+        </div>
+        <div class="bxfl">
+            <div class="bxfl_box">
+                <div class="fl"></div>
+                <div class="fr" id="activity"></div>
+                <div class="clr"></div>
+            </div>
+        </div>
+        <div class="insurebar" style="border-top:none;">
+            <div class="fl">请选择保险公司（*最多可选五家）</div>
+            <div class="clr"></div>
+        </div>
+        <div id="companybox">
+        	<ul></ul>
+        </div>
+    </section>
+                 
+    <p><input type="submit" class="nextbtn" value="提交" /></p>
+<div id="loadingbox"></div>    
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/common.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var reqData = "cityId=" + JSON.parse(localStorage.getItem("carCompare1")).insuranceCityID;			
+	baopRequest.sendData("inquerySheet/findInsuranceCompanyAndActivity", reqData, function(data){
+		if (data.code == 0) {
+			var liHtml = "";
+			for(var i=0;i<data.insuranceCompanyList.length;i++){
+				liHtml += "<li id='" + data.insuranceCompanyList[i].id + "'><i class='imgsprite'></i>" + data.insuranceCompanyList[i].chShortName + "</li>"
+			}			
+			$("#companybox ul").html(liHtml); 
+			var activity = "";
+			for(var i=0;i<data.activityList.length;i++){
+				activity += (i+1) + "." + data.activityList[i].content
+			}
+			$("#activity").html(activity);	
+		}else{}
+	}); 	
+
+	$("#companybox").delegate("li","click",function(){
+		if($("#companybox li").find("i.on").size() >= 5){
+			if($(this).find("i").hasClass('on')){
+				$(this).find("i").removeClass("on");
+			}else{
+			   baopRequest.bp_alert("最多可选五家!",2000); 
+			   return false;
+		   }				                
+		}else{
+			$(this).find("i").toggleClass("on");
+		}		
+	});
+	
+	//submit
+	$(".nextbtn").click(function(){
+		if($("#companybox li").find("i.on").size() <= 0){
+			baopRequest.bp_alert("请至少选择一家保险公司！",2000);
+			return false;
+		}		
+		var company = "",xianzhong = "";
+		$("#companybox ul li").each(function(){
+			if($(this).find("i").hasClass('on')){
+				company += $(this).attr("id") + "#";
+			}			
+		});
+		company = company.slice(0,company.length-1);		
+		var carCompare1 = JSON.parse(localStorage.getItem("carCompare1")),
+			carCompare2 = JSON.parse(localStorage.getItem("carCompare2")),
+			oDiy = JSON.parse(localStorage.getItem("oDiy")),
+			uid = localStorage.getItem("uid");
+		if(localStorage.getItem("wid")){
+			var wid = localStorage.getItem("wid");
+		}
+		if(localStorage.getItem("path1")){
+			var path1 = JSON.parse(localStorage.getItem("path1")).url;
+		}
+		if(localStorage.getItem("path2")){
+			var path2 = JSON.parse(localStorage.getItem("path2")).url;
+		}						
+		for(var m in oDiy){
+			xianzhong += oDiy[m].id + "," + oDiy[m].val + "#";
+		}
+		
+		if(localStorage.getItem("oJqcc")){
+			var oJqcc = JSON.parse(localStorage.getItem("oJqcc"));
+			xianzhong += oJqcc.jqx.id + "," + oJqcc.jqx.val + "#" + oJqcc.carcs.id + "," + oJqcc.carcs.val;
+		}else{
+			xianzhong = xianzhong.slice(0,xianzhong.length-1);
+		}			
+		var reqData = {
+			uid : uid,
+			insuranceCityID : carCompare1.insuranceCityID,  //投保城市
+			carLicense : carCompare1.carLicense,     //车牌号
+			carOwnerName : carCompare1.carOwnerName,   //车主姓名
+			carShap : carCompare2.carShap,        //车辆品牌
+			carFrameNO : carCompare2.carFrameNO,     //车辆识别代码 车架号
+			engineNo :  carCompare2.engineNo,       //发动机号
+			registerDate :  carCompare2.registerDate,   //车辆注册信息
+			transferOwner :  carCompare2.transferOwner,  //是否过户过
+			insuranceDetails : xianzhong,   //险种及价格
+			insuranceCompanyIds : company,    //保险公司
+			drivingLicenseFrontSide : path1,   //行驶证正面
+			drivingLiscenseBackSide : path2    //行驶证反面
+		};		
+		baopRequest.sendData("inquerySheet/create", reqData, function(data){
+			if (data.code == 0) {		
+				localStorage.clear();
+				localStorage.setItem("uid",uid);
+				if(wid){
+					localStorage.setItem("wid",wid);
+				}				
+				location.href = "submitok.html";     
+			}else{baopRequest.bp_alert(data.message,2000);}
+		}); 
+	});
+	
+	// toggle
+	$(".togglebtn").click(function(){
+		$(this).toggleClass("down").parent(".botstatus").siblings(".bxinfo").slideToggle(400);		
+	});
+	
+	//险种详情
+	var xzxq = "", xznum = 0 , orbjmp = "",
+		oDiy = JSON.parse(localStorage.getItem("oDiy"));
+	if(localStorage.getItem("oJqcc")){
+		xzxq += "<p>投保交强险并代缴车船税</p>";
+		$("#jqandbus").html("交强险及商业险");
+	}else{
+		$("#jqandbus").html("商业险");	
+	}
+	xzxq += "<p>商业险：</p><p>";
+	for(var i in oDiy){
+		if(oDiy[i].val != "不投保" && oDiy[i].name != "不计免赔")	{
+			if(oDiy[i].val == "投保")	{
+				xzxq += oDiy[i].name + "、";
+			}else{
+				xzxq += oDiy[i].name + oDiy[i].val + "、";
+			}
+			xznum++;
+		}else if(oDiy[i].val != "不投保" && oDiy[i].name == "不计免赔"){
+			xzxq += "</p><p>" + oDiy[i].name;
+			orbjmp += ",有不计免赔";
+		}
+	}	
+	xzxq += "</p>";	
+	$(".bxinfo").html(xzxq);
+	
+	//汽车详情
+	var carCompare1 = JSON.parse(localStorage.getItem("carCompare1")),
+		carCompare2 = JSON.parse(localStorage.getItem("carCompare2"));
+	$(".title").html(carCompare2.carShap);
+	$(".tb_city").html(carCompare1.insuranceCity);
+	$(".tb_name").html(carCompare1.carOwnerName);	
+	$("#orbjmp").html(orbjmp);
+	$(".colyel").html("&nbsp;" + xznum + "&nbsp;");	
+});
+</script>
+</body>
+</html>

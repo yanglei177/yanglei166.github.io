@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="../images/logo5.ico"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>收件地址管理</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+  </head>
+<body>           
+	<section class="bg_gradient bor_no">
+    <div id="addrDiv" class="addresslist"></div>      	
+    </section>
+    <p><input type="submit" class="nextbtn" value="+新建收件地址" onclick="location.href='addr_new.html'" /></p>
+<div id="loadingbox"></div>
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/common.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {	
+	var reqData = "uid=" + window.localStorage.getItem("uid");
+	baopRequest.sendData("customer/addr/list", reqData,function(data){
+		if (data.code == 0) {
+			var divHtml = "<ul>";
+			if(data.voList.length == 0){
+				divHtml = "<div class='addressimg'><img src='../images/adress.png' /><p>您暂无收件地址</p></div>";
+				$('#addrDiv').html(divHtml);
+			}else{
+				for(var i=0;i<data.voList.length;i++){
+					divHtml += '<li><div class="fl simulateradio"><span class="marrigh"><i class="imgsprite radio"></i></span></div><div class="adress_box" onclick="viewDetail(\''+ data.voList[i].id + '\')"><dl>'+ '<dt><span class="ad_name">'+data.voList[i].recipient + '</span><span class="ad_tel" style="margin-left:30px;">'+data.voList[i].phone+'</span></dt>'+ '<dd class="ad_adress">'+data.voList[i].city+data.voList[i].detail + '</dd><dd class="postcode">'+ data.voList[i].postCode + '</dd></dl></div></li>';
+				}
+				$('#addrDiv').html(divHtml+"</ul>");
+				$(".simulateradio").click(function() {
+					 $(this).find("i").addClass("on").end().parents("li").siblings("li").find("i").removeClass("on");
+					 if(baopRequest.getURLParam("url") == "writeinfo"){
+						localStorage.setItem("ad_name",$(this).siblings(".adress_box").find(".ad_name").html()); 
+						localStorage.setItem("ad_tel",$(this).siblings(".adress_box").find(".ad_tel").html()); 
+						localStorage.setItem("ad_adress",$(this).siblings(".adress_box").find("dd.ad_adress").html()); 
+						localStorage.setItem("postcode",$(this).siblings(".adress_box").find("dd.postcode").html()); 
+						location.href = "writeinfo.html?url=writeinfo"; 
+					 }
+				 });
+			}		            							           
+		}else{
+			baopRequest.bp_alert(data.message,"2000");
+		}				
+		}
+	);
+	
+	
+
+});
+
+
+function viewDetail(id){
+    window.location.href="addr_upd.html?id="+id;
+}
+
+</script>
+
+</body>
+</html>

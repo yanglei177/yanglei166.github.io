@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+        <head>
+        <meta charset='utf-8'>
+    <meta content="保评网" name="Keywords">
+	<meta name="description" content="保评网" />	
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+        	<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+        	<script type="text/javascript" src="../js/lib/jweixin-1.0.0.js"></script>
+       	<script type="text/javascript">
+       	var targetUrl = window.location.href;
+      $.ajax({
+       		url:'http://develop.ebaoping.com/weixin/wxapi/initConfig.html',
+       		data:{debug:true,url:targetUrl},
+       		dataType: 'json',
+       		success:function(data){
+       			wx.config(data);
+       	       	wx.error(function(res){
+       				//alert(JSON.stringify(res));
+       				alert("----");
+       	       	});
+       		},
+       		error: function(xhr, type){
+       		    alert("----");
+       		  }
+       		
+       	}); 
+      
+      
+       	wx.ready(function(){
+			$('#btn').click(function (){
+				wx.checkJsApi({
+				    jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+				    success: function(res) {
+				    	alert(JSON.stringify(res));
+				    }
+				});	
+				}
+				)
+				
+				
+				$('#btnimg').click(function (){
+					wx.chooseImage({
+					    count: 1, // 默认9
+					    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+					    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+					    success: function (res) {
+					        var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+					    }
+					});
+				}
+				)
+				
+				
+				$('#pay').click(function (){
+					 $.ajax({
+				       		url:'http://develop.ebaoping.com/baoping-wxpay/api/wechat/generatePrePayOrder',
+				       		data:{orderId:'41fca58c11994c63aff6b2b500b9beda',openid:'ojX3isn5Ylp6EbPg_E03cc6w4peU'},
+				       		dataType: 'json',
+				       		success:function(data){
+				       			wx.chooseWXPay({
+				       				timestamp:data.timeStamp,
+				       				nonceStr:data.nonceStr, 
+				       				package:data.package, 
+				       				signType:data.signType,
+				       				paySign:data.paySign,
+								    success:function (res) {
+								    	alert(res);
+								    }
+								});
+				       	      },
+				       		error: function(xhr, type){
+				       		    alert("----");
+				       		  }
+				       	}); 
+					
+				}
+				)
+				
+	       	});
+       function oauth(){
+    	   var encodUrl=encodeURI('http://develop.ebaoping.com/baoping-h5/html/pay.html');
+    	$.ajax({
+          		url:'http://develop.ebaoping.com/weixin/wxapi/redirectAuth.html',
+          		dataType: 'json',
+          		data:{redirectUrl:encodUrl},
+          		success:function(data){
+          				location.href=data.message;
+          	     },
+    	 	  error: function(xhr){
+    		    //jsonp 方式此方法不被触发.原因可能是dataType如果指定为jsonp的话,就已经不是ajax事件了
+    		    //请求出错处理
+    		   }
+    	   }); 
+    	//  location.href='http://test.ebaoping.com/weixin/wxapi/redirectAuth.html?redirectUrl='+:encodeURI('http://localhost:8080/baoping-api/api/reg');
+      	 }
+
+       	</script>
+        </head>
+        <body>
+        	<button id="btn">判断浏览器</button>
+        	<button id="btnimg">选择图片</button>
+        	<button id="oauth" onclick="oauth()">支付</button>
+        </body>
+</html>

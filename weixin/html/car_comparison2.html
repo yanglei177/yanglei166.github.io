@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="../images/logo5.ico"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>车险比价</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+  </head>
+<body>
+    <section class="main carbj_box">  
+      	<div class="caranimate">
+        	<h2 class="imgsprite carimg"></h2>
+            <div class="totalline">
+            	<div class="statusline"></div>
+                <em></em>                
+            </div>
+            <div class="carinfobox">填写车辆信息</div>
+            <div class="carinfoarr"></div>
+        </div>
+        <p class="mar_t"><img src="../images/nav_tit1.png" /></p>
+    </section><!-- main end --> 
+    <form id="signupForm" method="post">
+    <section class=" list_box bg_gradient">
+    	<ul class="license_box">
+        	<li>
+                <div class="text_box verifydes">
+                    <input type="text" name="carShap" class="text textimg" placeholder="请输入车辆品牌" />                    
+                </div> 
+                <p class="des"></p>
+                <div class="imgbox"><img src="../images/license.png" /></div>      
+                <div class="imgarr"></div>
+            </li>
+            <li>
+                <div class="text_box verifydes">
+                	<input type="text" name="carFrameNO" class="text textimg" placeholder="请输入车辆识别代码/车架号" />
+                </div>
+                <p class="des"></p>
+                <div class="imgbox"><img src="../images/license1.png" /></div>      
+                <div class="imgarr"></div>
+            </li>
+            <li>
+                <div class="text_box verifydes">
+                	<input type="text" name="engineNo" class="text textimg" placeholder="请输入发动机号码" />
+                </div>
+                <p class="des"></p>
+                <div class="imgbox"><img src="../images/license2.png" /></div>      
+                <div class="imgarr"></div>
+            </li>
+            <li>
+                <div class="text_box verifydes">                	
+                    <input type="text" readonly name="registerDate" class="text textarr" placeholder="请选择车辆注册日期" />
+                    <input type="date" class="datetime textimg" value="2015-08-17" />                    
+                </div>                
+                <p class="des"></p>
+                <div class="imgbox"><img src="../images/license3.png" /></div>      
+                <div class="imgarr"></div>
+            </li>
+        </ul> 
+    <div class="line"></div>
+    <p class="orbox">12个月内是否办理过过户手续<input type="button" name="transferOwner" class="orbtn" value="" /></p>       	
+    </section><!-- fillinfo_box end -->              
+    <p><input type="submit" class="nextbtn" value="下一步" /></p>
+</form>    
+<div id="loadingbox"></div>
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/jquery.validate.js"></script>
+<script src="../js/common.js"></script>
+<script type="text/javascript">
+ $(function(){
+	 // init form
+	 var initData = localStorage.getItem("carCompare2");
+	 if(initData){
+		 var data = JSON.parse(initData);
+		 $("input[name=carShap]").val(data.carShap);
+		 $("input[name=carFrameNO]").val(data.carFrameNO);
+		 $("input[name=engineNo]").val(data.engineNo);
+		 $("input[name=registerDate]").val(data.registerDate);
+		 if(data.transferOwner == 1){
+			 $(".orbtn").addClass("on");
+		 }else{
+			 $(".orbtn").removeClass("on");
+		 }		 
+	 }
+	 
+	$("#signupForm").validate({
+		rules: {
+			carShap: {
+				required: true
+			},
+			carFrameNO: {
+				required: true
+			},
+			engineNo: {
+				required: true
+			},
+			registerDate:{
+				required: true
+			}
+		},
+		messages: {
+			carShap: "请输入车辆品牌",
+			carFrameNO: "请输入车辆识别代码/车架号",	
+			engineNo: "请输入发动机号码",
+			registerDate:"请选择车辆注册日期"		
+		},
+		submitHandler:function(form){
+			var transferOwner = 1;
+			if(!$(".orbtn").hasClass("on")){
+				transferOwner = 0;
+			}
+            var oData = {};
+			oData.carShap = $("input[name=carShap]").val();
+			oData.carFrameNO = $("input[name=carFrameNO]").val();
+			oData.engineNo = $("input[name=engineNo]").val();
+			oData.registerDate = $("input[name=registerDate]").val();
+			oData.transferOwner = transferOwner;
+			oData = JSON.stringify(oData);	
+			localStorage.setItem("carCompare2",oData);
+			location.href="car_comparison3.html";
+		}
+	});
+	
+	//focus  images show
+	$(".textimg").focus(function(){
+		$(this).parents(".verifydes").siblings(".des").hide().end()
+			   .siblings(".imgbox,.imgarr").show();
+	}).blur(function(){
+		$(this).parents(".verifydes").siblings(".des").show().end()
+			   .siblings(".imgbox,.imgarr").hide();
+	});
+	
+	
+	
+ });
+</script>
+</body>
+</html>

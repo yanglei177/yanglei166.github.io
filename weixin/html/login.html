@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="../images/logo5.ico"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>登录保评会员</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+  </head>
+<body>
+    <section class="list_box bg_gradient bor_no">
+    	<form id="signupForm">
+    	<ul class="botline">
+        	<li>
+                <div class="text_box verifydes">
+                	<input type="tel" name="mobile" class="text" placeholder="请输入用户名">
+                </div>
+                <p class="des"></p>
+            </li>
+            <li>
+                <div class="text_box verifydes">
+                	<input type="password" name="pwd" class="text" placeholder="请输入密码">
+                </div>
+                <p class="des"></p>
+            </li>
+        </ul>
+        <div class="btn"><input type="submit" id="login" class="combtn" value="登录" /></div>
+        </form>        
+        <p class="tc mar_t_15">没有保评会员账号，<a href="register.html" class="red">请注册</a></p>
+    </section><!-- bg_gradient end -->  
+    <div class="bg_gradient bor_no bg_logo"><img src="../images/bplogo.png" /></div>    
+<div id="loadingbox"></div>        
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/jquery.validate.js"></script>
+<script src="../js/common.js"></script>
+<script type="text/javascript">
+ $(function(){
+	$("#signupForm").validate({
+		rules: {
+			mobile: {
+				required: true,
+				telephone: true
+			},
+			pwd: {
+				required: true,
+				minlength: 6
+			}
+		},
+		messages: {
+			mobile: {
+				required: "请输入用户名",
+				telephone: "请输入正确用户名"
+			},
+			pwd: {
+				required: "请输入密码",
+				minlength: jQuery.format("密码不能小于{0}个字 符")
+			}
+		},
+		submitHandler:function(form){	
+            var reqData = $(form).serialize();		
+            baopRequest.sendData("/customer/login", reqData, function(data){
+				if (data.code == 0) {
+					//alert("data:"+data.uid)
+					baopRequest.bp_alert("登录定成功!",2000);
+					localStorage.setItem("uid",data.uid);
+					//alert(localStorage.getItem("uid"));
+					if(baopRequest.getURLParam("url") != ""){
+						location.href = baopRequest.getURLParam("url");
+					}else{
+						location.href = "index.html";
+					}
+				}else{
+                    baopRequest.bp_alert(data.message,2000);
+                }
+			})
+		}
+	});	
+ });
+</script>
+
+</body>
+</html>

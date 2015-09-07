@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="../images/logo5.ico"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>首页</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+  </head>
+<body class="bg1">
+	<div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../images/banner1.png" /></div>
+            <div class="swiper-slide"><img src="../images/banner1.png" /></div>
+            <div class="swiper-slide"><img src="../images/banner1.png" /></div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+        <div class="citybtn">北京</div>
+    </div>
+    <div class="main">
+    	<div class="index_main">
+        	<ul>
+            	<li id="cxbj"><a href="javascript:void(0)"><img src="../images/index_ico1.png" /></a></li>
+                <li><a href="javascript:void(0)"><img src="../images/index_ico2.png" /></a></li>
+                <li><a href="javascript:void(0)"><img src="../images/index_ico3.png" /></a></li>
+                <li><a href="lp_index.html"><img src="../images/index_ico4.png" /></a></li>
+                <li id="person"><a href="javascript:void(0)"><img src="../images/index_ico5.png" /></a></li>
+                <li><a href="tel:4000498989"><img src="../images/index_ico6.png" /></a></li>
+            </ul>        	
+        </div>
+        <div class="countdown dis_none">        	
+            <div class="count_btn"></div>
+            <div class="count_num">00</div>
+        </div>
+    </div><!-- main end -->   
+<div id="loadingbox"></div>             
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/swiper.min.js"></script>
+<script src="../js/common.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {//localStorage.setItem("uid","776a2d966774411e8222dfb89da8cf75");	 //测试保单数据				
+	//banner
+	var mySwiper = new Swiper ('.swiper-container', {
+		loop: true,    
+		// 如果需要分页器
+		pagination: '.swiper-pagination',    
+  	});
+	function count(){
+		var comhei = Math.floor($('.countdown').width()/327 * 75);
+		$(".countdown,.count_btn").height(comhei);
+	}	
+	!$('.countdown')[0] || count();
+	var evt = "onorientationchange" in window ? "orientationchange" : "resize";      
+	window.addEventListener(evt, function() {
+		count();
+	}, false);
+	
+	//微信授权
+	function oauth(){
+    	var encodUrl=encodeURI(SERVER_URL + '/html/register.html');
+    	$.ajax({
+			url: SERVER_URL + '/weixin/wxapi/redirectAuth.html',
+			dataType: 'json',
+			data:{redirectUrl:encodUrl},
+			success:function(data){
+				location.href=data.message;
+			 }
+	   }); 
+	}
+	
+	//是否微信浏览器
+	function is_weixin(){
+		var ua = navigator.userAgent.toLowerCase();
+		if(ua.match(/MicroMessenger/i)=="micromessenger") {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	$("#person").click(function(){
+		//alert("uid:"+localStorage.getItem("uid"));
+		//alert("wid:"+localStorage.getItem("wid"));
+		if(is_weixin()){
+			//alert("in wx:");			
+			if(localStorage.getItem("wid") && !localStorage.getItem("uid")){
+				baopRequest.bp_alert("您还没有注册，请先注册!",3000);
+				location.href = "register.html?url=center.html";
+			}else if(localStorage.getItem("wid") && localStorage.getItem("uid")){
+				location.href = "center.html";
+			}else{
+				oauth();
+			}
+		}else{
+			//alert("not in wx:");
+			if(localStorage.getItem("uid")){
+				location.href = "center.html";				
+			}else{				
+				baopRequest.bp_alert("您还没有注册，请先注册!",3000);			
+				location.href = "register.html?url=center.html";
+			}	
+		}
+	});
+	
+	$("#cxbj").click(function(){
+		if(is_weixin()){
+			if(localStorage.getItem("wid") && !localStorage.getItem("uid")){
+				alert("您还没有注册登录，请先注册。");
+				location.href = "register.html?url=car_comparison1.html";
+			}else if(localStorage.getItem("wid") && localStorage.getItem("uid")){
+				location.href = "car_comparison1.html";
+			}else{
+				oauth();
+			}
+		}else{
+			if(localStorage.getItem("uid")){
+				location.href = "car_comparison1.html";				
+			}else{
+				alert("您还没有注册登录，请先注册。");
+				location.href = "register.html?url=car_comparison1.html";
+			}	
+		}
+	});
+
+});
+</script>
+</body>
+</html>

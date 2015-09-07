@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="../images/logo5.ico"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>修改车辆信息</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+  </head>
+<body>           
+	<section class="bg_gradient bor_no">
+	 <form id="inputForm">
+    	<div class="comtitle" style="border-top:none;">修改车辆信息</div>
+        <div class="infobox">
+                <ul>
+                    <li>
+                        <div class="half">
+                        	<div class="text_box">
+                                <input id="licensePlateNo" name="licensePlateNo" type="text" class="text" readonly>
+                            </div>
+                            <p class="des"></p>
+                        </div>
+                        <div class="half">
+                        	<div class="text_box">
+                                <input id="carOwnerName"  name="carOwnerName" type="text" class="text" placeholder="请输入车主姓名">
+                            </div>
+                            <p class="des"></p>
+                        </div>                        
+                    </li>
+                    <li style="margin-bottom:0;">
+                        <div class="text_box">
+                            <input id="carLabel"  name="carLabel" type="text" class="text" placeholder="请输入车型">
+                        </div>
+                        <p class="des"></p>
+                    </li>
+                    <li style="margin-bottom:0;">
+                        <div class="text_box">
+                            <input id="frameNo" name="frameNo"  type="text" class="text" placeholder="请输入车辆识别代码/车架号">
+                        </div>
+                        <p class="des"></p>
+                    </li>
+                    <li style="margin-bottom:0;">
+                        <div class="half">
+                        	<div class="text_box">
+                                <input id="engineNo"  type="text" name="engineNo" class="text" placeholder="请输入发动机号">                               
+                            </div>
+                            <p class="des"></p>
+                        </div>
+                        <div class="half">
+                        	<div class="text_box">
+                                <input type="text" id="registrationDate"  name="registrationDate" readonly class="text textarr" placeholder="请选择初登日期">
+                                <input type="date" value="2015-08-20" class="datetime" />
+                            </div>
+                            <p class="des"></p>
+                        </div>                        
+                    </li>
+                    <li style="margin-bottom:0;">
+                        <div class="half">
+                        	<div class="text_box">
+                                <input type="text" id="insuranceExpiryDate" name="insuranceExpiryDate" readonly class="text textarr" placeholder="请选择保险到期日">
+                                <input type="date" value="2015-08-20" class="datetime" />
+                            </div>
+                            <p class="des"></p>
+                        </div>
+                        <div class="half">
+                        	<div class="text_box">
+                                <input type="text" id="dringRange" name="dringRange" readonly class="text textarr" placeholder="请选择行驶里程">
+                                <select class="select">
+                                	<!-- <option>请选择行驶里程</option>  -->
+                                    <option>4万公里以下</option>
+                                    <option>4-6.9万公里</option>
+                                    <option>7-10.9万公里</option>
+                                    <option>11-20万公里</option>
+                                    <option>20万公里以上</option>
+                                </select>
+                            </div>
+                            <p class="des"></p>
+                        </div>                        
+                    </li>
+                    <li style="margin-bottom:0;">
+                    	<p class="orbox" style="padding:0 0 20px;">12个月内是否办理过过户手续
+                    		<input type="button" id="isHaving" name="isHaving" class="orbtn on" value="" />
+                    		<input type="hidden" id="isHavingAccount" name="isHavingAccount" />  
+                    	</p>
+                    </li>
+                    <li style="margin-bottom:20px">
+                            <div class="jszbox idcard" style="margin-top:0">
+                            <p>行驶证正本预览区</p>
+                            <input type="button" class="uploadbtn" value="上传行驶证正本" />
+                			<input type="file" name="file" style="height:92px;" class="webuploader-element-invisible fileimg" accept="image/*">
+                            <div class="img_box">
+			                    <ul></ul>
+			                </div> 
+			                <input type="hidden" id="drivingLicenseImg" name="drivingLicenseImg" value="" />
+                        </div>
+                        
+                        <div class="jszbox idcard" style="margin-top:0">
+                            <p>行驶证副本预览区</p>
+                            <input type="button" class="uploadbtn" value="上传行驶证副本">			            	
+			                <input type="file" name="file" style="height:92px;" class="webuploader-element-invisible fileimg" accept="image/*">
+			                <div class="img_box">
+			                    <ul></ul>
+			                </div>   
+			                <input type="hidden" id="drvingLicenseImgBack" name="drvingLicenseImgBack" value="" />                          
+                        </div>
+                        <div class="clr"></div>
+                    </li>
+                </ul>
+                <div class="clr"></div>
+                <input type="hidden" id="id" name="id" />
+                
+               <div class="editbox">
+			        <input id="delBtn" type="button" class="delbtn" value="删除">
+			        <input id="updBtn" type="submit" class="editbtn" value="修改">
+			    </div>     
+            </div>
+           </form>
+    </section><!-- addcarbox end -->
+<div id="loadingbox"></div>    
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/jquery.validate.js"></script>
+<script src="../js/common.js"></script>
+
+<script type="text/javascript" src="../js/mobileBUGFix.mini.js"></script>
+<script type="text/javascript" src="../js/upload.js"></script>
+
+<script type="text/javascript">
+ $(function(){
+	 //init
+	 if(localStorage.getItem("path_car1")){
+		var imgdata1 = JSON.parse(localStorage.getItem("path_car1"));
+		$(".img_box").eq(0).find("ul").append("<li id=" + imgdata1.url + "><img src='" + imgdata1.path + "' ><span class='clo'>x</span></li>"); 
+	}	
+	if(localStorage.getItem("path_car2")){
+		var imgdata2 = JSON.parse(localStorage.getItem("path_car2"));
+		$(".img_box").eq(1).find("ul").append("<li id=" + imgdata2.url + "><img src='" + imgdata2.path + "' ><span class='clo'>x</span></li>"); 
+	}	
+	$(".img_box img").on("load",function(){
+		  var w = $(this).width(),
+			  h = $(this).height();
+		  if(h>w){
+			 $(this).css({"width":"h/89*w"+"px","height":"89px"}); 
+		  }
+	  }); 
+	 
+	$("#inputForm").validate({
+		rules: {
+			licensePlateNo: "required",
+			carOwnerName:{
+				required: true
+			},	
+			carLabel:{
+				required: true
+			},	
+			frameNo:{
+				required: true
+			},				
+			engineNo:{
+				required: true
+			},	
+			registrationDate:{
+				required: true
+			}		
+		},
+		messages: {
+			licensePlateNo: {
+				required: "请输入车牌"
+			},
+			carOwnerName:{
+				required: "请输入车主姓名"
+			},			
+			carLabel: {
+				required: "请输入车型信息"
+			},
+			frameNo:{
+				required: "请输入车架号"
+			},
+			engineNo: {
+				required: "请输入发动机号"
+			},
+			registrationDate:{
+				required: "请选择初登日期"
+			}			
+		},
+		submitHandler:function(){
+			var uid = "1";
+			
+			if($("#isHaving").hasClass("on")){
+				$("#isHavingAccount").val(1);
+			}else{
+				$("#isHavingAccount").val(0);
+			}
+			
+			var reqData = $("form").serialize()+"&uid="+uid;	
+			//alert(reqData);
+			baopRequest.sendData("customer/car/update", reqData, 
+					function(data){
+						baopRequest.bp_alert(data.message,"2500");
+						if (data.code == 0) {
+							location.href="car_list.html";      
+						}else{
+						}
+					}
+			); 
+		}
+	});	
+ });
+ 
+    $("#delBtn").click(function(){    	
+		var reqData = "ids=" + $("#id").val();	
+		baopRequest.sendData("customer/car/del", reqData, 
+				function(data){
+					//baopRequest.bp_alert("提示信息",true);
+					baopRequest.bp_alert(data.message,"2500");
+					if (data.code == 0) {
+						location.href="car_list.html";
+					}else{
+					   
+					}				
+				}
+		);
+			
+     });
+    
+    var viewId = baopRequest.getURLParam("id");    
+    baopRequest.sendData("customer/car/find", "id=" + viewId, 
+			function(data){				
+ 	            $("#licensePlateNo").val(data.vo.licensePlateNo);
+	            $("#carOwnerName").val( data.vo.carOwnerName);
+	            $("#carLabel").val(data.vo.carLabel);		
+	            $("#frameNo").val(data.vo.frameNo);
+	            $("#engineNo").val( data.vo.engineNo);
+	            $("#registrationDate").val(data.vo.registrationDate);		
+	            $("#insuranceExpiryDate").val(data.vo.insuranceExpiryDate);
+	            $("#dringRange").val( data.vo.dringRange);
+	            $("#isHavingAccount").val( data.vo.isHavingAccount);
+	            //alert($("#isHavingAccount").val());
+	            if( 1 == $("#isHavingAccount").val()){
+	            	$("#isHaving").addClass("on")
+	            }else{
+	            	$("#isHaving").removeClass("on")
+	            }
+	            
+	            if( 1 == $("#isHavingAccount").val()){
+	            	$("#isHaving").addClass("on")
+	            }
+	            
+	            if (data.vo.drivingLicenseImg !== null 
+	            		&& data.vo.drivingLicenseImg !== undefined
+	            		&& data.vo.drivingLicenseImg !== '') { 
+	            	$(".img_box").eq(0).find("ul").append("<li id=" + data.vo.drivingLicenseImg 
+	            				+ "><img src='" + IMG_PATH_ROOT + data.vo.drivingLicenseImg + "' ><span name='1' class='clo'>x</span></li>");
+	            	$("#drivingLicenseImg").val( data.vo.drivingLicenseImg);
+	            } 
+	            
+	            if (data.vo.drvingLicenseImgBack !== null 
+	            		&& data.vo.drvingLicenseImgBack !== undefined
+	            		&& data.vo.drvingLicenseImgBack !== '') { 
+	            	$(".img_box").eq(1).find("ul").append("<li id=" + data.vo.drvingLicenseImgBack 
+	            				+ "><img src='" + IMG_PATH_ROOT + data.vo.drvingLicenseImgBack + "' ><span name='1' class='clo'>x</span></li>");
+	            	$("#drvingLicenseImgBack").val( data.vo.drvingLicenseImgBack);
+	            } 
+	            
+	            $("#id").val(data.vo.id);		            
+			}
+	);
+
+    //TODO 图片的最大尺寸在哪里限制？
+    $('.fileimg').eq(0).UploadImg({	 
+         url : API_URL_ROOT + 'upload/uploadImg',
+         width : '640',
+         //height : '300',
+         quality : '0.8', //压缩率，默认值为0.8
+         // 如果quality是1 宽和高都未设定 则上传原图
+         mixsize : '6',
+         bussinessType:'1',   //我的车辆的图片
+         pictureCount:'2',    //TODO
+         type : [".jpg", ".png", ".JPG", ".PNG",".bmp",".jpeg"],
+         before : function(blob,pcUrl){		 
+             pictureName=pcUrl;
+              var html = "<li id=" + pcUrl + "><img src='" + blob + "' ><span name='1' class='clo'>x</span></li>";		  
+              $(".img_box").eq(0).find("ul").append(html);   
+			  $(".img_box img").on("load",function(){
+			  var w = $(this).width(),
+				  h = $(this).height();
+			  if(h>w){
+				 $(this).css({"width":"h/89*w"+"px","height":"89px"}); 
+			  }
+		  });        
+         },
+         error : function(res){
+             //TODO
+             //$('#error').html(res);
+             alert("行驶证正本图片上传失败，请重新选择上传。");
+         },
+         success : function(res){
+    		 var imgjson = {};
+			 imgjson.url = res.url;
+			 imgjson.path = imgpath + res.url;		 		 
+			 localStorage.setItem("path_car1",JSON.stringify(imgjson));
+         }
+    });
+
+    $('.fileimg').eq(1).UploadImg({	 
+         url : API_URL_ROOT + 'upload/uploadImg',
+         width : '640',
+         //height : '300',
+         quality : '0.8', //压缩率，默认值为0.8
+         // 如果quality是1 宽和高都未设定 则上传原图
+         bussinessType:'1',
+         mixsize : '6',
+         pictureCount:'2',
+         type : [".jpg", ".png", ".JPG", ".PNG",".bmp",".jpeg"],
+         before : function(blob,pcUrl){		 
+             pictureName=pcUrl;
+              var html = "<li id=" + pcUrl + "><img src='" + blob + "' ><span name='2' class='clo'>x</span></li>"
+              $(".img_box").eq(1).find("ul").append(html); 
+			  $(".img_box img").on("load",function(){
+			  var w = $(this).width(),
+				  h = $(this).height();
+			  if(h>w){
+				 $(this).css({"width":"h/89*w"+"px","height":"89px"}); 
+			  }
+		  });          
+         },
+         error : function(res){
+             //TODO
+             //$('#error').html(res);
+             alert("行驶证副本图片上传失败，请重新选择上传。");
+         },
+         success : function(res){
+        	 var imgjson = {};
+			 imgjson.url = res.url;
+			 imgjson.path = imgpath + res.url;		 		 
+			 localStorage.setItem("path_car2",JSON.stringify(imgjson));
+         }
+    });
+
+    $(document).delegate("span.clo", "click", function() {
+    	var index = $(this).attr("name");
+    	$(this).parent("li").remove();    	
+    });
+    
+</script>
+
+</body>
+</html>

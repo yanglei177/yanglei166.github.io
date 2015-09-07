@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="../images/logo5.ico"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>注册保评会员</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+  </head>
+<body>
+    <section class="list_box bg_gradient bor_no">
+    	<form id="inputForm">
+    	<ul class="botpad">
+        	<li>            	
+                <div class="text_box verifydes">
+                    <input type="tel" name="telephone" class="text" placeholder="手机号作为用户名使用" />
+                </div>                    
+                <p class="des clr"></p>              
+            </li>
+            <li>
+                <div class="yzm verifydes">
+                    <div class="text_box">
+                        <input type="text" name="captcha" class="text" placeholder="请输入验证码"  maxlength="4" />
+                    </div>
+                </div>
+                <div class="getyzm"><input type="button" id="getverify" class="combtn" value="获取验证码" /></div> 
+                <p class="des clr"></p>              
+            </li>
+            <li>
+                <div class="text_box verifydes">
+                    <input type="password" name="password" class="text" placeholder="6~20个字母、数字或符号组成" />
+                </div>                     
+                <p class="des clr"></p>              
+            </li>
+            <li>
+                <div class="text_box verifydes">
+                    <input type="email" name="email" class="text" placeholder="用于接收电子保单">
+                </div>                     
+                <p class="des clr"></p>              
+            </li>
+            <li>
+                <div class="text_box verifydes">
+                    <input type="text" name="name" class="text" placeholder="请输入姓名">
+                </div>                    
+                <p class="des clr"></p>              
+            </li>
+            <li>
+                <div class="textbox verifydes">
+                    <div class="text_box">
+                        <input type="text" name="city" readonly class="text textarr" placeholder="请选择所在地">
+                        <select class="select"  id="citysel"></select>
+                    </div>       
+                </div>                    
+                <p class="des clr"></p>              
+            </li>
+            <li>
+            	<div class="bottd" style="float:none; text-align:center; width:auto;">
+                	<p id="serviceterm"><i class="imgsprite current"></i>我已同意并阅读<a href="protocol.html" class="red">《保评用户服务条款》</a></p>              
+                </div>
+                <div class="clr"></div>                
+            </li>
+            
+        </ul>
+        <div class="btn"><input type="submit" id="registerbtn" class="combtn" value="注册" /></div>
+        </form>        
+        <p class="tc mar_t_15" style="padding-bottom:30px;" id="botlogin">已有保评会员账号，<a id="bindorlogin" href="bindvip.html" class="red">请绑定</a></p>
+    </section><!-- bg_gradient end -->       
+<div id="loadingbox"></div>    
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/jquery.validate.js"></script>
+<script src="../js/common.js"></script>
+<script type="text/javascript">
+ $(function(){
+	$("#inputForm").validate({
+		rules: {
+			telephone: {
+				required: true,
+				telephone: true
+			},
+			captcha: {
+				required: true,
+				minlength: 4,
+				digits:true
+			},
+			password: {
+				required: true,
+				minlength: 6
+			},
+			email: {
+				email: true
+			},			
+			name: {
+							
+			},
+			city: {}
+		},
+		messages: {
+			telephone: "请输入正确手机号",
+			captcha: "请输入正确4位验证码",			
+			password: {
+				required: "请输入密码",
+				minlength: jQuery.format("密码不能小于{0}个字 符")
+			},
+			email: {
+				email: "请输入正确的email地址"
+			},
+			name: {
+				
+			},
+			city: {
+				
+			}
+		},
+		submitHandler:function(form){	
+            var reqData = $(form).serialize() + wxApid;		
+            baopRequest.sendData("customer/register", reqData, function(data){
+				if (data.code == 0) {
+					baopRequest.bp_alert("注册成功!",2000);
+					localStorage.setItem("uid",data.uid);
+					if(data.wid){
+						localStorage.setItem("wid",data.wid);
+					}									
+					if(baopRequest.getURLParam("url") != ""){
+						location.href = baopRequest.getURLParam("url");
+					}else{
+						location.href = "index.html";
+					}
+				}else{
+                    baopRequest.bp_alert(data.message,2000);
+                }
+			})
+		}
+	});
+	
+	 //init city
+	 baopRequest.sendData("city/init", "", function(data){
+		if (data.code == 0) {
+			var seldata = "<option>请选择</option>";
+			var optiondata = "";
+			for(var i=0;i<data.list.length;i++){
+				optiondata += "<option uid='" + data.list[i].id + "'>" + data.list[i].name + "</option>"
+			}
+			seldata += optiondata;
+			$("#citysel").append(seldata);  
+		}else{
+			baopRequest.bp_alert(data.message,"2500");
+		}
+	}); 	
+	
+	//非微信  底部改为 请登录
+	if(!baopRequest.is_weixin()){
+		if(baopRequest.getURLParam("url") != ""){
+			$("#botlogin").html("已有保评会员账号，<a href='login.html?url=" + baopRequest.getURLParam("url") + "' class='red'>请登录</a>");
+		}			
+	}else{
+		if(baopRequest.getURLParam("url") != ""){
+			$("#bindorlogin").attr("href","bindvip.html?url=" + baopRequest.getURLParam("url"));
+		}
+	}
+	
+    //
+    $("#serviceterm").click(function() {
+        var bHason = $(this).find("i").hasClass('current');
+        if(bHason){
+            $(this).find("i").removeClass('current');
+            $("#registerbtn").prop("disabled",true).addClass('disable');
+        }else{
+            $(this).find("i").addClass('current');
+            $("#registerbtn").prop("disabled",false).removeClass('disable');
+        }
+    });
+
+    //verify
+    $("#getverify").click(function() {	
+    	//todo 必须判断是正规手机号，才能发短信
+        var Reg = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
+        if(!Reg.test($("input[name=telephone]").val())){
+     	   baopRequest.bp_alert("请填写正确手机号码！",2000);
+     	   return;
+        }else if($("input[name=telephone]").val() == ""){
+			baopRequest.bp_alert("手机号不能为空！",2000);
+			return;
+		}
+    	
+		var reqData = {
+			"mobile" : $("input[name=telephone]").val(),
+			"bizType" : "0"
+		};	
+		baopRequest.sendData("/customer/sendCaptcha", reqData, function(data){
+			if (data.code == 0) {
+				baopRequest.bp_alert("验证码已发送，请注意查收!",2000);									
+				var i = data.timeouts;
+				$("#getverify").addClass('disable').prop("disabled",true).val(i + "s重新获取");
+				var timer = setInterval(function(){ 
+					i--;
+					if(i<=0){
+						clearInterval(timer);
+						$("#getverify").val("获取验证码").removeClass('disable').prop("disabled",false);
+						return;
+					}                       
+					$("#getverify").val(i + "s重新获取");
+				},1000);
+			}else{
+				baopRequest.bp_alert(data.message,2000);
+			}
+		})        
+    });
+	
+	//获取地址栏参数
+	function getQueryString(name)
+	{
+		 var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		 var r = window.location.search.substr(1).match(reg);
+		 if(r!=null)return  unescape(r[2]); return null;
+	}
+	
+	// init wid
+	var wxApid = "";
+	if(baopRequest.is_weixin()){
+		 var myurl=getQueryString("wid");
+		 if(myurl !=null && myurl.toString().length>1)
+		 {
+			wxApid = "&wxApid=" + myurl;
+			localStorage.setItem("cache_wid",data.wid);
+		 }
+	}
+ });
+</script>
+
+</body>
+</html>

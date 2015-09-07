@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="../images/logo5.ico"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>线下支付</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+  </head>
+<body>           
+	<section class="selectcom bg_gradient bor_no" style="padding-bottom:30px;">
+    	<div class="ap">
+            <div class="selcarinfo">
+                <p class="title">京NK1234(宝马)<span class="fr col_money">￥6500</span></p>
+                <p>中国人民保险；交强险、车船税及商业险6项。</p>
+                <div class="icocar"></div>
+            </div>
+            <div class="botstatus linestatus"><div class="togglebtn" style="bottom:1px;"></div></div>
+        </div>  
+        <div class="offline">
+        	<p><img src="../images/offlogo.png" /></p>
+            <p class="em2 mar_t_10">感谢您选择保评为您服务！请前往保评合作服务商现场付费领取保单。如遇问题可拨打保评客服电话:<span style="font-size:18px;">40004-98989</span></p>
+            <p class="tr">(每日早9:00-晚20:00)</p>          
+            <div class="orangebox">
+                <p>服  务  商：<span class="agentName"></span></p>
+                <p>联系方式：<span class="agentPhone"></span></p>
+                <p>地&nbsp; &nbsp; 址：<span class="agentaddress"></span></p>
+                <p>营业时间：<span class="officetime"></span></p>
+                <div class="orangecar"></div>
+            </div> 
+            <div class="mar_t_10">
+                <p><img src="../images/offlogo1.png" /></p>
+                <div class="botgray">在本“订单详情”拍照上传您的保单，即可成为保评汇VIP会员！</div>
+            </div> 
+         </div>        
+    </section>
+    <p><input type="submit" class="nextbtn" value="上传保单"></p>
+<div id="loadingbox"></div>    
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/common.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {	
+$(".agentName").html(localStorage.getItem("agentName"));
+$(".agentPhone").html(localStorage.getItem("agentPhone"));
+$(".agentaddress").html(localStorage.getItem("agentaddress"));
+$(".officetime").html(localStorage.getItem("agentRemark") + localStorage.getItem("officetime"));
+});
+</script>
+</body>
+</html>

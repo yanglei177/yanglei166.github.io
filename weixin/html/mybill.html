@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="../images/logo5.ico"/>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>我的保单</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+  </head>
+<body>           
+	<section class="liststatus mybill bg_gradient bor_no">
+    	<ul>
+        	<!--<li>
+            	<div class="carbox">
+                	<div class="carimg"></div>
+                    <p>京NK1234</p>
+                </div>
+            	<div class="infobox">
+                	<p>保单内容：交强险及商业险6种；</p>
+                    <p>有效期：2015-09-15至2015-09-14</p>
+                </div>
+            </li>-->        	            
+        </ul>  
+        <h2 class="viewmore"><div class="arrimg"></div>查看更多</h2>
+        <p class="tc mar_t_15 dis_none bold font14" id="baodan">您暂无保单记录</p>
+    </section>
+<div id="loadingbox"></div>    
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/common.js"></script>
+<script type="text/javascript">
+$(function(){
+	var uid = window.localStorage.getItem("uid");
+	if(!uid){
+		alert("您还没有注册登录，请先注册。");
+		location.href = "register.html?url=mybill.html";
+		return ;
+	}
+	
+	var reqData = "uid=" + localStorage.getItem("uid");				
+	baopRequest.sendData("order/list", reqData, function(data){
+		if (data.code == 0) {
+			if(data.page.totalPage == 1){
+				$(".viewmore").hide();
+			}else if(data.page.totalPage == 0){$("#baodan").show();$(".viewmore").hide();}
+			var liHtml = "";
+			for(var i=0;i<data.page.list.length;i++){
+				var aXz = ["交强险","商业险"], sXz = "";
+				for(var j=0;j<data.page.list[i].insuranceTypes.length;j++){
+					sXz += aXz[data.page.list[i].insuranceTypes[j]] + "及";
+				}												
+				sXz = sXz.slice(0,sXz.length-1);
+				if(data.page.list[i].startDate && data.page.list[i].endDate){
+					var startDate = data.page.list[i].startDate.slice(0,10);
+					var endDate = data.page.list[i].endDate.slice(0,10);
+					liHtml += "<li id='" + data.page.list[i].id + "' onClick=\"location.href=\'billdetail.html?id=" + data.page.list[i].id + "\'\"><div class='carbox'><div class='carimg'></div><p>" + data.page.list[i].carNo + "</p></div><div class='infobox' style='padding:12px 0px 5px 5px;'><p>保单内容：" + sXz + "；</p><p>有效期：" + startDate +  "至" + endDate  + "</p></div></li>";
+				}else{
+					liHtml += "<li id='" + data.page.list[i].id + "' onClick=\"location.href=\'billdetail.html?id=" + data.page.list[i].id + "\'\"><div class='carbox'><div class='carimg'></div><p>" + data.page.list[i].carNo + "</p></div><div class='infobox' style='padding:12px 0px 5px 5px;'><p>保单内容：" + sXz + "；</p><p>&nbsp;" + "</p></div></li>";
+				}
+			}								
+			$(".liststatus ul").html(liHtml);
+			localStorage.setItem("totalPage", data.page.totalPage);
+			console.log(data);      
+		}else{baopRequest.bp_alert(data.message,2000);}
+	}); 
+});
+</script>
+</body>
+</html>
