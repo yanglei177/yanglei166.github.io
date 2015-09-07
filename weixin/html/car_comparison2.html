@@ -54,7 +54,7 @@
             <li>
                 <div class="text_box verifydes">                	
                     <input type="text" readonly name="registerDate" class="text textarr" placeholder="请选择车辆注册日期" />
-                    <input type="date" class="datetime textimg" value="2015-08-17" />                    
+                    <input type="date" class="datetime textimg" id="dateval" value="2015-08-17" />                    
                 </div>                
                 <p class="des"></p>
                 <div class="imgbox"><img src="../images/license3.png" /></div>      
@@ -72,6 +72,13 @@
 <script src="../js/common.js"></script>
 <script type="text/javascript">
  $(function(){
+	 var text = document.getElementById("dateval");
+	 //text.addEventListener("focus",alval,false);
+	 text.addEventListener("change",alval,false);
+	 
+	 function alval(){
+		 alert($(text).val()) 
+	 }
 	 // init form
 	 var initData = localStorage.getItem("carCompare2");
 	 if(initData){

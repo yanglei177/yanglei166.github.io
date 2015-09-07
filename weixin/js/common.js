@@ -107,13 +107,13 @@
  
  $(function(){
 	 // select
-	 alert($(".datetime").val())
-	 $(".text_box .select,.text_box .datetime").on("change",function(){	alert($(".datetime").val())
+	 
+	/* $(".text_box .select,.text_box .datetime").on("change",function(){	alert($(".datetime").val())
 	 	if($(this).val() != "请选择"){
 			$(this).prev(".textarr").val($(this).val());		
 			$(this).parents(".verifydes").siblings(".des").css("visibility","hidden"); 	
 		}	 					
-	 });
+	 });*/
 	 
 	 
 	 //radio button  (common class "simulateradio")
