@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>保评车险</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="images/logo5.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/sm.css">
+    <link rel="stylesheet" href="css/sm-extend.css"> 
+    <style type="text/css">
+      .storeList .item-media img{width: 35px;height: 25px;} 
+      .storeList .item-content,#storeList .item-inner{min-height: 3.5rem;}
+    </style>   
+  </head>
+  <body>
+    <div class="page-group">
+      <div class="page page-current" id='router1'>
+        <header class="bar bar-nav">
+          <a class="button button-link button-nav pull-left back" href="">
+            <span class="icon icon-undo2"></span>
+            返回
+          </a>
+          <h1 class='title'>报价方案详情</h1>
+        </header>          
+        <div class="content">
+          <div class="content-block" style="padding:0; margin-top:0;">
+            <div class="list-block storeList">
+              <ul>
+                <li class="item-content item-link">
+                  <div class="item-media"><img src="images/icons/2acfa9e3-41b4-11e5-bd9a-52540003.png"></div>
+                  <div class="item-inner">
+                    <div class="item-title">人保财险</div>
+                    <div class="item-after">8233</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-block-title">商业险</div>
+          <table class="tab">
+             <thead>
+               <tr>
+                 <td width="43%">项目</td>
+                 <td width="32%">是否投保/保额</td>
+                 <td width="25%">金额(元)</td>
+               </tr>
+             </thead>
+             <tbody>
+               <tr>
+                <td>车辆损失险</td>
+                <td>投保</td>
+                <th>2567.69</th>
+               </tr>
+               <tr>
+                <td>第三者责任险</td>
+                <td>10万</td>
+                <th>710.36</th>
+               </tr>
+               <tr>
+                <td>全车盗抢险</td>
+                <td>投保</td>
+                <th>831.99</th>
+               </tr>
+               <tr>
+                <td>司机座位责任险</td>
+                <td>1万</td>
+                <th>33.21</th>
+               </tr>
+               <tr>
+                <td>乘客座位责任险</td>
+                <td>1万/座</td>
+                <th>84.24</th>
+               </tr>
+               <tr>
+                <td>玻璃单独破碎险</td>
+                <td>进口玻璃</td>
+                <th>552.42</th>
+               </tr>
+               <tr>
+                <td>车身划痕损失险</td>
+                <td>1万</td>
+                <th>1053</th>
+               </tr>
+               <tr>
+                <td>不计免赔</td>
+                <td>投保</td>
+                <th>833.66</th>
+               </tr>
+             </tbody>
+          </table> 
+          <div class="list-block">
+            <ul>
+              <li class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">交强险</div>
+                  <div class="item-after">8233</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="list-block">
+            <ul>
+              <li class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">车船税</div>
+                  <div class="item-after">400</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                <div class="text-center">总计：¥6400 <span class="through">¥8748</span></div> 
+              </li>
+            </ul>
+          </div>
+          <div class="content-block">
+            <a href="#" class="button button-big button-fill button-success" id="insure">投保</a>
+          </div>
+        </div>          
+        <div class="modal-overlay"></div>                 
+      </div>            
+    </div>
+    <script type='text/javascript' src='js/lib/zepto.js'></script>
+    <script type='text/javascript' src='js/sm.js'></script>
+    <script type='text/javascript' src='js/sm-extend.js'></script>
+    <script type='text/javascript' src='js/sm-city-picker.js'></script>
+    <script type='text/javascript' src='js/common.js'></script>
+    <script>
+      $(function() {
+        $("#insure").click(function(){
+          location.href = "writeinfo.html";
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>保评车险</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="images/logo5.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/sm.css">
+    <link rel="stylesheet" href="css/sm-extend.css"> 
+    <style type="text/css">
+      .storeList .item-media img{width: 35px;height: 25px;} 
+      .storeList .item-content,.storeList .item-inner{min-height: 3.5rem;}
+      .radio .item-media{padding:0;}
+    </style>   
+  </head>
+  <body>
+    <div class="page-group">
+      <div class="page page-current" id='router1'>
+        <header class="bar bar-nav">
+          <a class="button button-link button-nav pull-left back" href="">
+            <span class="icon icon-undo2"></span>
+            返回
+          </a>
+          <h1 class='title'>填写投保信息</h1>
+        </header>          
+        <div class="content">
+          <div class="list-block radio">
+            <ul>
+              <li class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">送单方式：</div>
+                  <div class="item-after">
+                    <label class="label-checkbox mar_l_05">
+                      <input type="radio" name="my-radio" checked="">
+                      <div class="item-media"><i class="icon icon-form-checkbox"></i>快递</div>
+                    </label>
+                    <label class="label-checkbox mar_l_05">
+                      <input type="radio" name="my-radio">
+                      <div class="item-media"><i class="icon icon-form-checkbox"></i>送货上门</div>
+                    </label>
+                  </div>
+                </div>
+              </li> 
+              <li class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">所在城市：</div>
+                  <div class="item-after">北京</div>
+                </div>
+              </li>               
+              <li class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">预约时间：</div>
+                  <div class="item-input">
+                    <input type="text" id="my-input" placeholder="2016-05-04">
+                  </div>
+                </div>
+              </li> 
+              <li class="item-content">
+                <div class="item-inner">
+                  <div class="item-title label">详细地址：</div>
+                  <div class="item-input">
+                    <textarea placeholder="请填写详细地址"></textarea>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="content-block">
+            <a href="#" class="button button-big button-fill button-success create-actions">确认</a>
+          </div>
+        </div>  
+        <div class="modal-overlay"></div>                 
+      </div>            
+    </div>
+    <script type='text/javascript' src='js/lib/zepto.js'></script>
+    <script type='text/javascript' src='js/sm.js'></script>
+    <script type='text/javascript' src='js/sm-extend.js'></script>
+    <script type='text/javascript' src='js/sm-city-picker.js'></script>
+    <script type='text/javascript' src='js/common.js'></script>
+    <script>
+      $(function() {
+        //init calendar
+        $("#my-input").calendar({
+            value: ['2015-12-05']
+        });
+
+        //确认
+        $(document).on('click','.create-actions', function () {
+          var buttons1 = [
+            {
+              text: '请选择',
+              label: true
+            },
+            {
+              text: '提交订单',
+              bold: true,
+              color: 'danger',
+              onClick: function() {
+                $.alert("你选择了“卖出“");
+              }
+            },
+            {
+              text: '取消',
+              onClick: function() {
+                location.href = "cxbj.html";
+              }
+            }
+          ];
+          var buttons2 = [
+            {
+              text: '取消',
+              bg: 'danger'
+            }
+          ];
+          var groups = [buttons1, buttons2];
+          $.actions(groups);
+      });
+      });
+    </script>
+  </body>
+</html>
