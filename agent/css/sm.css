@@ -2131,7 +2131,7 @@ label.label-checkbox.active-state .item-inner:after {
   text-decoration: none;
   text-align: center;
   display: block;
-  border-radius: 0.25rem;
+  /*border-radius: 0.25rem;*/
   line-height: 1.25rem;
   box-sizing: border-box;
   -webkit-appearance: none;
@@ -2722,7 +2722,7 @@ input[type="button"].button {
   margin-top: 0;
   top: 50%;
   text-align: center;
-  border-radius: 0.35rem;
+  /*border-radius: 0.35rem;*/
   opacity: 0;
   -webkit-transform: translate3d(0, 0, 0) scale(1.185);
           transform: translate3d(0, 0, 0) scale(1.185);
@@ -2748,7 +2748,7 @@ input[type="button"].button {
 }
 .modal-inner {
   padding: 0.75rem;
-  border-radius: 0.35rem 0.35rem 0 0;
+  /*border-radius: 0.35rem 0.35rem 0 0;*/
   position: relative;
   background: #e8e8e8;
 }
@@ -2857,7 +2857,7 @@ input[type="button"].button {
   display: none;
 }
 .modal-button:first-child:last-child {
-  border-radius: 0 0 0.35rem 0.35rem;
+  /*border-radius: 0 0 0.35rem 0.35rem;*/
 }
 .modal-button.modal-button-bold {
   font-weight: 500;

@@ -247,7 +247,7 @@
           
           var reqData = "id=" + baopRequest.getURLParam("id");        
           baopRequest.sendData("inquerySheet/findById", reqData, function(data){
-            if (data.code == 0) {
+            if (data.code != 0) {
               $.popup('.popup-about');
             }else{
               $.alert('查询车辆信息失败，请点击"确认"完善个人车辆信息！', function () {
