@@ -4256,6 +4256,15 @@ body.panel-closing .page {
 .icon-user-minus:before {
     content: "\e923";
 }
+.icon-profile:before {
+    content: "\e918";
+}
+.icon-file-text:before {
+    content: "\e919";
+}
+.icon-menu:before {
+    content: "\e91a";
+}
 /*
 .icon-plus {
     width: 1.25rem;

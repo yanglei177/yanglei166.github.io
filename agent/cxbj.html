@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>保评车险</title>
+    <title>智多保</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="images/logo5.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,6 +19,9 @@
     <div class="page-group">
         <div class="page page-current" id='router1'>
           <header class="bar bar-nav">
+            <a class="button button-link button-nav pull-left" href="">
+              <span class="icon icon-menu open-panel" data-panel='#panel-left-demo' style="margin-left:0.5rem;"></span>
+            </a>
             <h1 class='title'>车险比价</h1>
           </header>          
           <div class="content">
@@ -71,8 +74,7 @@
             </div>                      
             <nav class="bar bar-tab" style="position: fixed;">
               <a class="tab-item active" href="#router2">我的订单</a>
-              <a class="tab-item" href="#router3">历史报价</a>
-              <a class="tab-item open-panel" data-panel='#panel-left-demo' href="#">个人中心</a>
+              <a class="tab-item" href="#router3">历史报价</a>              
             </nav>             
           </div>  
           <!-- About Popup -->
@@ -170,51 +172,57 @@
         <div class="panel-overlay"></div>
         <div class="panel panel-left panel-reveal theme-dark" id='panel-left-demo'>
           <div class="content native-scroll">
-            <p class="text-center">个人信息</p>
+            <p class="text-center"><i class="icon icon-profile"></i>个人信息</p>
             <div class="list-block" style="margin-top: 0;">
               <ul>
                 <li>
                   <div class="item-content">
-                    <div class="item-media"><i class="icon icon-newspaper"></i></div>
                     <div class="item-inner">
                       <div class="item-title label">姓名</div>
-                      <div class="item-input">杨居上</div>
+                      <div class="item-input">王凯</div>
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="item-content">
-                    <div class="item-media"><i class="icon icon-newspaper"></i></div>
                     <div class="item-inner">
-                      <div class="item-title label">车牌</div>
-                      <div class="item-input">京B3fdsf</div>
+                      <div class="item-title label">手机号</div>
+                      <div class="item-input">18600506978</div>
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div class="item-content">
-                    <div class="item-media"><i class="icon icon-newspaper"></i></div>
-                    <div class="item-inner">
-                      <div class="item-title label">车牌</div>
-                      <div class="item-input">京B3fdsf</div>
-                    </div>
+                  <div class="item-content item-link">
+                    <div class="item-inner"><a href="">
+                      <div class="">将要到期客户</div>                      
+                    </a></div>
                   </div>
                 </li>
                 <li>
-                  <div class="item-content">
-                    <div class="item-media"><i class="icon icon-form-toggle"></i></div>
-                    <div class="item-inner">
-                      <div class="item-title label">开关</div>
-                      <div class="item-input">
-                        <label class="label-switch">
-                          <input type="checkbox">
-                          <div class="checkbox"></div>
-                        </label>
-                      </div>
-                    </div>
+                  <div class="item-content item-link">
+                    <div class="item-inner"><a href="">
+                      <div class="">近期报价</div>                      
+                    </a></div>                    
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content item-link">
+                    <div class="item-inner"><a href="">
+                      <div class="">我的业绩</div>                      
+                    </a></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item-content item-link">
+                    <div class="item-inner"><a href="">
+                      <div class="">我的订单</div>                      
+                    </a></div>
                   </div>
                 </li>
               </ul>
+            </div>
+            <div class="content-block">
+              <a href="#" class="button button-big button-fill button-success close-panel">退出/切换用户</a>
             </div>
           </div>          
         </div>        
