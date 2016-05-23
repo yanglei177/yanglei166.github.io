@@ -39,15 +39,11 @@
 
  	// click li load html
  	$("li.nav-item").click(function(){
- 		var index = 0;
+ 		var index = 0 , src = $(this).attr("src");
  		$(this).parents(".sidebar-content").find("li.nav-item").removeClass("on").end().end().addClass("on");
  		//$(".home-section-main").load($(this).attr("src"));  
  		$.pjax({
-            cache: false,
-            type: 'POST',
-			dataType: 'json',
-            url: $(this).attr("src"),
-            data:"",
+            url: src,
             container : '.home-section-main'
         });  	
  	});
