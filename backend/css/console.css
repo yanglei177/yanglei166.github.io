@@ -1,0 +1,184 @@
+body { background: #999; font-size: 12px;}
+.console-topbar .topbar-clearfix::before, .console-topbar .topbar-clearfix::after { content: " "; display: table; }
+.console-topbar .topbar-wrap, .console-topbar .topbar-logo, .console-topbar .topbar-home, .console-topbar .topbar-home-link, .console-topbar .topbar-nav, .console-topbar .topbar-info { height: 100%; }
+.viewFramework-topbar { background: #09c; height: 50px; position: fixed; width: 100%; z-index: 101; }
+.viewFramework-body { background-color: #000; bottom: 0; position: absolute; top: 50px; width: 100%; z-index: 100; }
+.viewFramework-sidebar { background-color: #293038; bottom: 0; display: none; overflow-x: hidden; position: fixed; top: 50px; width: 0; z-index: 102; }
+.viewFramework-product { background: #eaedf1; bottom: 0; left: 0; overflow: hidden; position: absolute; right: 0; top: 0; width: auto; }
+.viewFramework-product-body { bottom: 0; left: 0; overflow-x: hidden; overflow-y: auto; position: absolute; right: 0; top: 0; transition: all 0.2s ease 0s; width: auto; }
+.viewFramework-sidebar-full .viewFramework-sidebar, .viewFramework-sidebar.sidebar-full { display: block; width: 180px; }
+.viewFramework-sidebar-full .viewFramework-product { left: 180px; }
+.viewFramework-sidebar-mini .viewFramework-product {
+    left: 50px;
+}
+.viewFramework-sidebar-mini .viewFramework-sidebar, .viewFramework-sidebar.sidebar-mini {
+    display: block;
+    width: 50px;
+}
+.console-topbar { background: #09c; clear: both; font-size: 12px; height: 50px; min-width: 990px; position: relative; z-index: 100; }
+.viewFramework-sidebar .sidebar-content { height: 100%; overflow-x: hidden; overflow-y: auto; width: 200px; }
+.viewFramework-sidebar-mini .viewFramework-sidebar .sidebar-content, .viewFramework-sidebar.sidebar-mini .sidebar-content {
+    width: 70px;
+}
+.console-topbar .topbar-logo, .console-topbar .topbar-home { background: #0099cc; color: #fff; display: block; font-size: 18px; line-height: 50px; text-align: center; width: 50px; }
+.console-topbar .topbar-head { background: #008fbf; height: 50px; position: relative; z-index: 3; }
+.console-topbar .topbar-logo { background: #0087b4; }
+.console-topbar .topbar-logo img { width: 80%; height: 80%; padding: 10%; }
+.console-topbar .topbar-btn { color: #fff; font-size: 14px; line-height: 50px; }
+.console-topbar .topbar-home-link { background: #09c none repeat scroll 0 0; margin-right: 1px; padding: 0 20px; }
+.console-topbar .topbar-nav { background: #09c none repeat scroll 0 0; position: relative; z-index: 2; }
+.console-topbar .topbar-info { background: #008fbf none repeat scroll 0 0; position: absolute; right: 0; top: 0; z-index: 1; }
+.home-section-notice { height: 30px; position: relative; background: #fff; }
+.viewFramework-product span, .viewFramework-product a { font-weight: 300; letter-spacing: 0.02em; text-rendering: optimizelegibility; }
+.home-section-notice .notice-title { font-weight: 600; line-height: 30px; margin-left: 32px; margin-right: 8px; }
+.home-section-main { margin: 0 8px; padding: 8px 0; position: relative; }
+.viewFramework-sidebar .sidebar-nav {
+    width: 180px;
+}
+.viewFramework-sidebar .sidebar-fold {
+    -moz-user-select: none;
+    background: #394555 none repeat scroll 0 0;
+    color: #aeb9c2;
+    cursor: pointer;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px !important;
+    text-align: center;
+    width: 180px;
+}
+.viewFramework-sidebar .sidebar-nav {
+    width: 180px;
+}
+.viewFramework-sidebar-mini .viewFramework-sidebar .sidebar-nav, .viewFramework-sidebar.sidebar-mini .sidebar-nav {
+    width: 50px;
+}
+.viewFramework-sidebar-mini .viewFramework-sidebar .sidebar-fold, .viewFramework-sidebar.sidebar-mini .sidebar-fold {
+    width: 50px;
+}
+.viewFramework-sidebar .sidebar-nav .sidebar-title {
+    -moz-user-select: none;
+    background: #22282e none repeat scroll 0 0;
+    color: #fff;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+}
+.viewFramework-sidebar .sidebar-nav-fold .sidebar-title {
+    background: #37424f none repeat scroll 0 0;
+    border-bottom: 1px solid #414d5c;
+}
+.viewFramework-sidebar .sidebar-nav .sidebar-title:hover{
+    background: #414d5c;
+}
+.viewFramework-sidebar .sidebar-nav-fold .sidebar-title-icon {
+    transform: rotate(-90deg);
+}
+.viewFramework-sidebar .sidebar-nav .sidebar-title-icon {
+    display: inline-block;
+    margin: 0 8px 0 20px;
+    transition: transform 0.12s ease 0s;
+    vertical-align: middle;
+}
+.viewFramework-sidebar .sidebar-manage {
+    height: 40px;
+    position: absolute;
+    right: 0;
+    vertical-align: middle;
+    width: 40px;
+}
+.viewFramework-sidebar .sidebar-manage a {
+    color: #a0abb3;
+    display: block;
+    font-size: 14px;
+    height: 100%;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+.viewFramework-sidebar .sidebar-nav ul {
+    list-style: outside none none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+.viewFramework-sidebar .sidebar-trans {
+    transition: all 0.12s ease 0s, all 0.12s ease 0s;
+}
+.viewFramework-sidebar .sidebar-nav .nav-item {
+    position: relative;
+}
+.viewFramework-sidebar .sidebar-nav li a {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    width: 100%;
+}
+.viewFramework-sidebar .sidebar-nav li a:hover,.viewFramework-sidebar .sidebar-nav .nav-item.on{background:#37424f;}
+.viewFramework-sidebar-full .viewFramework-sidebar .sidebar-nav .nav-icon, .viewFramework-sidebar.sidebar-full .sidebar-nav .nav-icon {
+    width: 50px;
+}
+.viewFramework-sidebar .sidebar-nav .nav-icon {
+    color: #aeb9c2;
+    float: left;
+    font-size: 16px;
+    text-align: center;
+    width: 50px;
+}
+.viewFramework-sidebar .sidebar-nav .nav-title {
+    color: #fff;
+    display: block;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 130px;
+}
+.viewFramework-sidebar-mini .viewFramework-sidebar .sidebar-title .sidebar-title-text, .viewFramework-sidebar.sidebar-mini .sidebar-title .sidebar-title-text {
+    display: none;
+}
+.viewFramework-sidebar-mini .viewFramework-sidebar .sidebar-manage, .viewFramework-sidebar.sidebar-mini .sidebar-manage {
+    display: none;
+}
+.viewFramework-sidebar-mini .viewFramework-sidebar .sidebar-nav .nav-title, .viewFramework-sidebar.sidebar-mini .sidebar-nav .nav-title {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
