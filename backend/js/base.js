@@ -44,6 +44,7 @@
  		//$(".home-section-main").load($(this).attr("src"));  
  		$.pjax({
             url: src,
+            data:"one=1",
             container : '.home-section-main'
         });  	
  	});
