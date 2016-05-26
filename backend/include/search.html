@@ -1,0 +1,151 @@
+<div class="console-container">
+	<div class="console-title console-title-border clearfix">
+		<div class="pull-left">
+		    <h5>查询列表</h5>
+		</div>
+	</div>
+	<div class="margin-top clearfix">
+		<form method="post" class="form-inline">
+		    <div class="form-group">
+		        <label class="control-label">查询类型：</label>
+		        <select class="select form-control" name="domainType" id="domainType">
+		            <option value="0" selected="selected">全部</option>
+		            <option value="1">保单</option>
+		            <option value="2">订单</option>
+		            <option value="5">保评汇</option>
+		            <option value="6">询价单</option>
+		        </select>
+		    </div>
+		    <div class="form-group">
+		        <label class="control-label">自定义分组：</label>
+		        <select class="select form-control inline-block" name="orderGroupID" id="orderGroupID">
+		            <option value="" selected="selected">选择分组</option>
+		            <optgroup label="-----------------">
+		            	<option value="2">分组1</option>
+		            	<option value="2">分组2</option>
+		            	<option value="2">分组1</option>
+		            </optgroup>
+		            <optgroup label="-----------------">
+		        		<option value="">分组管理</option>
+		        	</optgroup>
+		        </select>
+		    </div>
+		        <div class="form-group">
+		        <label class="control-label">商业险到期日：</label>
+		        <input type="text" class="ipt form-control hasDatepicker" size="13" name="startDate" id="startDate"><span class="date-step-span">至</span>
+		        <input type="text" class="ipt form-control hasDatepicker" size="13" name="endDate" id="endDate">
+		       </div>
+		    <div class="form-group">
+		        <label class="control-label">保单号：</label>
+		        <input type="text" class="ipt form-control" placeholder="输入保单号进行搜索" size="30" name="relatedName" id="relatedName">
+		        <button id="btnSearch" class="btn btn-default" type="button">搜索</button>
+		    </div>
+		</form>
+	</div>
+	<div class="margin-top">
+		<table class="table table-hover">
+            <thead>
+	            <tr>
+	                <th>
+	                    <input type="checkbox" id="ckSelectAll" name="ckSelectAll">
+	                </th>
+	                <th>域名</th>
+	                <th>域名类型</th>
+	                <th>域名状态</th>
+	                <th>到期日期</th>
+	                <th class="text-right">操作</th>
+	            </tr>
+            </thead>
+            <tbody >
+            	<tr>
+            		<td><input type="checkbox"  name="ckbox"></td>
+            		<td><a target="_blank"  class="sub-style j_domain" href="">3242342</a></td>
+            		<td>国内域名</td>
+            		<td>正常</td>
+            		<td>2017-05-06</td>
+            		<td class="text-right">
+            			<a href="">续费</a>
+            			<span class="text-explode">|</span>
+            			<i class="link-space"></i>
+            			<a target="_blank" href="">解析</a>
+            			<span class="text-explode">|</span>
+            			<i class="link-space"></i>
+            			<a target="_blank" href="">管理</a>
+            		</td>
+            	</tr>
+            	<tr>
+            		<td><input type="checkbox" name="ckbox"></td> 											<td><a target="_blank" class="sub-style j_domain" href="">3464565464</a></td> 			<td>国际域名</td>
+            		<td>正常</td>
+            		<td>2017-04-25</td>
+            		<td class="text-right">
+            			<a href="">续费</a>
+            			<span class="text-explode">|</span>
+            			<i class="link-space"></i>
+            			<a target="_blank" href="">解析</a>
+            			<span class="text-explode">|</span>
+            			<i class="link-space"></i>
+            			<a target="_blank" href="">管理</a>
+            		</td>
+            	</tr>
+            	<tr>
+            		<td><input type="checkbox" name="ckbox"></td> 											<td><a target="_blank" class="sub-style j_domain" href="">3464565464</a></td> 			<td>国际域名</td>
+            		<td>正常</td>
+            		<td>2017-04-25</td>
+            		<td class="text-right">
+            			<a href="">续费</a>
+            			<span class="text-explode">|</span>
+            			<i class="link-space"></i>
+            			<a target="_blank" href="">解析</a>
+            			<span class="text-explode">|</span>
+            			<i class="link-space"></i>
+            			<a target="_blank" href="">管理</a>
+            		</td>
+            	</tr>
+            </tbody>
+            <tfoot>
+            	<tr>
+                	<td width="10"><input type="checkbox" class="mydomain-checkbox"></td>
+                    <td colspan="5">
+                    	<div class="pull-left">
+                        	<button class="btn btn-default" type="button">域名续费</button>
+                            <button class="btn btn-default" type="button">转至其他账号</button>
+                            	<select class="select form-control inline-block">
+	                                <option value="">更多批量操作</option>
+	                                <option value="taoPub">一口价域名发布</option>
+	                                <option value="pushDomain">域名带价PUSH</option>
+	                                <option value="batch-chg-contact">域名信息修改</option>
+	                                <option value="batch-chg-holder">域名所有者变更(过户)</option>
+	                                <option value="dlcert">下载域名证书</option>
+	                                <option value="autoRenew">设置自动续费</option>
+                                </select>
+                            </div>
+                            <div class="pull-right page-box">
+                                <div class="pagination-info">共有4条，每页显示：20条</div>
+                                <ul class="pagination">
+                                	<li page-index="1" class="disabled"><a>«</a></li>
+                                	<li page-index="0" class="disabled"><a>‹</a></li>
+                                	<li page-index="1" class="active"><a>1</a></li>
+                                	<li page-index="2" class="disabled"><a>›</a></li>
+                                	<li page-index="1" class="disabled"><a>»</a></li>
+                                </ul>
+                                <div class="pagination-goto">
+                                    <input type="text" id="gotoPageNo" class="ipt form-control">
+                                    <button id="goBtn" class="btn btn-default" type="button">GO</button>
+                                    <input type="hidden" name="totalCount" id="totalCount" value="4">
+                                </div>
+                            </div>
+                        </td>
+                </tr>
+            </tfoot>
+        </table>
+	</div>
+	<div class="margin-top">
+	  <div class="alert alert-tip"><b>温馨提示：</b>
+	    <p>• 如果在此账号下没有找到您的域名信息，您可以尝试
+	      <a target="_blank" href="">通过域名查询登陆帐号</a></p>
+	    <p>• 域名解析生效问题，您可以通过域名访问检测工具
+	      <a target="_blank" href="http://zijian.aliyun.com/">来进行自助排查与解决</a></p>
+	    <p>• 如何从域名到建站？您可以<a target="_blank" href="">点此查看</a></p>
+	 </div>
+</div>
+</div>
