@@ -85,13 +85,14 @@
                 </div>
               </li>
              </ul>
-          </div> 
+          </div>           
           <div class="content-block">
             <div class="row">
-              <div class="center"><a href="#" class="button button-big button-fill button-success">提交</a></div>
+              <div class="center"><a href="#" class="button button-big button-fill button-success alert-text-title">提交</a></div>
             </div>
-          </div> 
+          </div>          
         </div>
+        <div class="modal-overlay"></div>
       </div>
     </div>
     <script type='text/javascript' src='js/zepto.min.js'></script>
@@ -105,6 +106,10 @@
         $.init();
       });
 
+      //弹出框
+      $(document).on('click','.alert-text-title', function () {
+          $.alert('Here goes alert text', '标题!');
+      });
       //上传图片
       $('.fileimg').UploadImg({  
            url : "http://test.ebaoping.com/baoping-api/api/upload/uploadImg",
