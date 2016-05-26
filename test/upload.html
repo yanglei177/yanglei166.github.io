@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>智多保</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="shortcut icon" href="images/logo5.ico">
+    <link rel="stylesheet" href="css/sm.css">
+    <link rel="stylesheet" href="css/sm-extend.css">  
+    <style type="text/css">
+      .bar-nav ~ .content {top: 1.4rem;}
+      .list-block textarea{border: 1px solid #ccc; margin:10px 0;}
+      p.banner{width: 100%; margin:0; padding:0; height: 202px; overflow: hidden;}
+      .xzsside{width: 100%; position: relative;}
+      .xzsside img{width: 200px;}
+      .fileimg {position: absolute;left: 0;top: 5px;opacity: 0;width: 100%; z-index: 10;}
+      .img_box {position: absolute;left: 0;top: 0px;width: 100%;}
+      .img_box ul {width: 100%;padding: 0;}
+      .img_box ul li{height: auto;line-height: 24px; padding-bottom: 15px;border-bottom: 1px solid #dedede;position: relative;}
+      .img_box ul li .clo {background: url(images/clo.png) no-repeat;width: 30px;height: 30px; position: absolute; right: 3px;top: 3px;z-index: 20;}
+      .list-block ul ul{padding-left: 0;}
+    </style>   
+  </head>
+  <body>
+    <div class="page-group">
+      <div id="page-ptr" class="page">
+        <header class="bar bar-nav">
+          <a class="button button-link button-nav pull-left back" href="/demos">
+            <span class="icon icon-undo2"></span>
+            返回
+          </a>
+          <h1 class="title">看兰手游助手刀塔传奇</h1>
+        </header>
+        <div class="content">
+          <p class="banner"><img src="images/banner.jpg"></p>
+          <div class="list-block">
+            <ul>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">选择文件</div>
+                    <div class="item-input">                      
+                        <div class="xzsside">
+                            <img src="images/card1.png">
+                            <input type="file" name="file" data-storage="addperson_photo1" class="webuploader-element-invisible fileimg" accept="image/*" style="height:88px;">
+                            <div class="img_box">
+                                <ul></ul>
+                            </div>                  
+                        </div>                        
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">酷图标题</div>
+                    <div class="item-input">
+                      <input type="text" placeholder="您上传酷图的标题">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="align-top">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">酷图说明</div>
+                    <div class="item-input">
+                      <textarea placeholder="请用不超过30个字简单介绍你上传的酷图"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">传图牛人</div>
+                    <div class="item-input">
+                      <input type="text" placeholder="请输入您所在服，区">
+                    </div>
+                  </div>
+                </div>
+              </li>
+             </ul>
+          </div> 
+          <div class="content-block">
+            <div class="row">
+              <div class="center"><a href="#" class="button button-big button-fill button-success">提交</a></div>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+    <script type='text/javascript' src='js/zepto.min.js'></script>
+    <script type='text/javascript' src='js/sm.js'></script>
+    <script type='text/javascript' src='js/sm-extend.js'></script>
+    <script type="text/javascript" src="js/mobileBUGFix.mini.js"></script>
+    <script type="text/javascript" src="js/upload.js"></script>
+    <script type="text/javascript">
+      $(function () {        
+        //初始化
+        $.init();
+      });
+
+      //上传图片
+      $('.fileimg').UploadImg({  
+           url : "http://test.ebaoping.com/baoping-api/api/upload/uploadImg",
+           width : '640',
+           //height : '300',
+           quality : '0.8', //压缩率，默认值为0.8
+           // 如果quality是1 宽和高都未设定 则上传原图
+           bussinessType:'2',
+           mixsize : '6',
+           pictureCount:'2',
+           type : [".jpg", ".png", ".JPG", ".PNG",".bmp",".jpeg"],     
+           before : function(blob,pcUrl,that){
+               pictureName=pcUrl;
+           storage = that.getAttribute("data-storage");
+                var html = "<li id=" + pcUrl + "><img src='" + blob + "' ><span class='clo' name='" + storage + "'></span></li>";
+                $(that).next(".img_box").find("ul").append(html); 
+            $(that).next(".img_box").find("img").on("load",function(){
+              var w = $(this).width(),
+                h = $(this).height();
+              if(h>w){
+               $(this).css({"width":"h/89*w"+"px","height":"89px"}); 
+              }
+            });         
+           },
+           error : function(res){
+               $('#error').html(res);
+           baopRequest.bp_alert("行驶证正本图片上传失败，请重新选择上传。",2000);
+           },
+           success : function(res){
+           var path = res.url;             
+           sessionStorage.setItem(storage,path);
+           }
+      });
+
+      $(document).delegate("span.clo", "click", function(e) {   
+        var name = $(this).attr("name");
+        $(this).parent("li").remove();  
+        sessionStorage.removeItem(name);  
+        e.stopPropagation();
+      });
+    </script>
+  </body>
+</html>

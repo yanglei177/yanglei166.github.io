@@ -4681,16 +4681,32 @@ html:not(.watch-active-state) .theme-white label.label-radio:active,
   background: #fff;
 }
 /* modify by yjs on 26 Apri 2016 */
-.mar_l_05{margin-left:0.8rem;}
 .fr {float: right;display: inline;}
-ul,li{list-style: none; padding:0; margin:0;}
+ul,li,dl{list-style: none; padding:0; margin:0;}
 .col_red {color: #a60c00;}
 .through{text-decoration: line-through;}
 .dis_none{display: none;}
-.tab{background: #fff; width: 100%;}
-.tab thead td,.tab thead th{color:#868686; font-size:14px; height:45px; line-height: 45px;}
-.tab td,.tab th{border-bottom:1px solid #ededed; font-size:0.65rem; color:#333; height:60px; line-height:60px;}
-.tab tr td:first-child{padding-left:10px;}
-/*.tab td:nth-child(2n+2){text-align:center;}*/
-.tab th{color:#df7b45;text-align:right; padding-right:10px;}
-.list ul li{background: #fff; min-height: 2.2rem; line-height: 2.2rem;}
+.card-container{border-top: 1px solid #aeaeae; background: #fff;}
+.card-container ul li{border-bottom: 1px solid #aeaeae; padding:15px 12px}
+.cardbox{overflow: hidden;}
+.cardtu{float: left; width: 80%; font-size: 0.65rem;}
+.cardtu dl dt{float: left; width: 70px; height: 70px; margin-right:5px;}
+.cardtu dl dd{margin-left:80px; line-height: 22px; color: #666; font-size: 0.6rem;}
+.cardtu dl dd:nth-of-type(2n+1){font-size:0.65rem; color: #333; font-weight: bold; margin-bottom:15px;}
+.carddz{float: left; width: 20%; font-size: 0.65rem; line-height: 12px;}
+.carddz i.dianzan,.carddz i.yaoqing,.carddz i.dianzanoff{background: url(../images/pointer.jpg) no-repeat; width: 21px;height: 23px; margin:3px 5px 0 0; display: inline-block; vertical-align: -13px;}
+.carddz i.yaoqing{background: url(../images/invite.jpg) no-repeat; background-size:21px auto; width: 21px;height:19px;}
+.carddz i.dianzanoff{background: url(../images/pointeroff.jpg) no-repeat;}
+.carddz span{margin-left:25px;}
+.carddz.yqdz{margin-top: 0.6rem;}
+.cardtu .wenzi{margin:15px 12px;}
+.center {
+  width: 30%;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
