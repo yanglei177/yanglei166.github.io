@@ -6816,3 +6816,4 @@ button.close {
 .nav-tabs li.bv-tab-error > a {
     color: #a94442;
 }
+.datebox{display: inline-block;position: relative;}
