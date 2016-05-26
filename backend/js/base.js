@@ -3,6 +3,9 @@
  * 注意事项： 共用JS文件
  */
  ;$(function(){
+    // NProgress.set(0.4);
+    NProgress.start();
+    NProgress.done();
  	//toggle menu
  	$(".sidebar-title").click(function(){
  		$(this).parent(".sidebar-nav").toggleClass("sidebar-nav-fold").end()
@@ -39,22 +42,10 @@
 
  	// click li load html
  	$("li.nav-item").click(function(){
- 		var index = 0 , src = $(this).attr("src");
+ 		var  src = $(this).attr("src");
  		$(this).parents(".sidebar-content").find("li.nav-item").removeClass("on").end().end().addClass("on");
- 		//$(".home-section-main").load($(this).attr("src"));  
- 		$.pjax({
-            url: src,
-            data:"one=1",
-            container : '.home-section-main'
-        });  	
+ 		$(".home-section-main").load(src);  
  	});
-
- 	$(document).on('pjax:send', function() {
-	  $('#loading').show()
-	})
-	$(document).on('pjax:complete', function() {
-	  $('#loading').hide()
-	})
 
  });
 
