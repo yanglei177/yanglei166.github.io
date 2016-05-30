@@ -2,14 +2,6 @@ body { background: #999; font-size: 12px;}
 ul, li {
     list-style: outside none none;
 }
-.mar_l_10{margin-left: 10px;}
-.mar_r_10{margin-right: 10px;}
-.mar_b_10{margin-bottom: 10px;}
-.mar_t_10{margin-top: 10px;}
-.mar_l_05{margin-left:5px;}
-.mar_r_05{margin-right:5px;}
-.mar_b_05{margin-bottom:5px;}
-.mar_t_05{margin-top:5px;}
 .margin-top, .margin-top-1 {
     margin-top: 8px !important;
 }
@@ -24,24 +16,6 @@ ul, li {
 .viewFramework-sidebar-full .viewFramework-product { left: 180px; }
 .viewFramework-sidebar-mini .viewFramework-product {
     left: 50px;
-}
-.console-topbar .topbar-btn-notice-icon {
-    color: #fff;
-    font-size: 24px;
-    line-height: 50px;
-    vertical-align: text-bottom;
-}
-.console-topbar .topbar-btn-notice-num {
-    background: #ff9900 none repeat scroll 0 0;
-    border-radius: 5px;
-    color: #fff;
-    display: inline-block;
-    font-size: 12px;
-    line-height: 16px;
-    margin-top: 15px;
-    padding: 2px 5px;
-    text-align: center;
-    vertical-align: top;
 }
 .viewFramework-sidebar-mini .viewFramework-sidebar, .viewFramework-sidebar.sidebar-mini {
     display: block;
@@ -357,26 +331,10 @@ tfoot, .bg-color-f56 {
 .secure-set-list li .set-list-mid .inner {
     width: 75%;
 }
-.item-title {
-    font-size: 18px;
-    line-height: 18px;
-}
-.lego-console {
-    background-color: #f9fafc;
-    border: 1px solid #e1e6eb;
-    color: #333;
-    padding: 11px 12px;
-}
-.lego-console p{margin:0;}
-.w-pop-close {
-    color: #999;
-    cursor: pointer;
-    float: right;
-    font-size: 20px;
-    line-height: 1;
-    margin-top: 12px;
-    text-shadow: 0 1px 0 #fff;
-}
+
+
+
+
 
 
 

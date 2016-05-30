@@ -22,7 +22,7 @@
  	});
  	
  	$(".sidebar-title .sidebar-manage").hover(function(){
- 		bpcommon.tooltip($(this).attr("title"),$(this).parents(".sidebar-title")[0].offsetTop + 60,180);
+ 		bpcommon.tooltip($(this).attr("title"),$(this).parents(".sidebar-title")[0].offsetTop + 55,180);
  	},function(){
  		$(".tooltip.right").animate({"opacity":"0"},400,function(){
  			$(this).remove();
@@ -30,7 +30,7 @@
  	});
  	$(".sidebar-title-inner,.nav-icon").hover(function(){
  		if($(this).parents(".viewFramework-body").hasClass("viewFramework-sidebar-mini")){
- 			bpcommon.tooltip($(this).attr("title"),$(this).parents(".sidebar-title,li.nav-item")[0].offsetTop + 60,50);
+ 			bpcommon.tooltip($(this).attr("title"),$(this).parents(".sidebar-title,li.nav-item")[0].offsetTop + 55,50);
  		}
  	},function(){
  		if($(".tooltip.right")[0]){
