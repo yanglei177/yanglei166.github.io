@@ -61,7 +61,7 @@ ul, li {
 .console-topbar .topbar-nav { margin:8px 0 0 10px; position: relative; z-index: 2; }
 .console-topbar .topbar-info { background: #008fbf none repeat scroll 0 0; position: absolute; right: 0; top: 0; z-index: 1; }
 .viewFramework-product span, .viewFramework-product a { font-weight: 300; letter-spacing: 0.02em; text-rendering: optimizelegibility; }
-.home-section-main { margin: 0 16px; padding: 8px 0; position: relative; }
+.home-section-main { margin: 0 16px; padding: 8px 0; position: relative; height: 100%;}
 .viewFramework-sidebar .sidebar-nav {
     width: 180px;
 }
