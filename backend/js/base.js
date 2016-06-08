@@ -42,11 +42,17 @@
 
  	// click li load html
  	$("li.nav-item").click(function(){
- 		var  src = $(this).attr("src");
- 		$(this).parents(".sidebar-content").find("li.nav-item").removeClass("on").end().end().addClass("on");
- 		$(".home-section-main").load(src);  
+        if(!$(this).hasClass("on")){
+            var  src = $(this).attr("src") + "?timestamp=" + new Date().getTime();
+            $(this).parents(".sidebar-content").find("li.nav-item").removeClass("on").end().end().addClass("on");
+            $(".home-section-main").load(src);  
+        }
  	});
+    $.ajaxSetup ({
+        cache: false //关闭AJAX相应的缓存
+    });
 
+    
  });
 
  var bpcommon = {

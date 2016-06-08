@@ -20,20 +20,7 @@
               <span>管理控制台</span>
             </a>
           </div>
-          <div class="topbar-nav pull-left dropdown">
-            <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                产品与服务 <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </div>
-          </div>
+          <div class="topbar-nav pull-left dropdown"></div>
           <div class="topbar-info topbar-right topbar-clearfix">
             <ul>
               <li><span class="icon-search"></span> 搜索</li>
@@ -120,16 +107,16 @@
                     <span class="nav-title">用户中心</span>
                   </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" src="include/chart.html">
                   <a href="javascript:void(0)" class="sidebar-trans">
                     <div class="nav-icon sidebar-trans" title="订单查询"><span class="icon-yuming"></span></div>
-                    <span class="nav-title">订单查询</span>
+                    <span class="nav-title">线形图</span>
                   </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" src="include/hchart.html">
                   <a href="javascript:void(0)" class="sidebar-trans">
                     <div class="nav-icon sidebar-trans" title="车险比价"><span class="icon-yuming"></span></div>
-                    <span class="nav-title">车险比价</span>
+                    <span class="nav-title">hchart线形图</span>
                   </a>
                 </li>
               </ul>
@@ -217,9 +204,24 @@
         </div>
       </div>
     </div>
+    <!-- hchart -->
+    <div class="modal fade bs-example-modal-lg" id="hchartbox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">订单数统计</h4>
+          </div>
+          <div class="modal-body">
+            <div id="chartcontainer" style=""></div>
+          </div>          
+        </div>
+      </div>
+    </div>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.js"></script>  
-  <script src="js/nprogress.js"></script>  
+  <script src="js/nprogress.js"></script> 
+  <script src="js/highcharts.js"></script> 
   <script src="js/base.js"></script>
   </body>
 </html>

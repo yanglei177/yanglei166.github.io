@@ -101,9 +101,10 @@ ul, li {
     background: #37424f none repeat scroll 0 0;
     border-bottom: 1px solid #414d5c;
 }
-.viewFramework-sidebar .sidebar-nav .sidebar-title:hover{
+.viewFramework-sidebar .sidebar-nav .sidebar-title:hover,.viewFramework-sidebar .sidebar-nav li a:hover{
     background: #414d5c;
 }
+.viewFramework-sidebar .sidebar-nav li.on a:hover{background: #0099cc;}
 .viewFramework-sidebar .sidebar-nav-fold .sidebar-title-icon {
     transform: rotate(-90deg);
 }
@@ -149,7 +150,7 @@ ul, li {
     overflow: hidden;
     width: 100%;
 }
-.viewFramework-sidebar .sidebar-nav li a:hover,.viewFramework-sidebar .sidebar-nav .nav-item.on{background:#0099cc;}
+.viewFramework-sidebar .sidebar-nav .nav-item.on{background:#0099cc;}
 .viewFramework-sidebar-full .viewFramework-sidebar .sidebar-nav .nav-icon, .viewFramework-sidebar.sidebar-full .sidebar-nav .nav-icon {
     width: 50px;
 }
