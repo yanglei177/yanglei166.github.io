@@ -1,0 +1,583 @@
+body { background: #999; font-size: 12px;}
+ul, li {
+    list-style: outside none none;
+}
+.mar_l_10{margin-left: 10px;}
+.mar_r_10{margin-right: 10px;}
+.mar_b_10{margin-bottom: 10px;}
+.mar_t_10{margin-top: 10px;}
+.mar_l_05{margin-left:5px;}
+.mar_r_05{margin-right:5px;}
+.mar_b_05{margin-bottom:5px;}
+.mar_t_05{margin-top:5px;}
+.margin-top, .margin-top-1 {
+    margin-top: 8px !important;
+}
+.console-topbar .topbar-clearfix::before, .console-topbar .topbar-clearfix::after { content: " "; display: table; }
+.console-topbar .topbar-wrap, .console-topbar .topbar-logo, .console-topbar .topbar-home, .console-topbar .topbar-home-link, .console-topbar .topbar-nav, .console-topbar .topbar-info { height: 100%; }
+.viewFramework-topbar { background: #09c; height: 50px; position: fixed; width: 100%; z-index: 101; }
+.viewFramework-body { background-color: #000; bottom: 0; position: absolute; top: 50px; width: 100%; z-index: 100; }
+.viewFramework-sidebar { background-color: #293038; bottom: 0; display: none; overflow-x: hidden; position: fixed; top: 50px; width: 0; z-index: 102; }
+.viewFramework-product,#rigContainer{ background: #fff; bottom: 0; left: 0; overflow: hidden; position: absolute; right: 0; top: 0; width: auto; }
+.viewFramework-product-body { bottom: 0; left: 0; overflow-x: hidden; overflow-y: auto; position: absolute; right: 0; top: 0; transition: all 0.2s ease 0s; width: auto; }
+.viewFramework-sidebar-full .viewFramework-sidebar, .viewFramework-sidebar.sidebar-full { display: block; width: 180px; }
+.viewFramework-sidebar-full .viewFramework-product { left: 180px; }
+.viewFramework-sidebar-mini .viewFramework-product {
+    left: 50px;
+}
+.console-topbar .topbar-btn-notice-icon {
+    color: #fff;
+    font-size: 24px;
+    line-height: 50px;
+    vertical-align: text-bottom;
+}
+.console-topbar .topbar-btn-notice-num {
+    background: #ff9900 none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 15px;
+    padding: 2px 5px;
+    text-align: center;
+    vertical-align: top;
+}
+.viewFramework-sidebar-mini .viewFramework-sidebar, .viewFramework-sidebar.sidebar-mini {
+    display: block;
+    width: 50px;
+}
+.console-topbar { background: #09c; clear: both; font-size: 12px; height: 50px; min-width: 990px; position: relative; z-index: 100; }
+.viewFramework-sidebar .sidebar-content { height: 100%; overflow-x: hidden; overflow-y: auto; width: 200px; }
+.viewFramework-sidebar-mini .viewFramework-sidebar .sidebar-content, .viewFramework-sidebar.sidebar-mini .sidebar-content {
+    width: 70px;
+}
+.console-topbar .topbar-logo, .console-topbar .topbar-home { background: #0099cc; color: #fff; display: block; font-size: 18px; line-height: 50px; text-align: center; width: 50px; }
+.console-topbar .topbar-head { background: #008fbf; height: 50px; position: relative; z-index: 3; }
+.console-topbar .topbar-logo { background: #0087b4; }
+.console-topbar .topbar-logo img { width: 80%; height: 80%; padding: 10%; }
+.console-topbar .topbar-btn { color: #fff; font-size: 14px; line-height: 50px; }
+.console-topbar .topbar-home-link { background: #09c none repeat scroll 0 0; margin-right: 1px; padding: 0 20px; }
+.console-topbar .topbar-nav { margin:8px 0 0 10px; position: relative; z-index: 2; }
+.console-topbar .topbar-info { background: #008fbf none repeat scroll 0 0; position: absolute; right: 0; top: 0; z-index: 1; }
+.viewFramework-product span, .viewFramework-product a { font-weight: 300; letter-spacing: 0.02em; text-rendering: optimizelegibility; }
+.home-section-main { margin: 0 16px; padding: 8px 0; position: relative; height: 100%;}
+.viewFramework-sidebar .sidebar-nav {
+    width: 180px;
+}
+.viewFramework-sidebar .sidebar-fold {
+    -moz-user-select: none;
+    background: #394555 none repeat scroll 0 0;
+    color: #aeb9c2;
+    cursor: pointer;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px !important;
+    text-align: center;
+    width: 180px;
+}
+.viewFramework-sidebar .sidebar-nav li.on a .nav-icon {
+    color: #fff;
+}
+.viewFramework-sidebar .sidebar-nav {
+    width: 180px;
+}
+.viewFramework-sidebar-mini .viewFramework-sidebar .sidebar-nav, .viewFramework-sidebar.sidebar-mini .sidebar-nav {
+    width: 50px;
+}
+.viewFramework-sidebar-mini .viewFramework-sidebar .sidebar-fold, .viewFramework-sidebar.sidebar-mini .sidebar-fold {
+    width: 50px;
+}
+.viewFramework-sidebar .sidebar-nav .sidebar-title {
+    -moz-user-select: none;
+    background: #22282e none repeat scroll 0 0;
+    color: #fff;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+}
+.viewFramework-sidebar .sidebar-nav-fold .sidebar-title {
+    background: #37424f none repeat scroll 0 0;
+    border-bottom: 1px solid #414d5c;
+}
+.viewFramework-sidebar .sidebar-nav .sidebar-title:hover{
+    background: #414d5c;
+}
+.viewFramework-sidebar .sidebar-nav-fold .sidebar-title-icon {
+    transform: rotate(-90deg);
+}
+.viewFramework-sidebar .sidebar-nav .sidebar-title-icon {
+    display: inline-block;
+    margin: 0 8px 0 20px;
+    transition: transform 0.12s ease 0s;
+    vertical-align: middle;
+}
+.viewFramework-sidebar .sidebar-manage {
+    height: 40px;
+    position: absolute;
+    right: 0;
+    vertical-align: middle;
+    width: 40px;
+}
+.viewFramework-sidebar .sidebar-manage a {
+    color: #a0abb3;
+    display: block;
+    font-size: 14px;
+    height: 100%;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+.viewFramework-sidebar .sidebar-nav ul {
+    list-style: outside none none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+.viewFramework-sidebar .sidebar-trans {
+    transition: all 0.12s ease 0s, all 0.12s ease 0s;
+}
+.viewFramework-sidebar .sidebar-nav .nav-item {
+    position: relative;
+}
+.viewFramework-sidebar .sidebar-nav li a {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    width: 100%;
+}
+.viewFramework-sidebar .sidebar-nav li a:hover,.viewFramework-sidebar .sidebar-nav .nav-item.on{background:#0099cc;}
+.viewFramework-sidebar-full .viewFramework-sidebar .sidebar-nav .nav-icon, .viewFramework-sidebar.sidebar-full .sidebar-nav .nav-icon {
+    width: 50px;
+}
+.viewFramework-sidebar .sidebar-nav .nav-icon {
+    color: #aeb9c2;
+    float: left;
+    font-size: 16px;
+    text-align: center;
+    width: 50px;
+}
+.viewFramework-sidebar .sidebar-nav .nav-title {
+    color: #fff;
+    display: block;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 130px;
+}
+.viewFramework-sidebar-mini .viewFramework-sidebar .sidebar-title .sidebar-title-text, .viewFramework-sidebar.sidebar-mini .sidebar-title .sidebar-title-text {
+    display: none;
+}
+.viewFramework-sidebar-mini .viewFramework-sidebar .sidebar-manage, .viewFramework-sidebar.sidebar-mini .sidebar-manage {
+    display: none;
+}
+.viewFramework-sidebar-mini .viewFramework-sidebar .sidebar-nav .nav-title, .viewFramework-sidebar.sidebar-mini .sidebar-nav .nav-title {
+    display: none;
+}
+.console-topbar .btn-default,.console-topbar .open > .dropdown-toggle.btn-default{background:#09c; border-color: #09c;color: #fff;}
+.btn-default:active:hover, .btn-default.active:hover, .open > .dropdown-toggle.btn-default:hover, .btn-default:active:focus, .btn-default.active:focus, .open > .dropdown-toggle.btn-default:focus, .btn-default.focus:active, .btn-default.active.focus, .open > .dropdown-toggle.btn-default.focus{background:#fff; border-color: #09c;color: #333;}
+.console-topbar .btn-group.open .dropdown-toggle{box-shadow: none;}
+.console-topbar .topbar-info ul{padding:0; margin:0;}
+.console-topbar .topbar-info > ul > li{background: #09c; margin-left: 1px; padding:0; list-style: none; float: left; display:block; height: 50px; line-height: 50px; font-size: 14px; padding:0 10px; color: #fff;}
+.console-topbar .badge{background:#ff9900; margin-left:5px;}
+.console-title {
+    min-height: 60px;
+    padding: 8px 0;border-bottom: 1px solid #ddd;
+}
+.console-title h5 {
+    margin-bottom: 8px;
+    margin-top: 8px;border-left: 2px solid #88b7e0;
+    display: inline-block;margin-right: 8px;text-indent: 8px;
+}
+.form-inline .form-group {
+    margin: 4px 8px 4px 0;
+}
+label.control-label {
+    color: #666;
+    font-size: 12px;
+    font-weight: normal;
+}
+.form-control {
+    border-radius: 0;
+    font-size: 12px;
+    height: 32px;
+    padding: 6px;
+    transition: none 0s ease 0s ;
+}
+.ipt, .form-inline .ipt {
+    width: 120px;
+}
+.date-step-span {
+    display: inline-block;
+    line-height: 32px;
+    text-align: center;
+    width: 32px;
+}
+.table {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #e1e6eb;
+    font-size: 12px;
+    margin-top: 8px;color: #666;
+}
+.table thead tr th {
+    background-color: #f5f6fa;
+    border-bottom: 1px solid #e1e6eb;
+    color: #999;
+    font-weight: normal;
+    padding: 8px;
+}
+tfoot, .bg-color-f56 {
+    background-color: #f5f6fa;
+}
+.table tfoot tr td {
+    border-bottom: 1px solid #e1e6eb;
+    padding: 12px 8px;
+    vertical-align: middle;
+}
+.btn-default {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    color: #333;
+}
+.inline-block {
+    display: inline-block !important;
+    vertical-align: middle;
+}
+.select {
+    width: auto;
+}
+.pagination-info {
+    color: #888;
+    display: inline-block;
+    padding: 0 16px;
+    vertical-align: middle;
+}
+.pagination {
+    border-radius: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+.pagination-goto {
+    display: inline-block;
+    padding: 0 15px;
+    vertical-align: middle;
+}
+.pagination-goto input.ipt {
+    display: inline-block;
+    margin-right: 6px;
+    width: 40px;
+}
+.pagination-goto .btn {
+    padding: 8px;
+}
+.text-explode {
+    color: #ccc !important;
+    font-weight: normal !important;
+    margin: 0 4px !important;
+}
+.alert-tip {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: #fcf8e2 none repeat scroll 0 0;
+    border-color: -moz-use-text-color -moz-use-text-color -moz-use-text-color #edd28a;
+    border-image: none;
+    border-style: none none none solid;
+    border-width: 0 0 0 4px;
+    color: #9d7437;
+    padding: 10px 12px;
+}
+.alert {
+    border-radius: 0;
+    line-height: 18px;
+    margin-bottom: 6px;
+    padding: 6px 12px;
+}
+.row-margin, .row-margin-2 {
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+.row-padding, .row-padding-2 {
+    padding-bottom: 16px;
+    padding-top: 16px;
+}
+.text-size-16 {
+    font-size: 16px !important;
+}
+.text-size-18 {
+    font-size: 18px !important;
+}
+.avatar img {
+    border-radius: 8px;
+    margin-right: 28px;
+}
+.avatar .avatar-txt-margin {
+    margin-left: 34px;
+}
+    .summary {
+    padding-top: 20px;
+}
+.text-warning {
+    color: #f90 !important;
+}
+.secure-level {
+    border-top: 1px solid #e1e6eb;
+    padding: 40px 0;
+}
+.margin-left-4 {
+    margin-left: 32px !important;
+}
+.secure-set-list li {
+    border-top: 1px dashed #e1e6eb;
+    padding: 33px;
+}
+.secure-set-list li .set-list-left {
+    width: 66px;
+}
+.secure-set-list li .set-list-right {
+    padding-left: 30px;
+    width: 190px;
+}
+.secure-set-list li .set-list-mid {
+    overflow: hidden;
+}
+.text-success {
+    color: #090 !important;
+}
+.text-explode {
+    color: #ccc !important;
+    font-weight: normal !important;
+    margin: 0 4px !important;
+}
+.secure-set-list li .set-list-mid .inner {
+    width: 75%;
+}
+.item-title {
+    font-size: 18px;
+    line-height: 18px;
+}
+.lego-console {
+    background-color: #f9fafc;
+    border: 1px solid #e1e6eb;
+    color: #333;
+    padding: 11px 12px;
+}
+.lego-console p{margin:0;}
+.w-pop-close {
+    color: #999;
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+    line-height: 1;
+    margin-top: 12px;
+    text-shadow: 0 1px 0 #fff;
+}
+.viewFramework-product-col-1 .viewFramework-product-navbar-bg, .viewFramework-product-col-1 .viewFramework-product-navbar {
+    width: 180px;
+}
+.viewFramework-product-navbar {
+    background-color: #eaedf1;
+    bottom: 0;
+    float: left;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transition: all 0.2s ease 0s;
+    width: 0;
+    z-index: 2;
+}
+.viewFramework-product-navbar .product-nav-stage {
+    bottom: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 180px;
+}
+.viewFramework-product-navbar .product-nav-stage .product-nav-scene {
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    transition: position 0s ease 0s, all 0.2s ease 0s, all 0s linear 0s;
+    width: 180px;
+}
+.viewFramework-product-navbar .product-nav-stage-main .product-nav-main-scene {
+    left: 0;
+}
+.viewFramework-product-navbar .product-nav-main-scene .product-nav-title {
+    font-weight: bold;
+    text-indent: 20px;
+}
+.viewFramework-product-navbar .product-nav-scene .product-nav-title {
+    background: #d9dee4 none repeat scroll 0 0;
+    height: 70px;
+    line-height: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 180px;
+}
+.viewFramework-product-navbar .product-nav-list {
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 70px;
+}
+.viewFramework-product-navbar .product-nav-list ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.viewFramework-product-navbar .product-nav-list li.active a {
+    background-color: #fff;
+}
+.viewFramework-product-navbar .product-nav-list li a {
+    color: #333;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    width: 180px;
+}
+.viewFramework-product-navbar .product-nav-list .nav-icon {
+    color: #333;
+    float: left;
+    font-size: 16px;
+    height: 40px;
+    text-align: center;
+    width: 30px;
+}
+.viewFramework-product-navbar .product-nav-list .nav-title {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 138px;
+}
+.viewFramework-product-col-1 .viewFramework-product-navbar-collapse {
+    left: 160px;
+}
+.viewFramework-product-navbar-collapse {
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transition: all 0.2s ease 0s;
+    width: 20px;
+    z-index: 3;
+}
+.viewFramework-product-navbar-collapse .product-navbar-collapse-inner {
+    overflow: hidden;
+    position: relative;
+    top: -50%;
+}
+.viewFramework-product-navbar-collapse .product-navbar-collapse-bg {
+    border-bottom: 9px solid transparent;
+    border-left: 13px solid #d9dee4;
+    border-top: 9px solid transparent;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all 0.1s ease 0s, all 0.1s ease 0s;
+    width: 0;
+}
+.viewFramework-product-col-1 .viewFramework-product-navbar-collapse .product-navbar-collapse-bg {
+    border-color: transparent #f7f7f7 transparent -moz-use-text-color;
+    border-style: solid solid solid none;
+    border-width: 9px 13px 9px medium;
+    left: auto;
+    right: 0;
+}
+.viewFramework-product-navbar-collapse .product-navbar-collapse {
+    cursor: pointer;
+    height: 50px;
+    left: -7px;
+    position: relative;
+    text-align: center;
+    transition: all 0.1s ease 0s, all 0.1s ease 0s;
+}
+.viewFramework-product-col-1 .viewFramework-product-navbar-collapse .product-navbar-collapse {
+    left: auto;
+    right: -7px;
+}
+.viewFramework-product-col-1 .viewFramework-product-navbar-collapse .product-navbar-collapse > span {
+    color: #546478;
+}
+.viewFramework-product-col-1 .viewFramework-product-navbar-collapse .icon-collapse-left {
+    display: inline;
+}
+.viewFramework-product-navbar-collapse .product-navbar-collapse > span {
+    font-size: 15px;
+    line-height: 50px;
+    vertical-align: text-top;
+}
+.viewFramework-product-navbar-collapse .icon-collapse-left {
+    display: none;
+}
+.viewFramework-product-col-1 .viewFramework-product-navbar-collapse .icon-collapse-right {
+    display: none;
+}
+.viewFramework-product-body {
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.2s ease 0s;
+    width: auto;
+}
+.viewFramework-product-col-1 .viewFramework-product-body {
+    left: 180px;
+}
+.viewFramework-product-navbar .product-nav-stage-main .product-nav-sub-scene {
+    left: 180px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
