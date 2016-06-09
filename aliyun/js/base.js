@@ -40,12 +40,21 @@
  		}
  	});
 
+    $(document).pjax('li.nav-item a', '#rigContainer');
+
+    document.oncontextmenu=function(){return false;}
+    document.onkeydown=function(event){
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        if(e && e.keyCode==116){
+            return false;
+        }
+    }
  	//click li load html
- 	$("li.nav-item").click(function(){
- 		var  src = $(this).attr("src");
- 		$(this).parents(".sidebar-content").find("li.nav-item").removeClass("on").end().end().addClass("on");
- 		$("#rigContainer").load(src);  
- 	});
+ 	// $("li.nav-item").click(function(){
+ 	// 	var  src = $(this).attr("src");
+ 	// 	$(this).parents(".sidebar-content").find("li.nav-item").removeClass("on").end().end().addClass("on");
+ 	// 	$("#rigContainer").load(src);  
+ 	// });
     // $("li.nav-item").click(function(event){
     //     var url = $(this).attr("src");
     //     $.pjax({url: url, container: '.home-section-main'});
@@ -79,7 +88,10 @@
             data:reqData,
             container : '#pjax-container'
         });      	
- 	}
+ 	},
+    "refresh":function(){
+        
+    }
  };
 
 

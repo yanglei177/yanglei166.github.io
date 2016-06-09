@@ -88,7 +88,6 @@ function handleClick(event, container, options) {
     container: $(link).attr('data-pjax'),
     target: link
   }
-
   var opts = $.extend({}, defaults, options)
   var clickEvent = $.Event('pjax:click')
   $(link).trigger(clickEvent, [opts])
@@ -224,7 +223,6 @@ function pjax(options) {
       // Clear timeout setting so jquerys internal timeout isn't invoked
       settings.timeout = 0
     }
-
     var url = parseURL(settings.url)
     if (hash) url.hash = hash
     options.requestUrl = stripInternalParams(url)
