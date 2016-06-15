@@ -508,6 +508,10 @@ tfoot, .bg-color-f56 {
     left: auto;
     right: -7px;
 }
+.viewFramework-product-col-1 .viewFramework-product-navbar-collapse:hover .product-navbar-collapse {
+    left: auto;
+    right:0;
+}
 .viewFramework-product-col-1 .viewFramework-product-navbar-collapse .product-navbar-collapse > span {
     color: #546478;
 }
@@ -542,13 +546,36 @@ tfoot, .bg-color-f56 {
 .viewFramework-product-navbar .product-nav-stage-main .product-nav-sub-scene {
     left: 180px;
 }
-
-
-
-
-
-
-
+.list-tool-bar {
+    position: absolute;
+    right: 5px; text-align: right;
+    top: -53px; min-width: 100px;
+}
+.list-tool-bar .list-tool-bar-button {
+    padding: 8px;
+}
+.console-table-wapper {
+    position: relative;
+}
+.btn-default {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    color: #333;
+}
+.popover .popover-inner {
+    padding: 8px;
+}
+.list-user-preferences-uint {
+    display: inline-block;
+    min-width: 138px;
+    padding: 8px 6px;
+}
+.nowrap {
+    white-space: nowrap;
+}
+label {
+    font-size: 100%;
+}
 
 
 

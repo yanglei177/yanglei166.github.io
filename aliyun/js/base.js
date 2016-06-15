@@ -41,36 +41,28 @@
  	});
 
     $(document).pjax('li.nav-item a', '#rigContainer');
-
-    document.oncontextmenu=function(){return false;}
-    document.onkeydown=function(event){
-        var e = event || window.event || arguments.callee.caller.arguments[0];
-        if(e && e.keyCode==116){
-            return false;
-        }
-    }
+    // $('li.nav-item a').click(function() {
+    //     history.pushState({ path: this.path }, '', this.href)
+    //     $.ajax({
+    //         type: "GET",
+    //         url: this.href,
+    //         cache: false,
+    //         success: function(msg){
+    //             $("#rigContainer").html(msg);
+    //         }
+    //     });
+    //     return false; 
+    // });
+    // $(window).bind('popstate', function() {
+    //   $('#rigContainer').load(location.pathname)
+    // })
  	//click li load html
  	// $("li.nav-item").click(function(){
  	// 	var  src = $(this).attr("src");
  	// 	$(this).parents(".sidebar-content").find("li.nav-item").removeClass("on").end().end().addClass("on");
  	// 	$("#rigContainer").load(src);  
  	// });
-    // $("li.nav-item").click(function(event){
-    //     var url = $(this).attr("src");
-    //     $.pjax({url: url, container: '.home-section-main'});
-    //     $.pjax.reload('.home-section-main');
-    // });
-    // $(document).pjax('a', '.home-section-main',{timeout:6000});
-    // $.pjax({
-    //     selector: 'a',
-    //     container: '.home-section-main', //内容替换的容器
-    //     show: 'fade',  //展现的动画，支持默认和fade, 可以自定义动画方式，这里为自定义的function即可。
-    //     cache: true,  //是否使用缓存
-    //     storage: true,  //是否使用本地存储
-    //     titleSuffix: '', //标题后缀
-    //     filter: function(){},
-    //     callback: function(){}
-    // })
+    
     
 
  });

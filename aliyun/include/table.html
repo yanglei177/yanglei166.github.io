@@ -1,0 +1,218 @@
+<style type="text/css">
+  .console-container {padding: 0 15px;}
+  .table thead tr th a.dropdown-toggle {color: #999;}
+  .text-muted {color: #999999;}
+</style>
+<div class="viewFramework-product viewFramework-product-col-1">
+	<div class="viewFramework-product-navbar">
+		<div class="product-nav-stage product-nav-stage-main">
+		  <div class="product-nav-scene product-nav-main-scene">
+		    <div id="nav-title" class="product-nav-title">云服务器 ECS</div>
+		    <div class="ng-isolate-scope"></div>
+		    <div class="product-nav-list">
+		      <ul aria-labelledby="nav-title" role="tree">
+		        <li class="active">
+		          <div class="ng-isolate-scope">
+		            <a href="#/home" class="ng-scope">
+		              <div class="nav-icon"></div>
+		              <div class="nav-title">概览</div>
+		            </a>
+		          </div>
+		        </li>
+		        <li class="">
+		          <div>
+		            <a href="#/server/region/">
+		              <div class="nav-icon"></div>
+		              <div class="nav-title">实例</div>
+		            </a>
+		          </div>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		  <div class="product-nav-scene product-nav-sub-scene">
+		    <div class="product-nav-title"></div>
+		    <div class="product-nav-list">
+		      <ul></ul>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<div class="viewFramework-product-navbar-collapse">
+		<div class="product-navbar-collapse-inner">
+		  <div class="product-navbar-collapse-bg"></div>
+		  <div class="product-navbar-collapse">
+		    <span class="icon-collapse-left"></span>
+		    <span class="icon-collapse-right"></span>
+		  </div>
+		</div>
+	</div>
+	<div class="viewFramework-product-body">
+		<div class="console-container">
+		  <div class="console-title console-title-border clearfix">
+		    <div class="pull-left">
+		        <h5>查询列表</h5>
+		    </div>
+		  </div>
+		  <div class="console-table-wapper">
+			  <div class="list-tool-bar">
+			  	<button class="btn btn-default list-tool-bar-button"><span class="icon-setup"></span></button>				
+			  	</div>			  		  
+			<div class="gridSection">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th width="10"><input type="checkbox" aria-label="全选" ></th>
+							<th>磁盘ID/磁盘名称</th>
+							<th>
+								<div class="dropdown">
+									<a data-toggle="dropdown" class="dropdown-toggle" href="">
+										<span>磁盘种类</span><span>(全部)</span> <span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu aliyun-console-table-search-list">
+										<li>
+											<a href="javascript:">
+												<span class="icon-yes"></span> <span>全部</span>
+											</a>
+										</li>
+										<li>
+											<a href="javascript:"> <span>普通云盘</span></a>
+										</li>
+										<li>
+											<a href="javascript:"> <span class="ng-binding">高效云盘</span></a>
+										</li>
+										<li>
+											<a href="javascript:"> <span class="ng-binding">SSD云盘</span></a>
+										</li>
+										<li>
+											<a href="javascript:"> <span class="ng-binding">本地SSD盘</span></a>
+										</li>
+										<li>
+											<a href="javascript:"> <span class="ng-binding">本地磁盘</span></a>
+										</li>
+									</ul>
+								</div>
+							</th>
+							<th>
+								<div class="dropdown">
+									<a aria-haspopup="true" data-toggle="dropdown" class="dropdown-toggle" href="">
+										<span>磁盘状态</span><span>(全部)</span> <span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu aliyun-console-table-search-list">
+										<li>
+											<a href="javascript:">
+												<span class="icon-yes"></span> <span>全部</span>
+											</a>
+										</li>
+										<li>
+											<a href="javascript:"> <span class="ng-binding">使用中</span></a>
+										</li>
+										<li>
+											<a href="javascript:"> <span class="ng-binding">待挂载</span></a>
+										</li>
+										<li>
+											<a href="javascript:" > <span class="ng-binding">挂载中</span></a>
+										</li>
+										<li>
+											<a href="javascript:"> <span>卸载中</span></a>
+										</li>
+										<li>
+											<a href="javascript:"> <span>创建中</span></a>
+										</li>
+										<li>
+											<a href="javascript:"> <span class="ng-binding">初始化中</span></a>
+										</li>
+										<li>
+											<a href="javascript:"> <span>已过期</span></a>
+										</li>
+									</ul>
+								</div>
+							</th>
+							<th>付费类型</th>
+							<th>
+								<div class="dropdown">
+									<a data-toggle="dropdown" class="dropdown-toggle" href=""><span>可卸载</span><span>(全部)</span> <span class="caret"></span></a>
+									<ul class="dropdown-menu aliyun-console-table-search-list">
+										<li>
+											<a href="javascript:" ><span class="icon-yes"></span> <span class="ng-binding">全部</span></a>
+										</li>
+										<li><a href="javascript:" > <span>支持</span></a></li>
+										<li><a href="javascript:" > <span>不支持</span></a></li>
+									</ul>
+								</div>
+							</th>
+							<th><span><span class="ng-scope">可用区</span></span></th>
+							<th>
+								<div class="dropdown">
+									<a data-toggle="dropdown" class="dropdown-toggle" href=""><span>磁盘属性</span><span>(全部)</span> <span class="caret"></span></a>
+									<ul class="dropdown-menu aliyun-console-table-search-list">
+										<li><a href="javascript:"><span class="icon-yes"></span> <span>全部</span></a></li>
+										<li><a href="javascript:"> <span>数据盘</span></a></li>
+										<li><a href="javascript:"> <span>系统盘</span></a></li>
+									</ul>
+								</div>
+							</th>
+							<th>标签</th>
+							<th class="text-right">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="checkbox" aria-label="选中" ></td>
+							<td>测试</td>
+							<td>测试</td>
+							<td>测试</td>
+							<td>测试</td>
+							<td>测试</td>
+							<td>测试可用</td>
+							<td>测试属性</td>
+							<td>测试标签</td>
+							<td>测试操作</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		 </div>	
+		</div>	
+	</div>
+</div>
+<script type="text/javascript">
+  ;jQuery(function(){
+    $(".product-navbar-collapse").click(function(){
+      $(this).parents(".viewFramework-product").toggleClass("viewFramework-product-col-1");
+    });
+
+    $(".dropdown-menu li:not(.disabled) a").on('click.bs.dropdown', function(){
+    	$(this).parent().siblings("li").find("a .icon-yes").remove();
+    	$(this).parents("ul").prev("a").find("span").eq(1).html("(" + $(this).find("span").html() + ")");
+    	$(this).prepend("<span class='icon-yes'></span>");
+    });
+
+    $(".list-tool-bar-button").hover(function(){
+    	$(this).after("<div class='popover left in' style='top: 0px; left:-40px; display:block;''><div class='arrow'></div><div class='popover-inner'><div>自定义列表项</div></div></div>");
+    },function(){
+    	$(this).next(".popover").remove();
+    }).click(function(e){
+    	$("body").addClass("modal-open").append("<div class='modal fade in' style='display:block;' tabindex='-1' role='dialog' id='defined'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><button type='button' class='close'><span aria-hidden='true'>&times;</span></button><h4 class='modal-title'>自定义列表项</h4></div><div class='modal-body clearfix row'><div class='col-sm-12 clearfix'><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block text-muted' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked disabled='disabled'> 磁盘ID/磁盘名称</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 磁盘种类</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 磁盘状态</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 付费类型</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 可卸载</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 可用区</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 磁盘属性</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 标签</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block text-muted' style='cursor: pointer'><input type='checkbox' class='margin-right-1' disabled='disabled' checked> 操作</label></div></div></div><div class='modal-footer'><button class='btn btn-primary' id='modelSure'>确定</button> <button class='btn btn-default' id='cancel'>取消</button></div></div></div></div>");
+    	$(".modal-backdrop").addClass("in");
+    	e.stopPropagation();
+    });    
+
+    $(document).delegate("#modelSure","click",function(){
+    	// $(".nowrap").each(function(index,ele){
+    	// 	if(!$(ele).find(":checkbox").prop("checked")){
+    	// 		$(".gridSection tr td,.gridSection tr th").eq(index+1).remove();
+    	// 	}
+    	// });
+    });
+
+    $(document).click(function(e){
+    	if(e.target.className == "modal fade in" || e.target.className == "close" || e.target.id == "cancel" || e.target.id == "modelSure"){
+    		$("body").removeClass("modal-open");
+	    	$(".modal-backdrop").removeClass("in");
+	    	$("#defined").remove();
+    	}
+    });
+    
+  });
+</script>
