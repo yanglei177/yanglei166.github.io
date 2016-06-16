@@ -40,19 +40,25 @@
  		}
  	});
 
- 	// click li load html
- 	$("li.nav-item").click(function(){
+    
+    // $(window).bind('popstate', function() {
+    //   $('#rigContainer').load(location.pathname)
+    // })
+ 	//click li load html
+ 	// $("li.nav-item").click(function(){
+ 	// 	var  src = $(this).attr("src");
+ 	// 	$(this).parents(".sidebar-content").find("li.nav-item").removeClass("on").end().end().addClass("on");
+ 	// 	$("#rigContainer").load(src);  
+ 	// });
+    $("li.nav-item").click(function(){
         if(!$(this).hasClass("on")){
             var  src = $(this).attr("src") + "?timestamp=" + new Date().getTime();
             $(this).parents(".sidebar-content").find("li.nav-item").removeClass("on").end().end().addClass("on");
-            $(".home-section-main").load(src);  
+            $("#rigContainer").load(src);  
         }
- 	});
-    $.ajaxSetup ({
-        cache: false //关闭AJAX相应的缓存
     });
-
     
+
  });
 
  var bpcommon = {
@@ -68,7 +74,10 @@
             data:reqData,
             container : '#pjax-container'
         });      	
- 	}
+ 	},
+    "refresh":function(){
+        
+    }
  };
 
 

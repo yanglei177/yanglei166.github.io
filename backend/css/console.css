@@ -18,7 +18,7 @@ ul, li {
 .viewFramework-topbar { background: #09c; height: 50px; position: fixed; width: 100%; z-index: 101; }
 .viewFramework-body { background-color: #000; bottom: 0; position: absolute; top: 50px; width: 100%; z-index: 100; }
 .viewFramework-sidebar { background-color: #293038; bottom: 0; display: none; overflow-x: hidden; position: fixed; top: 50px; width: 0; z-index: 102; }
-.viewFramework-product { background: #fff; bottom: 0; left: 0; overflow: hidden; position: absolute; right: 0; top: 0; width: auto; }
+.viewFramework-product,#rigContainer{ background: #fff; bottom: 0; left: 0; overflow: hidden; position: absolute; right: 0; top: 0; width: auto; }
 .viewFramework-product-body { bottom: 0; left: 0; overflow-x: hidden; overflow-y: auto; position: absolute; right: 0; top: 0; transition: all 0.2s ease 0s; width: auto; }
 .viewFramework-sidebar-full .viewFramework-sidebar, .viewFramework-sidebar.sidebar-full { display: block; width: 180px; }
 .viewFramework-sidebar-full .viewFramework-product { left: 180px; }
@@ -101,10 +101,9 @@ ul, li {
     background: #37424f none repeat scroll 0 0;
     border-bottom: 1px solid #414d5c;
 }
-.viewFramework-sidebar .sidebar-nav .sidebar-title:hover,.viewFramework-sidebar .sidebar-nav li a:hover{
+.viewFramework-sidebar .sidebar-nav .sidebar-title:hover{
     background: #414d5c;
 }
-.viewFramework-sidebar .sidebar-nav li.on a:hover{background: #0099cc;}
 .viewFramework-sidebar .sidebar-nav-fold .sidebar-title-icon {
     transform: rotate(-90deg);
 }
@@ -150,7 +149,7 @@ ul, li {
     overflow: hidden;
     width: 100%;
 }
-.viewFramework-sidebar .sidebar-nav .nav-item.on{background:#0099cc;}
+.viewFramework-sidebar .sidebar-nav li a:hover,.viewFramework-sidebar .sidebar-nav .nav-item.on{background:#0099cc;}
 .viewFramework-sidebar-full .viewFramework-sidebar .sidebar-nav .nav-icon, .viewFramework-sidebar.sidebar-full .sidebar-nav .nav-icon {
     width: 50px;
 }
@@ -378,6 +377,222 @@ tfoot, .bg-color-f56 {
     margin-top: 12px;
     text-shadow: 0 1px 0 #fff;
 }
+.viewFramework-product-col-1 .viewFramework-product-navbar-bg, .viewFramework-product-col-1 .viewFramework-product-navbar {
+    width: 180px;
+}
+.viewFramework-product-navbar {
+    background-color: #eaedf1;
+    bottom: 0;
+    float: left;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transition: all 0.2s ease 0s;
+    width: 0;
+    z-index: 2;
+}
+.viewFramework-product-navbar .product-nav-stage {
+    bottom: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 180px;
+}
+.viewFramework-product-navbar .product-nav-stage .product-nav-scene {
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    transition: position 0s ease 0s, all 0.2s ease 0s, all 0s linear 0s;
+    width: 180px;
+}
+.viewFramework-product-navbar .product-nav-stage-main .product-nav-main-scene {
+    left: 0;
+}
+.viewFramework-product-navbar .product-nav-main-scene .product-nav-title {
+    font-weight: bold;
+    text-indent: 20px;
+}
+.viewFramework-product-navbar .product-nav-scene .product-nav-title {
+    background: #d9dee4 none repeat scroll 0 0;
+    height: 70px;
+    line-height: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 180px;
+}
+.viewFramework-product-navbar .product-nav-list {
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 70px;
+}
+.viewFramework-product-navbar .product-nav-list ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.viewFramework-product-navbar .product-nav-list li.active a {
+    background-color: #fff;
+}
+.viewFramework-product-navbar .product-nav-list li a {
+    color: #333;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    width: 180px;
+}
+.viewFramework-product-navbar .product-nav-list .nav-icon {
+    color: #333;
+    float: left;
+    font-size: 16px;
+    height: 40px;
+    text-align: center;
+    width: 30px;
+}
+.viewFramework-product-navbar .product-nav-list .nav-title {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 138px;
+}
+.viewFramework-product-col-1 .viewFramework-product-navbar-collapse {
+    left: 160px;
+}
+.viewFramework-product-navbar-collapse {
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transition: all 0.2s ease 0s;
+    width: 20px;
+    z-index: 3;
+}
+.viewFramework-product-navbar-collapse .product-navbar-collapse-inner {
+    overflow: hidden;
+    position: relative;
+    top: -50%;
+}
+.viewFramework-product-navbar-collapse .product-navbar-collapse-bg {
+    border-bottom: 9px solid transparent;
+    border-left: 13px solid #d9dee4;
+    border-top: 9px solid transparent;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all 0.1s ease 0s, all 0.1s ease 0s;
+    width: 0;
+}
+.viewFramework-product-col-1 .viewFramework-product-navbar-collapse .product-navbar-collapse-bg {
+    border-color: transparent #f7f7f7 transparent -moz-use-text-color;
+    border-style: solid solid solid none;
+    border-width: 9px 13px 9px medium;
+    left: auto;
+    right: 0;
+}
+.viewFramework-product-navbar-collapse .product-navbar-collapse {
+    cursor: pointer;
+    height: 50px;
+    left: -7px;
+    position: relative;
+    text-align: center;
+    transition: all 0.1s ease 0s, all 0.1s ease 0s;
+}
+.viewFramework-product-col-1 .viewFramework-product-navbar-collapse .product-navbar-collapse {
+    left: auto;
+    right: -7px;
+}
+.viewFramework-product-col-1 .viewFramework-product-navbar-collapse:hover .product-navbar-collapse {
+    left: auto;
+    right:0;
+}
+.viewFramework-product-col-1 .viewFramework-product-navbar-collapse .product-navbar-collapse > span {
+    color: #546478;
+}
+.viewFramework-product-col-1 .viewFramework-product-navbar-collapse .icon-collapse-left {
+    display: inline;
+}
+.viewFramework-product-navbar-collapse .product-navbar-collapse > span {
+    font-size: 15px;
+    line-height: 50px;
+    vertical-align: text-top;
+}
+.viewFramework-product-navbar-collapse .icon-collapse-left {
+    display: none;
+}
+.viewFramework-product-col-1 .viewFramework-product-navbar-collapse .icon-collapse-right {
+    display: none;
+}
+.viewFramework-product-body {
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.2s ease 0s;
+    width: auto;
+}
+.viewFramework-product-col-1 .viewFramework-product-body {
+    left: 180px;
+}
+.viewFramework-product-navbar .product-nav-stage-main .product-nav-sub-scene {
+    left: 180px;
+}
+.list-tool-bar {
+    position: absolute;
+    right: 5px; text-align: right;
+    top: -53px; min-width: 100px;
+}
+.list-tool-bar .list-tool-bar-button {
+    padding: 8px;
+}
+.console-table-wapper {
+    position: relative;
+}
+.btn-default {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    color: #333;
+}
+.popover .popover-inner {
+    padding: 8px;
+}
+.list-user-preferences-uint {
+    display: inline-block;
+    min-width: 138px;
+    padding: 8px 6px;
+}
+.nowrap {
+    white-space: nowrap;
+}
+label {
+    font-size: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

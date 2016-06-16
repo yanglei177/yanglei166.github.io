@@ -6397,7 +6397,7 @@ button.close {
 }
 .modal-backdrop {
   position: fixed;
-  top: 0;
+  top: 0; display: none;
   right: 0;
   bottom: 0;
   left: 0;
@@ -6410,7 +6410,7 @@ button.close {
 }
 .modal-backdrop.in {
   filter: alpha(opacity=50);
-  opacity: .5;
+  opacity: .5; display: block;
 }
 .modal-header {
   min-height: 16.42857143px;

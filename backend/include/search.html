@@ -1,170 +1,375 @@
-<link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
-<div class="console-container">
-	<div class="console-title console-title-border clearfix">
-		<div class="pull-left">
-		    <h5>查询列表</h5>
-		</div>
-	</div>
-	<div class="margin-top clearfix">
-		<form method="post" class="form-inline">
-		    <div class="form-group">
-		        <label class="control-label">查询类型：</label>
-		        <select class="select form-control" name="domainType" id="domainType">
-		            <option value="0" selected="selected">全部</option>
-		            <option value="1">保单</option>
-		            <option value="2">订单</option>
-		            <option value="5">保评汇</option>
-		            <option value="6">询价单</option>
-		        </select>
-		    </div>
-		    <div class="form-group">
-		        <label class="control-label">自定义分组：</label>
-		        <select class="select form-control inline-block" name="orderGroupID" id="orderGroupID">
-		            <option value="" selected="selected">选择分组</option>
-		            <optgroup label="-----------------">
-		            	<option value="2">分组1</option>
-		            	<option value="2">分组2</option>
-		            	<option value="2">分组1</option>
-		            </optgroup>
-		            <optgroup label="-----------------">
-		        		<option value="">分组管理</option>
-		        	</optgroup>
-		        </select>
-		    </div>
-		        <div class="form-group">
-		        <label class="control-label">商业险到期日：</label>
-		        <div class="datebox"><input type="text" class="ipt form-control form_datetime" size="13" name="startDate" id="startDate"></div>
-                <span class="date-step-span">至</span>
-		        <div class="datebox"><input type="text" class="ipt form-control hasDatepicker" size="13" name="endDate" id="endDate"></div>
-		       </div>
-		    <div class="form-group">
-		        <label class="control-label">保单号：</label>
-		        <input type="text" class="ipt form-control" placeholder="输入保单号进行搜索" size="30" name="relatedName" id="relatedName">
-		        <button id="btnSearch" class="btn btn-default" type="button">搜索</button>
-		    </div>
-		</form>
-	</div>
-	<div class="margin-top">
-		<table class="table table-hover">
+<style type="text/css">
+  .console-container {padding: 0 15px;}
+  .table thead tr th a.dropdown-toggle {color: #999;}
+  .text-muted {color: #999999;}
+</style>
+<div class="viewFramework-product viewFramework-product-col-1">
+  <div class="viewFramework-product-navbar">
+    <div class="product-nav-stage product-nav-stage-main">
+      <div class="product-nav-scene product-nav-main-scene">
+        <div id="nav-title" class="product-nav-title">云服务器 ECS</div>
+        <div class="ng-isolate-scope"></div>
+        <div class="product-nav-list">
+          <ul aria-labelledby="nav-title" role="tree">
+            <li class="active">
+              <div class="ng-isolate-scope">
+                <a href="#home" role="tab" data-toggle="tab">
+                  <div class="nav-icon"></div>
+                  <div class="nav-title">概览</div>
+                </a>
+              </div>
+            </li>
+            <li class="">
+              <div>
+                <a href="#region" role="tab" data-toggle="tab">
+                  <div class="nav-icon"></div>
+                  <div class="nav-title">实例</div>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="product-nav-scene product-nav-sub-scene">
+        <div class="product-nav-title"></div>
+        <div class="product-nav-list">
+          <ul></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="viewFramework-product-navbar-collapse">
+    <div class="product-navbar-collapse-inner">
+      <div class="product-navbar-collapse-bg"></div>
+      <div class="product-navbar-collapse">
+        <span class="icon-collapse-left"></span>
+        <span class="icon-collapse-right"></span>
+      </div>
+    </div>
+  </div>
+  <div class="tab-content">
+    <div class="viewFramework-product-body tab-pane fade active in" id="home">
+      <div class="console-container">
+        <div class="console-title console-title-border clearfix">
+          <div class="pull-left">
+              <h5>查询列表</h5>
+          </div>
+        </div>
+        <div class="console-table-wapper">
+          <div class="list-tool-bar">
+            <button class="btn btn-default list-tool-bar-button"><span class="icon-setup"></span></button>        
+            </div>              
+        <div class="gridSection">
+          <table class="table table-hover">
             <thead>
-	            <tr>
-	                <th>
-	                    <input type="checkbox" id="ckSelectAll" name="ckSelectAll">
-	                </th>
-	                <th>域名</th>
-	                <th>域名类型</th>
-	                <th>域名状态</th>
-	                <th>到期日期</th>
-	                <th class="text-right">操作</th>
-	            </tr>
+              <tr>
+                <th width="10"><input type="checkbox" aria-label="全选" ></th>
+                <th>磁盘ID/磁盘名称</th>
+                <th>
+                  <div class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="">
+                      <span>磁盘种类</span><span>(全部)</span> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu aliyun-console-table-search-list">
+                      <li>
+                        <a href="javascript:">
+                          <span class="icon-yes"></span> <span>全部</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:"> <span>普通云盘</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:"> <span class="ng-binding">高效云盘</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:"> <span class="ng-binding">SSD云盘</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:"> <span class="ng-binding">本地SSD盘</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:"> <span class="ng-binding">本地磁盘</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                </th>
+                <th>
+                  <div class="dropdown">
+                    <a aria-haspopup="true" data-toggle="dropdown" class="dropdown-toggle" href="">
+                      <span>磁盘状态</span><span>(全部)</span> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu aliyun-console-table-search-list">
+                      <li>
+                        <a href="javascript:">
+                          <span class="icon-yes"></span> <span>全部</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:"> <span class="ng-binding">使用中</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:"> <span class="ng-binding">待挂载</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:" > <span class="ng-binding">挂载中</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:"> <span>卸载中</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:"> <span>创建中</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:"> <span class="ng-binding">初始化中</span></a>
+                      </li>
+                      <li>
+                        <a href="javascript:"> <span>已过期</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                </th>
+                <th>付费类型</th>
+                <th>
+                  <div class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href=""><span>可卸载</span><span>(全部)</span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu aliyun-console-table-search-list">
+                      <li>
+                        <a href="javascript:" ><span class="icon-yes"></span> <span class="ng-binding">全部</span></a>
+                      </li>
+                      <li><a href="javascript:" > <span>支持</span></a></li>
+                      <li><a href="javascript:" > <span>不支持</span></a></li>
+                    </ul>
+                  </div>
+                </th>
+                <th><span><span class="ng-scope">可用区</span></span></th>
+                <th>
+                  <div class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href=""><span>磁盘属性</span><span>(全部)</span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu aliyun-console-table-search-list">
+                      <li><a href="javascript:"><span class="icon-yes"></span> <span>全部</span></a></li>
+                      <li><a href="javascript:"> <span>数据盘</span></a></li>
+                      <li><a href="javascript:"> <span>系统盘</span></a></li>
+                    </ul>
+                  </div>
+                </th>
+                <th>标签</th>
+                <th class="text-right">操作</th>
+              </tr>
             </thead>
-            <tbody >
-            	<tr>
-            		<td><input type="checkbox"  name="ckbox"></td>
-            		<td><a target="_blank"  class="sub-style j_domain" href="">3242342</a></td>
-            		<td>国内域名</td>
-            		<td>正常</td>
-            		<td>2017-05-06</td>
-            		<td class="text-right">
-            			<a href="">续费</a>
-            			<span class="text-explode">|</span>
-            			<i class="link-space"></i>
-            			<a target="_blank" href="">解析</a>
-            			<span class="text-explode">|</span>
-            			<i class="link-space"></i>
-            			<a target="_blank" href="">管理</a>
-            		</td>
-            	</tr>
-            	<tr>
-            		<td><input type="checkbox" name="ckbox"></td> 											<td><a target="_blank" class="sub-style j_domain" href="">3464565464</a></td> 			<td>国际域名</td>
-            		<td>正常</td>
-            		<td>2017-04-25</td>
-            		<td class="text-right">
-            			<a href="">续费</a>
-            			<span class="text-explode">|</span>
-            			<i class="link-space"></i>
-            			<a target="_blank" href="">解析</a>
-            			<span class="text-explode">|</span>
-            			<i class="link-space"></i>
-            			<a target="_blank" href="">管理</a>
-            		</td>
-            	</tr>
-            	<tr>
-            		<td><input type="checkbox" name="ckbox"></td> 											<td><a target="_blank" class="sub-style j_domain" href="">3464565464</a></td> 			<td>国际域名</td>
-            		<td>正常</td>
-            		<td>2017-04-25</td>
-            		<td class="text-right">
-            			<a href="">续费</a>
-            			<span class="text-explode">|</span>
-            			<i class="link-space"></i>
-            			<a target="_blank" href="">解析</a>
-            			<span class="text-explode">|</span>
-            			<i class="link-space"></i>
-            			<a target="_blank" href="">管理</a>
-            		</td>
-            	</tr>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" aria-label="选中" ></td>
+                <td>测试</td>
+                <td>测试</td>
+                <td>测试</td>
+                <td>测试</td>
+                <td>测试</td>
+                <td>测试可用</td>
+                <td>测试属性</td>
+                <td>测试标签</td>
+                <td>测试操作</td>
+              </tr>
             </tbody>
-            <tfoot>
-            	<tr>
-                	<td width="10"><input type="checkbox" class="mydomain-checkbox"></td>
-                    <td colspan="5">
-                    	<div class="pull-left">
-                        	<button class="btn btn-default" type="button">域名续费</button>
-                            <button class="btn btn-default" type="button">转至其他账号</button>
-                            	<select class="select form-control inline-block">
-	                                <option value="">更多批量操作</option>
-	                                <option value="taoPub">一口价域名发布</option>
-	                                <option value="pushDomain">域名带价PUSH</option>
-	                                <option value="batch-chg-contact">域名信息修改</option>
-	                                <option value="batch-chg-holder">域名所有者变更(过户)</option>
-	                                <option value="dlcert">下载域名证书</option>
-	                                <option value="autoRenew">设置自动续费</option>
-                                </select>
-                            </div>
-                            <div class="pull-right page-box">
-                                <div class="pagination-info">共有4条，每页显示：20条</div>
-                                <ul class="pagination">
-                                	<li page-index="1" class="disabled"><a>«</a></li>
-                                	<li page-index="0" class="disabled"><a>‹</a></li>
-                                	<li page-index="1" class="active"><a>1</a></li>
-                                	<li page-index="2" class="disabled"><a>›</a></li>
-                                	<li page-index="1" class="disabled"><a>»</a></li>
-                                </ul>
-                                <div class="pagination-goto">
-                                    <input type="text" id="gotoPageNo" class="ipt form-control">
-                                    <button id="goBtn" class="btn btn-default" type="button">GO</button>
-                                    <input type="hidden" name="totalCount" id="totalCount" value="4">
-                                </div>
-                            </div>
+          </table>
+        </div>
+       </div> 
+      </div>  
+    </div>
+    <div class="viewFramework-product-body tab-pane fade" id="region">
+        <div class="console-container">
+          <div class="console-title console-title-border clearfix">
+            <div class="pull-left">
+                <h5>查询列表</h5>
+            </div>
+          </div>
+          <div class="margin-top clearfix">
+            <form class="form-inline" method="post">
+                <div class="form-group">
+                    <label class="control-label">查询类型：</label>
+                    <select id="domainType" name="domainType" class="select form-control">
+                        <option selected="selected" value="0">全部</option>
+                        <option value="1">保单</option>
+                        <option value="2">订单</option>
+                        <option value="5">保评汇</option>
+                        <option value="6">询价单</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">自定义分组：</label>
+                    <select id="orderGroupID" name="orderGroupID" class="select form-control inline-block">
+                        <option selected="selected" value="">选择分组</option>
+                        <optgroup label="-----------------">
+                          <option value="2">分组1</option>
+                          <option value="2">分组2</option>
+                          <option value="2">分组1</option>
+                        </optgroup>
+                        <optgroup label="-----------------">
+                        <option value="">分组管理</option>
+                      </optgroup>
+                    </select>
+                </div>
+                    <div class="form-group">
+                    <label class="control-label">商业险到期日：</label>
+                    <div class="datebox"><input type="text" id="startDate" name="startDate" size="13" class="ipt form-control form_datetime"></div>
+                        <span class="date-step-span">至</span>
+                    <div class="datebox"><input type="text" id="endDate" name="endDate" size="13" class="ipt form-control hasDatepicker"></div>
+                   </div>
+                <div class="form-group">
+                    <label class="control-label">保单号：</label>
+                    <input type="text" id="relatedName" name="relatedName" size="30" placeholder="输入保单号进行搜索" class="ipt form-control">
+                    <button type="button" class="btn btn-default" id="btnSearch">搜索</button>
+                </div>
+            </form>
+          </div>
+          <div class="margin-top">
+            <table class="table table-hover">
+                    <thead>
+                      <tr>
+                          <th>
+                              <input type="checkbox" name="ckSelectAll" id="ckSelectAll">
+                          </th>
+                          <th>域名</th>
+                          <th>域名类型</th>
+                          <th>域名状态</th>
+                          <th>到期日期</th>
+                          <th class="text-right">操作</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="checkbox" name="ckbox"></td>
+                        <td><a href="" class="sub-style j_domain" target="_blank">3242342</a></td>
+                        <td>国内域名</td>
+                        <td>正常</td>
+                        <td>2017-05-06</td>
+                        <td class="text-right">
+                          <a href="">续费</a>
+                          <span class="text-explode">|</span>
+                          <i class="link-space"></i>
+                          <a href="" target="_blank">解析</a>
+                          <span class="text-explode">|</span>
+                          <i class="link-space"></i>
+                          <a href="" target="_blank">管理</a>
                         </td>
-                </tr>
-            </tfoot>
-        </table>
-	</div>
-	<div class="margin-top">
-	  <div class="alert alert-tip"><b>温馨提示：</b>
-	    <p>• 如果在此账号下没有找到您的域名信息，您可以尝试
-	      <a target="_blank" href="">通过域名查询登陆帐号</a></p>
-	    <p>• 域名解析生效问题，您可以通过域名访问检测工具
-	      <a target="_blank" href="http://zijian.aliyun.com/">来进行自助排查与解决</a></p>
-	    <p>• 如何从域名到建站？您可以<a target="_blank" href="">点此查看</a></p>
-	 </div>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" name="ckbox"></td>                       <td><a href="" class="sub-style j_domain" target="_blank">3464565464</a></td>       <td>国际域名</td>
+                        <td>正常</td>
+                        <td>2017-04-25</td>
+                        <td class="text-right">
+                          <a href="">续费</a>
+                          <span class="text-explode">|</span>
+                          <i class="link-space"></i>
+                          <a href="" target="_blank">解析</a>
+                          <span class="text-explode">|</span>
+                          <i class="link-space"></i>
+                          <a href="" target="_blank">管理</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><input type="checkbox" name="ckbox"></td>                       <td><a href="" class="sub-style j_domain" target="_blank">3464565464</a></td>       <td>国际域名</td>
+                        <td>正常</td>
+                        <td>2017-04-25</td>
+                        <td class="text-right">
+                          <a href="">续费</a>
+                          <span class="text-explode">|</span>
+                          <i class="link-space"></i>
+                          <a href="" target="_blank">解析</a>
+                          <span class="text-explode">|</span>
+                          <i class="link-space"></i>
+                          <a href="" target="_blank">管理</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                          <td width="10"><input type="checkbox" class="mydomain-checkbox"></td>
+                            <td colspan="5">
+                              <div class="pull-left">
+                                  <button type="button" class="btn btn-default">域名续费</button>
+                                    <button type="button" class="btn btn-default">转至其他账号</button>
+                                      <select class="select form-control inline-block">
+                                          <option value="">更多批量操作</option>
+                                          <option value="taoPub">一口价域名发布</option>
+                                          <option value="pushDomain">域名带价PUSH</option>
+                                          <option value="batch-chg-contact">域名信息修改</option>
+                                          <option value="batch-chg-holder">域名所有者变更(过户)</option>
+                                          <option value="dlcert">下载域名证书</option>
+                                          <option value="autoRenew">设置自动续费</option>
+                                        </select>
+                                    </div>
+                                    <div class="pull-right page-box">
+                                        <div class="pagination-info">共有4条，每页显示：20条</div>
+                                        <ul class="pagination">
+                                          <li class="disabled" page-index="1"><a>«</a></li>
+                                          <li class="disabled" page-index="0"><a>‹</a></li>
+                                          <li class="active" page-index="1"><a>1</a></li>
+                                          <li class="disabled" page-index="2"><a>›</a></li>
+                                          <li class="disabled" page-index="1"><a>»</a></li>
+                                        </ul>
+                                        <div class="pagination-goto">
+                                            <input type="text" class="ipt form-control" id="gotoPageNo">
+                                            <button type="button" class="btn btn-default" id="goBtn">GO</button>
+                                            <input type="hidden" value="4" id="totalCount" name="totalCount">
+                                        </div>
+                                    </div>
+                                </td>
+                        </tr>
+                    </tfoot>
+                </table>
+          </div>
+          <div class="margin-top">
+            <div class="alert alert-tip"><b>温馨提示：</b>
+              <p>• 如果在此账号下没有找到您的域名信息，您可以尝试
+                <a href="" target="_blank">通过域名查询登陆帐号</a></p>
+              <p>• 域名解析生效问题，您可以通过域名访问检测工具
+                <a href="http://zijian.aliyun.com/" target="_blank">来进行自助排查与解决</a></p>
+              <p>• 如何从域名到建站？您可以<a href="" target="_blank">点此查看</a></p>
+           </div>
+            </div>
+            <div class="margin-top">
+                <div class="row-padding row-margin text-center">
+                    <span class="text-size-16 text-success icon-info-1" style="vertical-align: middle"></span>
+                    <div class="text-size-16 inline-block mar_l_05"><span>没有查询到符合条件的记录</span></div></div>
+            </div>
+        </div>
     </div>
-    <div class="margin-top">
-        <div class="row-padding row-margin text-center">
-            <span style="vertical-align: middle" class="text-size-16 text-success icon-info-1"></span>
-            <div class="text-size-16 inline-block mar_l_05"><span>没有查询到符合条件的记录</span></div></div>
-    </div>
+  </div>  
 </div>
-<!-- 日历 -->
-<script src="js/moment-with-locales.js"></script>
-<script src="js/bootstrap-datetimepicker.js"></script>
 <script type="text/javascript">
-    $(function () {
-        $('#startDate,#endDate').datetimepicker({        	
-		    format: 'YYYY-MM-DD',
-		    defaultDate: '2016-11-01',
-		    minDate : new Date()  //当前日期前不可选择
-		});
+  ;jQuery(function(){
+    $(".product-navbar-collapse").click(function(){
+      $(this).parents(".viewFramework-product").toggleClass("viewFramework-product-col-1");
     });
+
+    $(".dropdown-menu li:not(.disabled) a").on('click.bs.dropdown', function(){
+      $(this).parent().siblings("li").find("a .icon-yes").remove();
+      $(this).parents("ul").prev("a").find("span").eq(1).html("(" + $(this).find("span").html() + ")");
+      $(this).prepend("<span class='icon-yes'></span>");
+    });
+
+    $(".list-tool-bar-button").hover(function(){
+      $(this).after("<div class='popover left in' style='top: 0px; left:-40px; display:block;''><div class='arrow'></div><div class='popover-inner'><div>自定义列表项</div></div></div>");
+    },function(){
+      $(this).next(".popover").remove();
+    }).click(function(e){
+      $("body").addClass("modal-open").append("<div class='modal fade in' style='display:block;' tabindex='-1' role='dialog' id='defined'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><button type='button' class='close'><span aria-hidden='true'>&times;</span></button><h4 class='modal-title'>自定义列表项</h4></div><div class='modal-body clearfix row'><div class='col-sm-12 clearfix'><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block text-muted' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked disabled='disabled'> 磁盘ID/磁盘名称</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 磁盘种类</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 磁盘状态</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 付费类型</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 可卸载</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 可用区</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 磁盘属性</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 标签</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block text-muted' style='cursor: pointer'><input type='checkbox' class='margin-right-1' disabled='disabled' checked> 操作</label></div></div></div><div class='modal-footer'><button class='btn btn-primary' id='modelSure'>确定</button> <button class='btn btn-default' id='cancel'>取消</button></div></div></div></div>");
+      $(".modal-backdrop").addClass("in");
+      e.stopPropagation();
+    });    
+
+    $(document).delegate("#modelSure","click",function(){
+      
+    });
+
+    $(document).click(function(e){
+      if(e.target.className == "modal fade in" || e.target.className == "close" || e.target.id == "cancel" || e.target.id == "modelSure"){
+        $("body").removeClass("modal-open");
+        $(".modal-backdrop").removeClass("in");
+        $("#defined").remove();
+      }
+    });
+    
+  });
 </script>
