@@ -13,7 +13,7 @@
 		      <ul aria-labelledby="nav-title" role="tree">
 		        <li class="active">
 		          <div class="ng-isolate-scope">
-		            <a href="#/home" class="ng-scope">
+		            <a href="#home" role="tab" data-toggle="tab">
 		              <div class="nav-icon"></div>
 		              <div class="nav-title">概览</div>
 		            </a>
@@ -21,7 +21,7 @@
 		        </li>
 		        <li class="">
 		          <div>
-		            <a href="#/server/region/">
+		            <a href="#region" role="tab" data-toggle="tab">
 		              <div class="nav-icon"></div>
 		              <div class="nav-title">实例</div>
 		            </a>
@@ -47,134 +47,295 @@
 		  </div>
 		</div>
 	</div>
-	<div class="viewFramework-product-body">
-		<div class="console-container">
-		  <div class="console-title console-title-border clearfix">
-		    <div class="pull-left">
-		        <h5>查询列表</h5>
+	<div class="tab-content">
+		<div class="viewFramework-product-body tab-pane fade active in" id="home">
+			<div class="console-container">
+			  <div class="console-title console-title-border clearfix">
+			    <div class="pull-left">
+			        <h5>查询列表</h5>
+			    </div>
+			  </div>
+			  <div class="console-table-wapper">
+				  <div class="list-tool-bar">
+				  	<button class="btn btn-default list-tool-bar-button"><span class="icon-setup"></span></button>				
+				  	</div>			  		  
+				<div class="gridSection">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th width="10"><input type="checkbox" aria-label="全选" ></th>
+								<th>磁盘ID/磁盘名称</th>
+								<th>
+									<div class="dropdown">
+										<a data-toggle="dropdown" class="dropdown-toggle" href="">
+											<span>磁盘种类</span><span>(全部)</span> <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu aliyun-console-table-search-list">
+											<li>
+												<a href="javascript:">
+													<span class="icon-yes"></span> <span>全部</span>
+												</a>
+											</li>
+											<li>
+												<a href="javascript:"> <span>普通云盘</span></a>
+											</li>
+											<li>
+												<a href="javascript:"> <span class="ng-binding">高效云盘</span></a>
+											</li>
+											<li>
+												<a href="javascript:"> <span class="ng-binding">SSD云盘</span></a>
+											</li>
+											<li>
+												<a href="javascript:"> <span class="ng-binding">本地SSD盘</span></a>
+											</li>
+											<li>
+												<a href="javascript:"> <span class="ng-binding">本地磁盘</span></a>
+											</li>
+										</ul>
+									</div>
+								</th>
+								<th>
+									<div class="dropdown">
+										<a aria-haspopup="true" data-toggle="dropdown" class="dropdown-toggle" href="">
+											<span>磁盘状态</span><span>(全部)</span> <span class="caret"></span>
+										</a>
+										<ul class="dropdown-menu aliyun-console-table-search-list">
+											<li>
+												<a href="javascript:">
+													<span class="icon-yes"></span> <span>全部</span>
+												</a>
+											</li>
+											<li>
+												<a href="javascript:"> <span class="ng-binding">使用中</span></a>
+											</li>
+											<li>
+												<a href="javascript:"> <span class="ng-binding">待挂载</span></a>
+											</li>
+											<li>
+												<a href="javascript:" > <span class="ng-binding">挂载中</span></a>
+											</li>
+											<li>
+												<a href="javascript:"> <span>卸载中</span></a>
+											</li>
+											<li>
+												<a href="javascript:"> <span>创建中</span></a>
+											</li>
+											<li>
+												<a href="javascript:"> <span class="ng-binding">初始化中</span></a>
+											</li>
+											<li>
+												<a href="javascript:"> <span>已过期</span></a>
+											</li>
+										</ul>
+									</div>
+								</th>
+								<th>付费类型</th>
+								<th>
+									<div class="dropdown">
+										<a data-toggle="dropdown" class="dropdown-toggle" href=""><span>可卸载</span><span>(全部)</span> <span class="caret"></span></a>
+										<ul class="dropdown-menu aliyun-console-table-search-list">
+											<li>
+												<a href="javascript:" ><span class="icon-yes"></span> <span class="ng-binding">全部</span></a>
+											</li>
+											<li><a href="javascript:" > <span>支持</span></a></li>
+											<li><a href="javascript:" > <span>不支持</span></a></li>
+										</ul>
+									</div>
+								</th>
+								<th><span><span class="ng-scope">可用区</span></span></th>
+								<th>
+									<div class="dropdown">
+										<a data-toggle="dropdown" class="dropdown-toggle" href=""><span>磁盘属性</span><span>(全部)</span> <span class="caret"></span></a>
+										<ul class="dropdown-menu aliyun-console-table-search-list">
+											<li><a href="javascript:"><span class="icon-yes"></span> <span>全部</span></a></li>
+											<li><a href="javascript:"> <span>数据盘</span></a></li>
+											<li><a href="javascript:"> <span>系统盘</span></a></li>
+										</ul>
+									</div>
+								</th>
+								<th>标签</th>
+								<th class="text-right">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input type="checkbox" aria-label="选中" ></td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试可用</td>
+								<td>测试属性</td>
+								<td>测试标签</td>
+								<td>测试操作</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			 </div>	
+			</div>	
+		</div>
+		<div class="viewFramework-product-body tab-pane fade" id="region">
+		    <div class="console-container">
+		      <div class="console-title console-title-border clearfix">
+		        <div class="pull-left">
+		            <h5>查询列表</h5>
+		        </div>
+		      </div>
+		      <div class="margin-top clearfix">
+		        <form class="form-inline" method="post">
+		            <div class="form-group">
+		                <label class="control-label">查询类型：</label>
+		                <select id="domainType" name="domainType" class="select form-control">
+		                    <option selected="selected" value="0">全部</option>
+		                    <option value="1">保单</option>
+		                    <option value="2">订单</option>
+		                    <option value="5">保评汇</option>
+		                    <option value="6">询价单</option>
+		                </select>
+		            </div>
+		            <div class="form-group">
+		                <label class="control-label">自定义分组：</label>
+		                <select id="orderGroupID" name="orderGroupID" class="select form-control inline-block">
+		                    <option selected="selected" value="">选择分组</option>
+		                    <optgroup label="-----------------">
+		                      <option value="2">分组1</option>
+		                      <option value="2">分组2</option>
+		                      <option value="2">分组1</option>
+		                    </optgroup>
+		                    <optgroup label="-----------------">
+		                    <option value="">分组管理</option>
+		                  </optgroup>
+		                </select>
+		            </div>
+		                <div class="form-group">
+		                <label class="control-label">商业险到期日：</label>
+		                <div class="datebox"><input type="text" id="startDate" name="startDate" size="13" class="ipt form-control form_datetime"></div>
+		                    <span class="date-step-span">至</span>
+		                <div class="datebox"><input type="text" id="endDate" name="endDate" size="13" class="ipt form-control hasDatepicker"></div>
+		               </div>
+		            <div class="form-group">
+		                <label class="control-label">保单号：</label>
+		                <input type="text" id="relatedName" name="relatedName" size="30" placeholder="输入保单号进行搜索" class="ipt form-control">
+		                <button type="button" class="btn btn-default" id="btnSearch">搜索</button>
+		            </div>
+		        </form>
+		      </div>
+		      <div class="margin-top">
+		        <table class="table table-hover">
+		                <thead>
+		                  <tr>
+		                      <th>
+		                          <input type="checkbox" name="ckSelectAll" id="ckSelectAll">
+		                      </th>
+		                      <th>域名</th>
+		                      <th>域名类型</th>
+		                      <th>域名状态</th>
+		                      <th>到期日期</th>
+		                      <th class="text-right">操作</th>
+		                  </tr>
+		                </thead>
+		                <tbody>
+		                  <tr>
+		                    <td><input type="checkbox" name="ckbox"></td>
+		                    <td><a href="" class="sub-style j_domain" target="_blank">3242342</a></td>
+		                    <td>国内域名</td>
+		                    <td>正常</td>
+		                    <td>2017-05-06</td>
+		                    <td class="text-right">
+		                      <a href="">续费</a>
+		                      <span class="text-explode">|</span>
+		                      <i class="link-space"></i>
+		                      <a href="" target="_blank">解析</a>
+		                      <span class="text-explode">|</span>
+		                      <i class="link-space"></i>
+		                      <a href="" target="_blank">管理</a>
+		                    </td>
+		                  </tr>
+		                  <tr>
+		                    <td><input type="checkbox" name="ckbox"></td>                       <td><a href="" class="sub-style j_domain" target="_blank">3464565464</a></td>       <td>国际域名</td>
+		                    <td>正常</td>
+		                    <td>2017-04-25</td>
+		                    <td class="text-right">
+		                      <a href="">续费</a>
+		                      <span class="text-explode">|</span>
+		                      <i class="link-space"></i>
+		                      <a href="" target="_blank">解析</a>
+		                      <span class="text-explode">|</span>
+		                      <i class="link-space"></i>
+		                      <a href="" target="_blank">管理</a>
+		                    </td>
+		                  </tr>
+		                  <tr>
+		                    <td><input type="checkbox" name="ckbox"></td>                       <td><a href="" class="sub-style j_domain" target="_blank">3464565464</a></td>       <td>国际域名</td>
+		                    <td>正常</td>
+		                    <td>2017-04-25</td>
+		                    <td class="text-right">
+		                      <a href="">续费</a>
+		                      <span class="text-explode">|</span>
+		                      <i class="link-space"></i>
+		                      <a href="" target="_blank">解析</a>
+		                      <span class="text-explode">|</span>
+		                      <i class="link-space"></i>
+		                      <a href="" target="_blank">管理</a>
+		                    </td>
+		                  </tr>
+		                </tbody>
+		                <tfoot>
+		                  <tr>
+		                      <td width="10"><input type="checkbox" class="mydomain-checkbox"></td>
+		                        <td colspan="5">
+		                          <div class="pull-left">
+		                              <button type="button" class="btn btn-default">域名续费</button>
+		                                <button type="button" class="btn btn-default">转至其他账号</button>
+		                                  <select class="select form-control inline-block">
+		                                      <option value="">更多批量操作</option>
+		                                      <option value="taoPub">一口价域名发布</option>
+		                                      <option value="pushDomain">域名带价PUSH</option>
+		                                      <option value="batch-chg-contact">域名信息修改</option>
+		                                      <option value="batch-chg-holder">域名所有者变更(过户)</option>
+		                                      <option value="dlcert">下载域名证书</option>
+		                                      <option value="autoRenew">设置自动续费</option>
+		                                    </select>
+		                                </div>
+		                                <div class="pull-right page-box">
+		                                    <div class="pagination-info">共有4条，每页显示：20条</div>
+		                                    <ul class="pagination">
+		                                      <li class="disabled" page-index="1"><a>«</a></li>
+		                                      <li class="disabled" page-index="0"><a>‹</a></li>
+		                                      <li class="active" page-index="1"><a>1</a></li>
+		                                      <li class="disabled" page-index="2"><a>›</a></li>
+		                                      <li class="disabled" page-index="1"><a>»</a></li>
+		                                    </ul>
+		                                    <div class="pagination-goto">
+		                                        <input type="text" class="ipt form-control" id="gotoPageNo">
+		                                        <button type="button" class="btn btn-default" id="goBtn">GO</button>
+		                                        <input type="hidden" value="4" id="totalCount" name="totalCount">
+		                                    </div>
+		                                </div>
+		                            </td>
+		                    </tr>
+		                </tfoot>
+		            </table>
+		      </div>
+		      <div class="margin-top">
+		        <div class="alert alert-tip"><b>温馨提示：</b>
+		          <p>• 如果在此账号下没有找到您的域名信息，您可以尝试
+		            <a href="" target="_blank">通过域名查询登陆帐号</a></p>
+		          <p>• 域名解析生效问题，您可以通过域名访问检测工具
+		            <a href="http://zijian.aliyun.com/" target="_blank">来进行自助排查与解决</a></p>
+		          <p>• 如何从域名到建站？您可以<a href="" target="_blank">点此查看</a></p>
+		       </div>
+		        </div>
+		        <div class="margin-top">
+		            <div class="row-padding row-margin text-center">
+		                <span class="text-size-16 text-success icon-info-1" style="vertical-align: middle"></span>
+		                <div class="text-size-16 inline-block mar_l_05"><span>没有查询到符合条件的记录</span></div></div>
+		        </div>
 		    </div>
-		  </div>
-		  <div class="console-table-wapper">
-			  <div class="list-tool-bar">
-			  	<button class="btn btn-default list-tool-bar-button"><span class="icon-setup"></span></button>				
-			  	</div>			  		  
-			<div class="gridSection">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th width="10"><input type="checkbox" aria-label="全选" ></th>
-							<th>磁盘ID/磁盘名称</th>
-							<th>
-								<div class="dropdown">
-									<a data-toggle="dropdown" class="dropdown-toggle" href="">
-										<span>磁盘种类</span><span>(全部)</span> <span class="caret"></span>
-									</a>
-									<ul class="dropdown-menu aliyun-console-table-search-list">
-										<li>
-											<a href="javascript:">
-												<span class="icon-yes"></span> <span>全部</span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:"> <span>普通云盘</span></a>
-										</li>
-										<li>
-											<a href="javascript:"> <span class="ng-binding">高效云盘</span></a>
-										</li>
-										<li>
-											<a href="javascript:"> <span class="ng-binding">SSD云盘</span></a>
-										</li>
-										<li>
-											<a href="javascript:"> <span class="ng-binding">本地SSD盘</span></a>
-										</li>
-										<li>
-											<a href="javascript:"> <span class="ng-binding">本地磁盘</span></a>
-										</li>
-									</ul>
-								</div>
-							</th>
-							<th>
-								<div class="dropdown">
-									<a aria-haspopup="true" data-toggle="dropdown" class="dropdown-toggle" href="">
-										<span>磁盘状态</span><span>(全部)</span> <span class="caret"></span>
-									</a>
-									<ul class="dropdown-menu aliyun-console-table-search-list">
-										<li>
-											<a href="javascript:">
-												<span class="icon-yes"></span> <span>全部</span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:"> <span class="ng-binding">使用中</span></a>
-										</li>
-										<li>
-											<a href="javascript:"> <span class="ng-binding">待挂载</span></a>
-										</li>
-										<li>
-											<a href="javascript:" > <span class="ng-binding">挂载中</span></a>
-										</li>
-										<li>
-											<a href="javascript:"> <span>卸载中</span></a>
-										</li>
-										<li>
-											<a href="javascript:"> <span>创建中</span></a>
-										</li>
-										<li>
-											<a href="javascript:"> <span class="ng-binding">初始化中</span></a>
-										</li>
-										<li>
-											<a href="javascript:"> <span>已过期</span></a>
-										</li>
-									</ul>
-								</div>
-							</th>
-							<th>付费类型</th>
-							<th>
-								<div class="dropdown">
-									<a data-toggle="dropdown" class="dropdown-toggle" href=""><span>可卸载</span><span>(全部)</span> <span class="caret"></span></a>
-									<ul class="dropdown-menu aliyun-console-table-search-list">
-										<li>
-											<a href="javascript:" ><span class="icon-yes"></span> <span class="ng-binding">全部</span></a>
-										</li>
-										<li><a href="javascript:" > <span>支持</span></a></li>
-										<li><a href="javascript:" > <span>不支持</span></a></li>
-									</ul>
-								</div>
-							</th>
-							<th><span><span class="ng-scope">可用区</span></span></th>
-							<th>
-								<div class="dropdown">
-									<a data-toggle="dropdown" class="dropdown-toggle" href=""><span>磁盘属性</span><span>(全部)</span> <span class="caret"></span></a>
-									<ul class="dropdown-menu aliyun-console-table-search-list">
-										<li><a href="javascript:"><span class="icon-yes"></span> <span>全部</span></a></li>
-										<li><a href="javascript:"> <span>数据盘</span></a></li>
-										<li><a href="javascript:"> <span>系统盘</span></a></li>
-									</ul>
-								</div>
-							</th>
-							<th>标签</th>
-							<th class="text-right">操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><input type="checkbox" aria-label="选中" ></td>
-							<td>测试</td>
-							<td>测试</td>
-							<td>测试</td>
-							<td>测试</td>
-							<td>测试</td>
-							<td>测试可用</td>
-							<td>测试属性</td>
-							<td>测试标签</td>
-							<td>测试操作</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		 </div>	
-		</div>	
-	</div>
+		</div>
+	</div>	
 </div>
 <script type="text/javascript">
   ;jQuery(function(){
@@ -199,11 +360,7 @@
     });    
 
     $(document).delegate("#modelSure","click",function(){
-    	// $(".nowrap").each(function(index,ele){
-    	// 	if(!$(ele).find(":checkbox").prop("checked")){
-    	// 		$(".gridSection tr td,.gridSection tr th").eq(index+1).remove();
-    	// 	}
-    	// });
+    	
     });
 
     $(document).click(function(e){
