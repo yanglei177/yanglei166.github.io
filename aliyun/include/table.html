@@ -2,6 +2,13 @@
   .console-container {padding: 0 15px;}
   .table thead tr th a.dropdown-toggle {color: #999;}
   .text-muted {color: #999999;}
+  #region{position: relative;}
+  .searchmore{position: absolute; top: 0; left: 0; width: 100%; padding:20px; height: 100%; z-index: 100; background: #fff; display: none;}
+  .searchmore .form-control{width: 50%;}
+  #region .clo{position: fixed;right:0px; width: 25px; top:60px; font-size: 16px; cursor:pointer; z-index: 101; display: none;}
+  .tabhead,.tabfoot{position:absolute; width: 100%; top:-9px; height: 45px; z-index: 102;}
+  .tabbody{height:160px; overflow-y:scroll; overflow-x:hidden; width: 100%; position: absolute; top:29px; }
+  .tabfoot{top:142px; z-index: 99;}
 </style>
 <div class="viewFramework-product viewFramework-product-col-1">
 	<div class="viewFramework-product-navbar">
@@ -59,7 +66,7 @@
 				  <div class="list-tool-bar">
 				  	<button class="btn btn-default list-tool-bar-button"><span class="icon-setup"></span></button>				
 				  	</div>			  		  
-				<div class="gridSection">
+				<div class="gridSection tabhead">
 					<table class="table table-hover">
 						<thead>
 							<tr>
@@ -157,6 +164,10 @@
 								<th class="text-right">操作</th>
 							</tr>
 						</thead>
+					</table>
+				</div>	
+				<div class="gridSection tabbody">
+					<table class="table table-hover">
 						<tbody>
 							<tr>
 								<td><input type="checkbox" aria-label="选中" ></td>
@@ -170,7 +181,73 @@
 								<td>测试标签</td>
 								<td>测试操作</td>
 							</tr>
+							<tr>
+								<td><input type="checkbox" aria-label="选中" ></td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试可用</td>
+								<td>测试属性</td>
+								<td>测试标签</td>
+								<td>测试操作</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" aria-label="选中" ></td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试可用</td>
+								<td>测试属性</td>
+								<td>测试标签</td>
+								<td>测试操作</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" aria-label="选中" ></td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试可用</td>
+								<td>测试属性</td>
+								<td>测试标签</td>
+								<td>测试操作</td>
+							</tr>
+							<tr>
+								<td><input type="checkbox" aria-label="选中" ></td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试</td>
+								<td>测试可用</td>
+								<td>测试属性</td>
+								<td>测试标签</td>
+								<td>测试操作</td>
+							</tr>
 						</tbody>
+					</table>
+				</div>
+				<div class="gridSection tabfoot">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th width="10"><input type="checkbox" aria-label="全选" ></th>
+								<th>测试底部</th>
+								<th>测试底部</th>
+								<th>测试底部</th>
+								<th>付费类型</th>
+								<th>测试底部</th>
+								<th>可用区</th>
+								<th>测试底部</th>
+								<th>标签</th>
+								<th class="text-right">操作</th>
+							</tr>
+						</thead>
 					</table>
 				</div>
 			 </div>	
@@ -219,6 +296,7 @@
 		                <label class="control-label">保单号：</label>
 		                <input type="text" id="relatedName" name="relatedName" size="30" placeholder="输入保单号进行搜索" class="ipt form-control">
 		                <button type="button" class="btn btn-default" id="btnSearch">搜索</button>
+		                <button type="button" class="btn btn-default" id="moresearch">更多搜索</button>
 		            </div>
 		        </form>
 		      </div>
@@ -243,6 +321,34 @@
 		                    <td>国内域名</td>
 		                    <td>正常</td>
 		                    <td>2017-05-06</td>
+		                    <td class="text-right">
+		                      <a href="">续费</a>
+		                      <span class="text-explode">|</span>
+		                      <i class="link-space"></i>
+		                      <a href="" target="_blank">解析</a>
+		                      <span class="text-explode">|</span>
+		                      <i class="link-space"></i>
+		                      <a href="" target="_blank">管理</a>
+		                    </td>
+		                  </tr>
+		                  <tr>
+		                    <td><input type="checkbox" name="ckbox"></td>                       <td><a href="" class="sub-style j_domain" target="_blank">3464565464</a></td>       <td>国际域名</td>
+		                    <td>正常</td>
+		                    <td>2017-04-25</td>
+		                    <td class="text-right">
+		                      <a href="">续费</a>
+		                      <span class="text-explode">|</span>
+		                      <i class="link-space"></i>
+		                      <a href="" target="_blank">解析</a>
+		                      <span class="text-explode">|</span>
+		                      <i class="link-space"></i>
+		                      <a href="" target="_blank">管理</a>
+		                    </td>
+		                  </tr>
+		                  <tr>
+		                    <td><input type="checkbox" name="ckbox"></td>                       <td><a href="" class="sub-style j_domain" target="_blank">3464565464</a></td>       <td>国际域名</td>
+		                    <td>正常</td>
+		                    <td>2017-04-25</td>
 		                    <td class="text-right">
 		                      <a href="">续费</a>
 		                      <span class="text-explode">|</span>
@@ -334,6 +440,33 @@
 		                <div class="text-size-16 inline-block mar_l_05"><span>没有查询到符合条件的记录</span></div></div>
 		        </div>
 		    </div>
+		    <div class="searchmore">
+				<form>
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">用户名</label>
+				    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">密码</label>
+				    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+				  </div>
+				  <div class="form-group">
+				    <label for="search">查询范围</label>
+				    <select class="form-control" id="search">
+				    	<option>全部</option>
+				    	<option>二级菜单</option>
+				    	<option三级菜单</option>
+				    </select>
+				  </div>
+				  <div class="checkbox">
+				    <label>
+				      <input type="checkbox"> Check me out
+				    </label>
+				  </div>
+				  <button type="button" class="btn btn-success">搜索</button> <button type="button" id="searchback" class="btn btn-defaul mar_l_10">返回</button>
+				</form>							
+		    </div>		
+		    <div class="clo"><span class="icon-list-close"></span></div>    
 		</div>
 	</div>	
 </div>
@@ -369,6 +502,13 @@
 	    	$(".modal-backdrop").removeClass("in");
 	    	$("#defined").remove();
     	}
+    });
+
+    $("#moresearch").click(function(){
+    	$(".searchmore,.clo").show(400);
+    });
+    $("#region .clo,#searchback").click(function(){
+    	$(".searchmore,.clo").hide(400);
     });
     
   });

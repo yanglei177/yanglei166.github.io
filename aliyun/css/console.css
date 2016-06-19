@@ -209,7 +209,7 @@ label.control-label {
     transition: none 0s ease 0s ;
 }
 .ipt, .form-inline .ipt {
-    width: 120px;
+    width:90px;
 }
 .date-step-span {
     display: inline-block;
