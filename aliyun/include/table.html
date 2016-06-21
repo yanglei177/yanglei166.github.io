@@ -1,14 +1,18 @@
+<link href="../css/bootstrap-datetimepicker.css" rel="stylesheet">   
 <style type="text/css">
   .console-container {padding: 0 15px;}
   .table thead tr th a.dropdown-toggle {color: #999;}
   .text-muted {color: #999999;}
   #region{position: relative;}
-  .searchmore{position: absolute; top: 0; left: 0; width: 100%; padding:20px; height: 100%; z-index: 100; background: #fff; display: none;}
+  .searchmore{display: none;}
   .searchmore .form-control{width: 50%;}
-  #region .clo{position: fixed;right:0px; width: 25px; top:60px; font-size: 16px; cursor:pointer; z-index: 101; display: none;}
   .tabhead,.tabfoot{position:absolute; width: 100%; top:-9px; height: 45px; z-index: 102;}
-  .tabbody{height:160px; overflow-y:scroll; overflow-x:hidden; width: 100%; position: absolute; top:29px; }
-  .tabfoot{top:142px; z-index: 99;}
+  .tabbody{height:179px; overflow-y:scroll; overflow-x:hidden; width: 100%; position: absolute; top:27px; }
+  .tabfoot{top:175px; z-index: 99;}
+  .tabfoot th{text-align: center;}
+  .gridSection td{text-align: left;}
+  .gridSection tr td:first-child,.gridSection tr th:first-child{text-align: left;}
+  input[type="checkbox"]{margin:4px 5px 0 0; vertical-align: -2px;}
 </style>
 <div class="viewFramework-product viewFramework-product-col-1">
 	<div class="viewFramework-product-navbar">
@@ -68,187 +72,16 @@
 				  	</div>			  		  
 				<div class="gridSection tabhead">
 					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th width="10"><input type="checkbox" aria-label="全选" ></th>
-								<th>磁盘ID/磁盘名称</th>
-								<th>
-									<div class="dropdown">
-										<a data-toggle="dropdown" class="dropdown-toggle" href="">
-											<span>磁盘种类</span><span>(全部)</span> <span class="caret"></span>
-										</a>
-										<ul class="dropdown-menu aliyun-console-table-search-list">
-											<li>
-												<a href="javascript:">
-													<span class="icon-yes"></span> <span>全部</span>
-												</a>
-											</li>
-											<li>
-												<a href="javascript:"> <span>普通云盘</span></a>
-											</li>
-											<li>
-												<a href="javascript:"> <span class="ng-binding">高效云盘</span></a>
-											</li>
-											<li>
-												<a href="javascript:"> <span class="ng-binding">SSD云盘</span></a>
-											</li>
-											<li>
-												<a href="javascript:"> <span class="ng-binding">本地SSD盘</span></a>
-											</li>
-											<li>
-												<a href="javascript:"> <span class="ng-binding">本地磁盘</span></a>
-											</li>
-										</ul>
-									</div>
-								</th>
-								<th>
-									<div class="dropdown">
-										<a aria-haspopup="true" data-toggle="dropdown" class="dropdown-toggle" href="">
-											<span>磁盘状态</span><span>(全部)</span> <span class="caret"></span>
-										</a>
-										<ul class="dropdown-menu aliyun-console-table-search-list">
-											<li>
-												<a href="javascript:">
-													<span class="icon-yes"></span> <span>全部</span>
-												</a>
-											</li>
-											<li>
-												<a href="javascript:"> <span class="ng-binding">使用中</span></a>
-											</li>
-											<li>
-												<a href="javascript:"> <span class="ng-binding">待挂载</span></a>
-											</li>
-											<li>
-												<a href="javascript:" > <span class="ng-binding">挂载中</span></a>
-											</li>
-											<li>
-												<a href="javascript:"> <span>卸载中</span></a>
-											</li>
-											<li>
-												<a href="javascript:"> <span>创建中</span></a>
-											</li>
-											<li>
-												<a href="javascript:"> <span class="ng-binding">初始化中</span></a>
-											</li>
-											<li>
-												<a href="javascript:"> <span>已过期</span></a>
-											</li>
-										</ul>
-									</div>
-								</th>
-								<th>付费类型</th>
-								<th>
-									<div class="dropdown">
-										<a data-toggle="dropdown" class="dropdown-toggle" href=""><span>可卸载</span><span>(全部)</span> <span class="caret"></span></a>
-										<ul class="dropdown-menu aliyun-console-table-search-list">
-											<li>
-												<a href="javascript:" ><span class="icon-yes"></span> <span class="ng-binding">全部</span></a>
-											</li>
-											<li><a href="javascript:" > <span>支持</span></a></li>
-											<li><a href="javascript:" > <span>不支持</span></a></li>
-										</ul>
-									</div>
-								</th>
-								<th><span><span class="ng-scope">可用区</span></span></th>
-								<th>
-									<div class="dropdown">
-										<a data-toggle="dropdown" class="dropdown-toggle" href=""><span>磁盘属性</span><span>(全部)</span> <span class="caret"></span></a>
-										<ul class="dropdown-menu aliyun-console-table-search-list">
-											<li><a href="javascript:"><span class="icon-yes"></span> <span>全部</span></a></li>
-											<li><a href="javascript:"> <span>数据盘</span></a></li>
-											<li><a href="javascript:"> <span>系统盘</span></a></li>
-										</ul>
-									</div>
-								</th>
-								<th>标签</th>
-								<th class="text-right">操作</th>
-							</tr>
-						</thead>
+						<thead><tr></tr></thead>
 					</table>
 				</div>	
 				<div class="gridSection tabbody">
 					<table class="table table-hover">
-						<tbody>
-							<tr>
-								<td><input type="checkbox" aria-label="选中" ></td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试可用</td>
-								<td>测试属性</td>
-								<td>测试标签</td>
-								<td>测试操作</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" aria-label="选中" ></td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试可用</td>
-								<td>测试属性</td>
-								<td>测试标签</td>
-								<td>测试操作</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" aria-label="选中" ></td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试可用</td>
-								<td>测试属性</td>
-								<td>测试标签</td>
-								<td>测试操作</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" aria-label="选中" ></td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试可用</td>
-								<td>测试属性</td>
-								<td>测试标签</td>
-								<td>测试操作</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" aria-label="选中" ></td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试</td>
-								<td>测试可用</td>
-								<td>测试属性</td>
-								<td>测试标签</td>
-								<td>测试操作</td>
-							</tr>
-						</tbody>
+						<tbody></tbody>
 					</table>
 				</div>
 				<div class="gridSection tabfoot">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th width="10"><input type="checkbox" aria-label="全选" ></th>
-								<th>测试底部</th>
-								<th>测试底部</th>
-								<th>测试底部</th>
-								<th>付费类型</th>
-								<th>测试底部</th>
-								<th>可用区</th>
-								<th>测试底部</th>
-								<th>标签</th>
-								<th class="text-right">操作</th>
-							</tr>
-						</thead>
-					</table>
+					<table class="table table-hover"><tr></tr></table>
 				</div>
 			 </div>	
 			</div>	
@@ -299,6 +132,29 @@
 		                <button type="button" class="btn btn-default" id="moresearch">更多搜索</button>
 		            </div>
 		        </form>
+		        <form class="searchmore">
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">用户名</label>
+				    <input type="text" placeholder="Email" id="exampleInputEmail1" class="form-control">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">密码</label>
+				    <input type="password" placeholder="Password" id="exampleInputPassword1" class="form-control">
+				  </div>
+				  <div class="form-group">
+				    <label for="search">查询范围</label>
+				    <select id="search" class="form-control">
+				    	<option>全部</option>
+				    	<option>二级菜单</option>
+				    </select>
+				  </div>
+				  <div class="checkbox">
+				    <label>
+				      <input type="checkbox"> Check me out
+				    </label>
+				  </div>
+				  <button class="btn btn-success" type="button">搜索</button>
+				</form>
 		      </div>
 		      <div class="margin-top">
 		        <table class="table table-hover">
@@ -439,77 +295,29 @@
 		                <span class="text-size-16 text-success icon-info-1" style="vertical-align: middle"></span>
 		                <div class="text-size-16 inline-block mar_l_05"><span>没有查询到符合条件的记录</span></div></div>
 		        </div>
-		    </div>
-		    <div class="searchmore">
-				<form>
-				  <div class="form-group">
-				    <label for="exampleInputEmail1">用户名</label>
-				    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
-				  </div>
-				  <div class="form-group">
-				    <label for="exampleInputPassword1">密码</label>
-				    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-				  </div>
-				  <div class="form-group">
-				    <label for="search">查询范围</label>
-				    <select class="form-control" id="search">
-				    	<option>全部</option>
-				    	<option>二级菜单</option>
-				    	<option三级菜单</option>
-				    </select>
-				  </div>
-				  <div class="checkbox">
-				    <label>
-				      <input type="checkbox"> Check me out
-				    </label>
-				  </div>
-				  <button type="button" class="btn btn-success">搜索</button> <button type="button" id="searchback" class="btn btn-defaul mar_l_10">返回</button>
-				</form>							
-		    </div>		
-		    <div class="clo"><span class="icon-list-close"></span></div>    
+		    </div>		    				   
 		</div>
 	</div>	
 </div>
+<script src="../js/addtable.js"></script>
 <script type="text/javascript">
   ;jQuery(function(){
+  	//日历
+  	$('#startDate,#endDate').datetimepicker({        	
+	    format: 'YYYY-MM-DD',
+	    defaultDate: '2016-11-01',
+	    minDate : new Date()  //当前日期前不可选择
+	});
+
     $(".product-navbar-collapse").click(function(){
       $(this).parents(".viewFramework-product").toggleClass("viewFramework-product-col-1");
     });
 
-    $(".dropdown-menu li:not(.disabled) a").on('click.bs.dropdown', function(){
-    	$(this).parent().siblings("li").find("a .icon-yes").remove();
-    	$(this).parents("ul").prev("a").find("span").eq(1).html("(" + $(this).find("span").html() + ")");
-    	$(this).prepend("<span class='icon-yes'></span>");
-    });
-
-    $(".list-tool-bar-button").hover(function(){
-    	$(this).after("<div class='popover left in' style='top: 0px; left:-40px; display:block;''><div class='arrow'></div><div class='popover-inner'><div>自定义列表项</div></div></div>");
-    },function(){
-    	$(this).next(".popover").remove();
-    }).click(function(e){
-    	$("body").addClass("modal-open").append("<div class='modal fade in' style='display:block;' tabindex='-1' role='dialog' id='defined'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><button type='button' class='close'><span aria-hidden='true'>&times;</span></button><h4 class='modal-title'>自定义列表项</h4></div><div class='modal-body clearfix row'><div class='col-sm-12 clearfix'><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block text-muted' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked disabled='disabled'> 磁盘ID/磁盘名称</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 磁盘种类</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 磁盘状态</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 付费类型</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 可卸载</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 可用区</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 磁盘属性</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block' style='cursor: pointer'><input type='checkbox' class='margin-right-1' checked> 标签</label></div><div class='pull-left list-user-preferences-uint nowrap'><label class='inline-block text-muted' style='cursor: pointer'><input type='checkbox' class='margin-right-1' disabled='disabled' checked> 操作</label></div></div></div><div class='modal-footer'><button class='btn btn-primary' id='modelSure'>确定</button> <button class='btn btn-default' id='cancel'>取消</button></div></div></div></div>");
-    	$(".modal-backdrop").addClass("in");
-    	e.stopPropagation();
-    });    
-
-    $(document).delegate("#modelSure","click",function(){
-    	
-    });
-
-    $(document).click(function(e){
-    	if(e.target.className == "modal fade in" || e.target.className == "close" || e.target.id == "cancel" || e.target.id == "modelSure"){
-    		$("body").removeClass("modal-open");
-	    	$(".modal-backdrop").removeClass("in");
-	    	$("#defined").remove();
-    	}
-    });
 
     $("#moresearch").click(function(){
-    	$(".searchmore,.clo").show(400);
+    	$(".searchmore").slideToggle(400);
     });
-    $("#region .clo,#searchback").click(function(){
-    	$(".searchmore,.clo").hide(400);
-    });
+    
     
   });
 </script>

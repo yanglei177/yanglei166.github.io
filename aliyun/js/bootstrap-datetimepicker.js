@@ -1673,14 +1673,14 @@
         disabledDates: false,
         enabledDates: false,
         icons: {
-            time: 'glyphicon glyphicon-time',
-            date: 'glyphicon glyphicon-calendar',
-            up: 'glyphicon glyphicon-chevron-up',
-            down: 'glyphicon glyphicon-chevron-down',
-            previous: 'glyphicon glyphicon-chevron-left',
-            next: 'glyphicon glyphicon-chevron-right',
-            today: 'glyphicon glyphicon-screenshot',
-            clear: 'glyphicon glyphicon-trash'
+            time: 'icon-arrow-time',
+            date: 'icon-arrow-calendar',
+            up: 'icon-arrow-chevron-up',
+            down: 'icon-arrow-chevron-down',
+            previous: 'icon-arrow-left',
+            next: 'icon-arrow-right',
+            today: 'icon-arrow-screenshot',
+            clear: 'icon-arrow-trash'
         },
         useStrict: false,
         sideBySide: false,
