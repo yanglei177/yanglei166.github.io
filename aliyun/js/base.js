@@ -40,37 +40,20 @@
  		}
  	});
 
-    $(document).pjax('li.nav-item a', '#rigContainer');
-    // $('li.nav-item a').click(function() {
-    //     history.pushState({ path: this.path }, '', this.href)
-    //     $.ajax({
-    //         type: "GET",
-    //         url: this.href,
-    //         cache: false,
-    //         success: function(msg){
-    //             $("#rigContainer").html(msg);
-    //         }
-    //     });
-    //     return false; 
-    // });
-    // $(window).bind('popstate', function() {
-    //   $('#rigContainer').load(location.pathname)
-    // })
- 	//click li load html
- 	// $("li.nav-item").click(function(){
- 	// 	var  src = $(this).attr("src");
- 	// 	$(this).parents(".sidebar-content").find("li.nav-item").removeClass("on").end().end().addClass("on");
- 	// 	$("#rigContainer").load(src);  
- 	// });
-    
+
+    $("li.nav-item").click(function(){
+        if(!$(this).hasClass("on")){
+            $(this).parents(".sidebar-content").find("li.nav-item").removeClass("on").end().end().addClass("on");
+            $(document).pjax('li.nav-item a', '#rigContainer');
+        }else{
+            return false;
+        }
+    });
     
 
  });
 
  var bpcommon = {
- 	"tooltip" : function(item,itemTop,itemLeft){
- 		$("body").append("<div role='tooltip' class='tooltip right' style='top:" + (itemTop) + "px;left:" + itemLeft + "px;opacity:1;'" + "><div class='tooltip-arrow'></div><div class='tooltip-inner'>" + item + "</div></div>");
- 	},
  	"sendData" : function(){
         $.pjax({
             cache: false,
@@ -80,10 +63,7 @@
             data:reqData,
             container : '#pjax-container'
         });      	
- 	},
-    "refresh":function(){
-        
-    }
+ 	}
  };
 
 

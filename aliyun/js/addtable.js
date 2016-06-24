@@ -80,8 +80,8 @@ var data = shortData = {
 		tanHtml = "";
 		for(var i=0;i<ele.listHead.length;i++){	
 			var checkHtml = "<input type='checkbox' checked='true' class='margin-right-1'>";
-			if(ele.listHead[i].orcheck && ele.listHead[i].del){
-				checkHtml = "<input type='checkbox' disabled='disabled' checked='false' class='margin-right-1'>"		
+			if(ele.listHead[i].orcheck){
+				checkHtml = "<input type='checkbox' disabled='disabled' checked='true class='margin-right-1'>"		
 			}else if(ele.listHead[i].del){
 				checkHtml = "<input type='checkbox' class='margin-right-1'>"
 			}
@@ -89,19 +89,27 @@ var data = shortData = {
 			if(ele.listHead[i].del){continue;}		
 			headHtml += data.eachFun(ele.listHead[i]);
 		}
-		$(".tabhead thead tr").append(headHtml);
+		$(".tabhead thead tr").append(headHtml + "<th>&nbsp;</th>");
 		$(".dropdown-menu li:not(.disabled) a").on('click.bs.dropdown', function(){
 			$(this).parent().siblings("li").find("a .icon-yes").remove();
 			$(this).parents("ul").prev("a").find("span").eq(1).html("(" + $(this).find("span").html() + ")");
 			$(this).prepend("<span class='icon-yes'></span>");
 		});
 	},
-	bodyFun:function(ele){
-		for(var j=0;j<ele.listBody.length;j++){	
+	bodyFun:function(ele,arr){
+		for(var j=0;j<ele.listBody.length;j++){
 			var bodyHtml = "<td><input type='checkbox' aria-label='选中' ></td>";
-			for(var k=0;k<ele.listBody[j].length;k++){			
-				// if(index && k == index){continue;}				
-				bodyHtml += "<td>" + ele.listBody[j][k] + "</td>";
+			if(arr && arr.length > 0){
+				listlabel:for(var k=0;k<ele.listBody[j].length;k++){	
+					for(var m=0;m<arr.length;m++){
+						if(k == arr[m]){continue listlabel;}
+					}
+					bodyHtml += "<td>" + ele.listBody[j][k] + "</td>";
+				}
+			}else{
+				for(var k=0;k<ele.listBody[j].length;k++){	
+					bodyHtml += "<td>" + ele.listBody[j][k] + "</td>";
+				}
 			}
 			bodyHtml = "<tr>" + bodyHtml +"</tr>";
 			$(".tabbody tbody").append(bodyHtml);
@@ -142,20 +150,19 @@ $(document).click(function(e){
 });
 
 $(document).delegate("#modelSure","click",function(){
+	var arr = [];
     $(".modal-body .pull-left.nowrap").each(function(index,ele){
     	$(".tabhead thead tr").html("");
     	$(".tabbody tbody").html("");
     	shortData = data;
     	if(!$(ele).find(":checkbox").prop("checked")){
     		shortData.listHead[index].del = true;
-    		for(var n=0;n<shortData.listBody.length;n++){
-    			shortData.listBody[n].splice(index,1);
-    		}
+    		arr.push(index);    		
     	}else{
     		shortData.listHead[index].del = "";
     	}
     	
-    })
-    data.bodyFun(shortData);
+    });
+    data.bodyFun(shortData,arr);   
     data.headFun(shortData);
 });
