@@ -39,8 +39,19 @@
 	 		});
  		}
  	});
+    //伸缩3级菜单
+    $(document).delegate(".product-navbar-collapse","click",function(){
+      $(this).parents(".viewFramework-product").toggleClass("viewFramework-product-col-1");
+    });
+    //日历插件    
+    $("input[name='calendar']").datetimepicker({            
+        format: 'YYYY-MM-DD',
+        defaultDate: '2016-11-01',
+        minDate : new Date()  //当前日期前不可选择
+    });
 
 
+    //后期可以通过ajax改变右侧区域
     $("li.nav-item").click(function(){
         if(!$(this).hasClass("on")){
             $(this).parents(".sidebar-content").find("li.nav-item").removeClass("on").end().end().addClass("on");
@@ -49,20 +60,36 @@
             return false;
         }
     });
-    
+    //
+     $("#loading").ajaxStart(function(){
+       $(this).show();
+     }).ajaxStop(function(){
+       $(this).hide();
+     });
+      
 
  });
 
  var bpcommon = {
- 	"sendData" : function(){
-        $.pjax({
+    "tooltip" : function(item,itemTop,itemLeft){
+        $("body").append("<div role='tooltip' class='tooltip right' style='top:" + (itemTop) + "px;left:" + itemLeft + "px;opacity:1;'" + "><div class='tooltip-arrow'></div><div class='tooltip-inner'>" + item + "</div></div>");
+    },
+ 	"sendData" : function(interfaceName,reqData,succCall,errorCall){
+        $.ajax({
             cache: false,
             type: 'POST',
 			dataType: 'json',
             url: API_URL_ROOT+interfaceName,
             data:reqData,
-            container : '#pjax-container'
-        });      	
+            success: function(data){
+                window.clearTimeout(timer); 
+                succCall();
+            }            
+        }); 
+        var timer = window.setTimeout(requestTimeout, 80000);
+            function requestTimeout(){
+                alert("网络好像不给力哦!");            
+            }     	
  	}
  };
 

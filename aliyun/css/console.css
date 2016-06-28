@@ -184,13 +184,19 @@ ul, li {
 .console-topbar .topbar-info ul{padding:0; margin:0;}
 .console-topbar .topbar-info > ul > li{background: #09c; margin-left: 1px; padding:0; list-style: none; float: left; display:block; height: 50px; line-height: 50px; font-size: 14px; padding:0 10px; color: #fff;}
 .console-topbar .badge{background:#ff9900; margin-left:5px;}
-.console-title {
-    min-height: 60px;
-    padding: 8px 0;border-bottom: 1px solid #ddd;
+.console-title,.con-title-box{
+    min-height:50px; margin-bottom:10px;border-bottom:1px solid #b4b4b4;
+}
+.con-title-box .con-title {
+    display: inline-block;
+    font-size: 16px;
+}
+.con-title-box .line {
+    color: #0097d3;
 }
 .console-title h5 {
     margin-bottom: 8px;
-    margin-top: 8px;border-left: 2px solid #88b7e0;
+    margin-top:17px;border-left: 2px solid #88b7e0;
     display: inline-block;margin-right: 8px;text-indent: 8px;
 }
 .form-inline .form-group {
@@ -576,11 +582,25 @@ tfoot, .bg-color-f56 {
 label {
     font-size: 100%;
 }
-
-
-
-
-
+.table-page-box { margin-top:-1px;
+    background-color: #f6f8fa;
+    border: 1px solid #ddd;
+    padding: 15px; overflow: hidden;
+}
+.paginationnav {
+    display: inline-block;
+    vertical-align: middle;
+}
+.pages .pagination-info {
+    color: #595757;
+    display: inline-block;
+    padding: 0 16px;
+    vertical-align: middle;
+}
+.pages .pagination-goto {
+    display: inline-block;
+    padding-left: 15px;
+}
 
 
 

@@ -1,0 +1,227 @@
+<link href="../css/bootstrap-datetimepicker.css" rel="stylesheet">   
+<style type="text/css">  
+  a{color:#515151;outline:0 none;text-decoration:none;}
+  .console-container{padding: 0 15px;}
+  .con-title-box{margin-top: 25px;}
+  .searchmore{display: none; margin:20px;}
+  .form-horizontal .checkbox,.searchbtn{margin: 0 0 20px 20px;}
+  .table{margin-bottom:0;}
+  .table thead td{font-weight: bold; font-size: 14px;}
+  table td{text-align: center;}
+  .pagination-goto .ipt{vertical-align:middle; height: 30px;}
+  .pagination-goto .goBtn{vertical-align:middle; padding:4px;}
+  .dis_none{display: none;}
+  .modal .form-item{padding:4px 0 4px 32%;color:#7f7f7f;line-height:36px;}
+  .modal .form-label {display: inline;float: left;font-size: 14px;height: 33px;line-height: 33px;margin-left: -190px;margin-right: 20px;text-align: right;width: 50%;}
+  .modal .star{color: #ffb400; margin-right: 4px;vertical-align: middle;}
+  .modal .form-text {background: #fff none repeat scroll 0 0;border: 1px solid #ccc;color: #000;height: 33px;line-height: 33px;outline: 0 none;padding: 0 0 0 7px;transition: all 0.3s ease 0s;width: 260px;}
+</style>
+<div class="viewFramework-product viewFramework-product-col-1">
+	<div class="viewFramework-product-navbar">
+		<div class="product-nav-stage product-nav-stage-main">
+		  <div class="product-nav-scene product-nav-main-scene">
+		    <div id="nav-title" class="product-nav-title">牧场管理</div>
+		    <div class=""></div>
+		    <div class="product-nav-list">
+		      <ul aria-labelledby="nav-title">
+		        <li class="active" src="staffList">
+		          <div>
+		            <a href="javascript:void(0)">
+		              <div class="nav-icon"></div>
+		              <div class="nav-title">兽药信息</div>
+		            </a>
+		          </div>
+		        </li>
+		        <li class="" src="infoList">
+		          <div>
+		            <a href="javascript:void(0)">
+		              <div class="nav-icon"></div>
+		              <div class="nav-title">兽药入库</div>
+		            </a>
+		          </div>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<div class="viewFramework-product-navbar-collapse">
+		<div class="product-navbar-collapse-inner">
+		  <div class="product-navbar-collapse-bg"></div>
+		  <div class="product-navbar-collapse">
+		    <span class="icon-collapse-left"></span>
+		    <span class="icon-collapse-right"></span>
+		  </div>
+		</div>
+	</div>
+	<div class="viewFramework-product-body">
+		<div class="console-container">
+		  <div class="con-title-box">
+			<h4 class="con-title">
+				<span class="line">| </span>
+				<a id="pageTitle">兽药信息</a>
+			</h4>
+			<div class="pull-right">
+				<button class="btn btn-default btn-refresh"><span class="icon-refresh"></span> 刷新</button>
+				<button class="btn btn-primary" data-toggle="modal" data-target="#showbox">创建记录</button>
+			</div>
+		  </div>
+		  <div class="console-table-wapper">
+			 <div class="clearfix">
+		        <form method="post" class="form-inline">
+		            <div class="form-group">
+		                <label class="control-label">查询类型：</label>
+		                <select class="select form-control" name="domainType" id="domainType">
+		                    <option value="0" selected="selected">全部</option>
+		                    <option value="1">保单</option>
+		                    <option value="2">订单</option>
+		                    <option value="5">保评汇</option>
+		                    <option value="6">询价单</option>
+		                </select>
+		            </div>
+	                <div class="form-group">
+	                <label class="control-label">商业险到期日：</label>
+	                <div class="datebox"><input type="text" class="ipt form-control form_datetime" name="calendar" size="13"></div>
+	                    <span class="date-step-span">至</span>
+	                <div class="datebox"><input type="text" class="ipt form-control hasDatepicker" name="calendar"  size="13"></div>
+	               </div>
+		            <div class="form-group">
+		                <label class="control-label">保单号：</label>
+		                <input type="text" class="ipt form-control" placeholder="输入保单号进行搜索" size="30" name="relatedName" id="relatedName">
+		                <button id="moresearch" class="btn btn-default" type="button">更多搜索</button>
+		            </div>
+		        </form>
+		        <form class="searchmore form-horizontal">
+				  <div class="form-group">
+				  	<div class="row">
+						<div class="col-sm-4 form-group">
+							<label class="col-sm-4 control-label" for="exampleInputUser">用户名</label>
+				    		<div class="col-sm-8"><input type="text" class="form-control" id="exampleInputUser" placeholder="Email"></div>
+				    	</div>
+				    	<div class="col-sm-4 form-group">
+							<label class="col-sm-4 control-label" for="exampleInputPassword1">密码</label>
+				    		<div class="col-sm-8"><input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"></div>
+				    	</div>
+				  	</div>
+				    <div class="row">
+						<div class="col-sm-4 form-group">
+							<label class="col-sm-4 control-label" for="exampleInputEmail1">邮箱</label>
+				    		<div class="col-sm-8"><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"></div>
+				    	</div>
+				    	<div class="col-sm-4 form-group">
+							<label class="col-sm-4 control-label" for="exampleInputTel">手机号码</label>
+				    		<div class="col-sm-8"><input type="password" class="form-control" id="exampleInputTel" placeholder="Password"></div>
+				    	</div>
+				  	</div>
+				  	<div class="row">
+						<div class="col-sm-4 form-group">
+						    <label class="col-sm-4 control-label" for="search">查询范围</label>
+						    <div class="col-sm-8"><select class="form-control col-sm-9" id="search">
+						    	<option>全部</option>
+						    	<option>二级菜单</option>
+						    </select></div>
+						</div>
+					</div>
+					<div class="checkbox">
+				    <label>
+				      <input type="checkbox"> Check me out
+				    </label>
+				  </div>
+				  <button type="button" class="btn btn-success searchbtn">搜索</button>
+					</div>					  
+				</form>
+				<table class="table table-hover table-bordered">
+					<thead>
+						<tr>
+							<td width="10%"><input type="checkbox" name=""></td>
+							<td width="15%">兽药名称</td>
+							<td width="15%">兽药类型</td>
+							<td width="10%">规格</td>
+							<td width="15%">供应商</td>
+							<td width="15%">备注</td>
+							<td width="20%">操作</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="checkbox" name=""></td>
+							<td>富安达</td>
+							<td>驱虫</td>
+							<td>10富朗特g</td>
+							<td>富朗特</td>
+							<td>1</td>
+							<td>
+								<a class="text-primary" href="javascript:;">查看</a> | <a class="text-primary" href="javascript:;">修改</a>
+							</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name=""></td>
+							<td>富安达</td>
+							<td>驱虫</td>
+							<td>10富朗特g</td>
+							<td>富朗特</td>
+							<td>1</td>
+							<td>
+								<a class="text-primary" href="javascript:;">查看</a> | <a class="text-primary" href="javascript:;">修改</a>
+							</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name=""></td>
+							<td>富安达</td>
+							<td>驱虫</td>
+							<td>10富朗特g</td>
+							<td>富朗特</td>
+							<td>1</td>
+							<td>
+								<a class="text-primary" href="javascript:;">查看</a> | <a class="text-primary" href="javascript:;">修改</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="table-page-box">
+					<div class="pull-left left-btns">
+						<button id="muchangDel" class="btn btn-default">删除</button>
+						<button class="btn btn-default">导出</button>
+					</div>
+					<div class="pull-right pages">
+						<div class="pagination-info">共有5条，每页显示：8条</div>
+						<nav class="paginationnav">
+						  <ul class="pagination pagination-sm">
+						    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+						    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+						    <li><a href="#">2 <span></span></a></li>
+						    <li><a href="#">3 <span></span></a></li>
+						    <li><a href="#">4 <span></span></a></li>
+						    <li><a href="#">5 <span></span></a></li>
+						  </ul>
+						</nav>
+					<div class="pagination-goto">
+					<input type="text" id="gotoPageNo" class="ipt form-control">
+					<button id="goBtn" class="btn btn-default goBtn" type="button">GO</button>
+					</div>
+</div>
+</div>
+		     </div>
+		 </div>	
+		</div>	
+	</div>
+</div>
+<script src="../js/newtable.js"></script>
+<script type="text/javascript">
+  ;jQuery(function(){
+
+    $("#moresearch").click(function(){
+    	$(".searchmore").slideToggle(400);
+    });
+    
+    //日历插件    
+    $("input[name='calendar']").datetimepicker({            
+        format: 'YYYY-MM-DD',
+        defaultDate: Date.now(),
+        minDate : new Date()  //当前日期前不可选择
+    });
+
+    
+
+  });
+</script>

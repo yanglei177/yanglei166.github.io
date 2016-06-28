@@ -65,14 +65,6 @@
             $('#hichart').click(function(){
                 $('#hchartbox').modal();
             });
-           // chart = $container.highcharts();
-          //   $('').insertBefore($container).click(function () {
-          //       var wid =
-          //       var t = $(this).parents(".stretchbox");
-        		// t.toggleClass("fullpage");
-        		// var i, n;
-        		// $(".fullpage").length > 0 ? (i = t.width() - 40, n = t.height() - 80) : (i = t.width() - 24, n = 250), chart.setSize(i, n, !0)
-          //   });
             $('#hchartbox').on('shown.bs.modal', function (e) {
                 hchart($(this).find("#chartcontainer"));
             })
