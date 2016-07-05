@@ -161,11 +161,20 @@ var data = shortData = {
 					for(var m=0;m<arr.length;m++){
 						if(k == arr[m]){continue listlabel;}
 					}
-					bodyHtml += "<td>" + ele.listBody[j][k] + "</td>";
+					//bodyHtml += "<td>" + ele.listBody[j][k] + "</td>";
+					if(k == ele.listBody[j].length-1){
+						bodyHtml += "<td><a href='javascript:void(0)' data-target='#showbox' data-toggle='modal'>" + ele.listBody[j][k] + "</a></td>";
+					}else{
+						bodyHtml += "<td>" + ele.listBody[j][k] + "</td>";
+					}
 				}
 			}else{
-				for(var k=0;k<ele.listBody[j].length;k++){	
-					bodyHtml += "<td>" + ele.listBody[j][k] + "</td>";
+				for(var k=0;k<ele.listBody[j].length;k++){
+					if(k == ele.listBody[j].length-1){
+						bodyHtml += "<td><a href='javascript:void(0)' data-target='#showbox' data-toggle='modal'>" + ele.listBody[j][k] + "</a></td>";
+					}else{
+						bodyHtml += "<td>" + ele.listBody[j][k] + "</td>";
+					}	
 				}
 			}
 			bodyHtml = "<tr>" + bodyHtml +"</tr>";
@@ -176,6 +185,7 @@ var data = shortData = {
 var tanHtml = "";
 jQuery(function(){
 	//init	
+	$(".con-title-box").width($(".viewFramework-product-body").width()*0.98 + "px");
 	data.headFun(data);
 	data.bodyFun(data);
 	initData(rkdata.staffList);

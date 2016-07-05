@@ -17,6 +17,7 @@
   .modal .form-text {background: #fff none repeat scroll 0 0;border: 1px solid #ccc;color: #000;height: 33px;line-height: 33px;outline: 0 none;padding: 0 0 0 7px;transition: all 0.3s ease 0s;width: 260px;}
   input[type="checkbox"]{margin:4px 5px 0 0; vertical-align: -2px;}
   #scrllDiv{height: 180px; overflow-x: hidden; overflow-y: scroll;}
+  td a{color: blue;}
 </style>
 <div class="viewFramework-product viewFramework-product-col-1">
 	<div class="viewFramework-product-navbar">
@@ -62,7 +63,7 @@
 				<span class="line">| </span>
 				<a id="pageTitle">兽药信息</a>
 			</h4>
-			<div class="pull-right" style="position:relative;">
+			<div class="pull-right" style="position:relative; margin-right:25px;">
 				<button class="btn btn-default list-tool-bar-button"><span class="icon-setup"></span></button>
 				<button class="btn btn-default btn-refresh"><span class="icon-refresh"></span> 刷新</button>
 				<button class="btn btn-primary" data-toggle="modal" data-target="#showbox">创建记录</button>				
@@ -173,7 +174,7 @@
   ;jQuery(function(){
 
     $("#moresearch").click(function(){
-    	$(".searchmore").slideToggle(400);
+    	$(".searchmore").slideToggle(200);
     });
     
     //日历插件    
